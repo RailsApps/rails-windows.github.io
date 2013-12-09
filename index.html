@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Rails for Windows &#183; Rails for Windows</title>
+    <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" type="text/css" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.6.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+    <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("fajdc3qt0c");
+    window.analytics.page();
+    </script>
+  </head>
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        <ul class="pull-right nav">
+          <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+          <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+          <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+          <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content wikistyle gollum markdown">
+      <h1>Rails for Windows</h1>
+
+<p><em>Last Updated:  12/09/2013</em></p>
+
+<pre>By Joel Dezenzio (ie. Elricstorm)</pre>
+
+<p><strong><a href="http://elricstorm.viewdocs.io/rails-for-windows">Read Everything on Viewdocs!</a></strong></p>
+
+<hr><p>Special thanks to:</p>
+
+<ul>
+<li> <em>Luis Lavena - <a href="http://rubyinstaller.org/">RubyInstaller &amp; Windows Development Support</a>.</em>
+</li>
+<li> <em>Rob Reynolds/Ferventcoder - <a href="http://chocolatey.org/">Chocolatey Package Manager Support</a>.</em>
+</li>
+<li> <em>Daniel Kehoe - <a href="http://railsapps.github.io/">Rails 4.0 Support, Tutorials, and Documentation</a>.</em>
+</li>
+<li> <em>Matt Wrock - <a href="http://boxstarter.org/">Boxstarter</a>.</em>
+</li>
+</ul><h2>What is Rails for Windows?</h2>
+
+<p>Rails for Windows was created to help novice to intermediate Rails Developers integrate and develop applications
+on a Windows OS platform.  If you've searched and combed the web for resources pertaining to Windows/Ruby/Rails
+development then you've probably ascertained what many of us already know and realize:</p>
+
+<pre lang="ruby"><code>def information_related_to_windows
+  puts ("bangs head on wall " * 1000)
+end
+</code></pre>
+
+<p>Information is either missing or scattered about in hard to reach places.  You may also begin to realize that
+linux and mac discussions start to overwhelm your searches on the web.  Even if you manage to find some resources
+that seem viable, the information may be outdated or unusable.  This leads many windows developers towards the path
+of absolute frustration.  The goal for this project is to provide you as much information as possible about Windows,
+Ruby, Rails, virtual development, package management, and more.</p>
+
+<h3>Why use Windows when...</h3>
+
+<pre><code>Linux has apt-get for package management
+</code></pre>
+
+<p>Windows has NuGet, Chocolatey, Boxstarter, and a host of other package management configurations.  Chocolatey is
+the equivallent of apt-get for windows. Boxstarter, coupled with chocolately, allows you to do remote installations, automate installs from
+he web, network shares, usb keys, or locally.  It even has reboot resiliency with administrative rights from
+start to finish. The NuGet software that helps us to achieve package management is also <i>open source</i>.</p>
+
+<pre><code>Linux has Linux Shell or Bash
+</code></pre>
+
+<p>Windows has PowerShell.  PowerShell uses cmdlets which allows windows developers to create complex scripting for
+managing windows systems.  It makes use of pipes, similar to Linux. However linux shells output text while PowerShell
+takes advantage of using objects with the <em><a href="http://www.howtogeek.com/138121/geek-school-learning-powershell-objects/">pipeline</a></em>.  It
+is also used with Chocolatey and package management.</p>
+
+<pre><code>Ruby is hard to install on Windows
+</code></pre>
+
+<p>You can manually install Ruby using <em><a href="http://rubyinstaller.org/">Rubyinstaller</a></em> and you can also automate
+installations for Ruby using chocolatey or boxstarter.  All of the installation methods are easy and pain-free. Windows
+installers can also make use of the DevKit which will build and use native C/C++ extensions automatically
+when required during gem installations.</p>
+
+<pre><code>Linux has RVM
+</code></pre>
+
+<p>Windows can use URU.  There are also new free Ruby Stack providers like <em><a href="https://bitnami.com/stack/ruby">Bitnami</a></em> which
+allow developers to deploy a complete environment stack with one click installation.</p>
+
+<p>The main thing to realize is that Windows has come far and there are many contributors across many projects that
+invest their time to help new developers get up to speed quickly.  It can be done.</p>
+
+<h2>What do I need to get started?</h2>
+
+<ul>
+<li>Patience</li>
+<li>Some Reading Time</li>
+<li><b>Windows 7 (32 or 64-bit), Windows 8 or 8.1 (32 or 64-bit)</b></li>
+<li><b>.NET Framework 4.5 minimum</b></li>
+<li><b>PowerShell 2.0 or higher</b></li>
+<li>Fingers (unless you are one of those rare toe-typists)</li>
+<li><b>A simple text editor (I recommend Sublime Text 3)</b></li>
+</ul><h3>Setting Expectations</h3>
+
+<p>When you are finished reading everything (<i>this includes the wiki</i>), you should know how to do the following:</p>
+
+<ul>
+<li>How to use windows as a development platform</li>
+<li>How to install and use Ruby on Windows via manual or automated methods</li>
+<li>How to install and use Ruby on Rails via manual or automated methods</li>
+<li>An understanding of NuGet, Chocolatey, Boxstarter, RubyInstaller, Devkit, Ruby, Ruby on Rails, URU, and PowerShell</li>
+<li>How to setup and use virtualbox and windows as a virtual development box</li>
+<li>How to setup and use git on Windows</li>
+<li>How to find reference material on the web</li>
+<li>How to contribute to the discussion</li>
+</ul><h3>References and Definitions (each term has a link directly to the site)</h3>
+
+<h4><em><a href="http://www.nuget.org/">NuGet</a></em></h4>
+
+<p>Towards mid-2010, the .NET community was introduced to OpenWrap, immediately followed by a Microsoft announcement
+that they joined forces with a .NET package management project called Nubular (Nu). Based on RubyGems, it was
+rewritten to remove the Ruby dependency. The Nu command line package management system was now to be called
+NuPack. It was eventually rebranded to NuGet.</p>
+
+<p>NuGet is the open source package manager for the Microsoft development platform including .NET.  When you use NuGet to install
+a package, it copies the library files to your solution and automatically updates your project
+(adds references, change config files, etc.). If you remove a package, NuGet reverses whatever changes it made so
+that no clutter is left.</p>
+
+<p>You can develop your own package and share it via the NuGet Gallery.</p>
+
+<h4><em><a href="http://www.chocolatey.org/">Chocolatey</a></em></h4>
+
+<p>Chocolatey is the equivallent of a package manager for Windows, similar to using apt-get for Linux.  It uses
+Windows Powershell and the .NET framework to allow you to silently install many different applications
+seamlessly.  When a package has an .exe file, chocolatey will create a link "shortcut" to the file so that you
+can run that tool anywhere on the machine.  When a package has a chocolateyInstall.ps1 script in it, the script
+will be run instead.  The limitations of what can be run is defined only by the .NET framework version and
+by PowerShell.</p>
+
+<p>Chocolatey.org houses over 1,400 unique packages (at the time of this writing) and is growing tremendously.  It
+houses a huge amount of core development components and applications, some of which we will be using for our
+installation.</p>
+
+<h4><em><a href="http://rubyinstaller.org/">RubyInstaller and DevKit</a></em></h4>
+
+<p>The <b>RubyInstaller</b> project provides a self-contained Windows-based installer that houses the Ruby language
+execution environment, a baseline set of required RubyGems and extensions, and the full text of the wonderful
+book, The Book of Ruby.  The Ruby Installer is currently available only for the Windows platform.</p>
+
+<p>One of the challenges many Ruby on Windows users have is how to easily use native RubyGems from the community
+such as the rdiscount or curb gems. In many cases this isn’t a problem because the extension author has
+provided a binary gem compatible with the users Ruby environment. In other cases, only the extension source
+code is available in the gem and the user is expected to have a “sane” environment installed and configured
+in order to build and use the native gem. A “sane” environment typically means a system with make, gcc, sh
+and similar *nix build tools installed.</p>
+
+<p>This expectation of a “sane” build environment is not always true for Windows users and is the primary reason
+why the <b>DevKit</b> was created. The DevKit, based upon MSYS and MinGW components, is an easy-to-install and
+easy-to-use solution for quickly setting up a “sane” build environment, enabling you to use most native
+RubyGems developed by the Ruby community.</p>
+
+<p>The DevKit is used to build MRI Ruby and the required dependencies needed to deliver the RubyInstaller for
+Windows. Many community members also use the DevKit as their “foundation” toolkit for building other
+native software.  The DevKit is currently available for download as a self-extracting archive and a
+Windows installer is in development.</p>
+
+<h4><em><a href="http://boxstarter.org/">Boxstarter</a></em></h4>
+
+<p>Boxstarter leverages Chocolatey packages to automate the installation of software and create repeatable,
+scripted Windows environments. Chocolatey makes installing software very easy with no user
+intervention. Boxstarter enhances Chocolatey's functionality and provides an environment that is optimized
+for installing a complete environment on a fresh OS install as well as some other specific scenarios.</p>
+
+<p>For an example boxstarter web script, see the rails4stack.ps1 script located in the PowerShell directory.</p>
+
+<h4><em><a href="https://bitbucket.org/jonforums/uru/">URU</a></em></h4>
+
+<p>Uru is a lightweight, multi-platform command line tool that helps you use the multiple
+rubies (currently MRI, JRuby, and Rubinius) on your 32/64-bit Linux, OS X, or Windows systems. Uru is
+a micro-kernel. It provides a core set of minimal complexity, multi-platform ruby use enhancers.</p>
+
+<h4><em><a href="http://railsapps.github.io/">Rails Examples and Tutorials</a></em></h4>
+
+<p>This is a website and GitHub repository for open source Ruby on Rails example applications.</p>
+
+<p>The example applications include Ruby on Rails introductions for beginners as well as examples for
+experienced developers. Each application is accompanied by a detailed tutorial. Support for the
+project, including the example applications and helpful free articles, comes from subscribers to the
+RailsApps tutorials.</p>
+
+<h2><em><a href="https://github.com/elricstorm/rails-for-windows/wiki">The WIKI</a></em></h2>
+
+<p>The Wiki is divided into many small chapters so you can skip and jump at your leisure.  The Wiki represents
+a knowledgebase and as such, will be updated as information becomes outdated.  Feel free to push commits
+on inaccurate information or if you wish to update sections.</p>
+
+<p>As this is a fairly new project, many pages may still be in the process of creation but do not fret!  I am working
+very hard to update pages on a daily and weekly basis.  If you feel you would like to contribute, just let me know!
+You can reach me at <a href="mailto:jdezenzio@gmail.com">jdezenzio@gmail.com</a>.</p>
+
+<h1>DOCUMENTATION UPDATED WEEKLY</h1>
+    </div><!-- class="content" -->
+
+    <div class="comments" id="comments">
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'railsapps'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div><!-- class="comments" -->
+
+    <footer class="footer row">
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Getting Started</dt>
+        <dd><a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></dd>
+        <dd><a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></dd>
+        <dd><a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></dd>
+        <dd><a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></dd>
+        <dd><a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></dd>
+        <dd><a href="http://railsapps.github.io/">Rails Examples</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Articles</dt>
+        <dd><a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Tutorials</dt>
+        <dd><a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></dd>
+      </dl>
+    <dl class="footer_nav">
+      <dt>RailsApps Profile</dt>
+        <dd><a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></dd>
+        <dd><a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a></dd>
+      </dl>
+      </div>
+      <hr class="footer-divider">
+    </footer>
+
+  </div>
+
+  </body>
+</html>

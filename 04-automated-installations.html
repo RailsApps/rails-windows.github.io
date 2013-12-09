@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>04 automated installations &#183; Rails for Windows</title>
+    <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" type="text/css" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.6.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+    <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("fajdc3qt0c");
+    window.analytics.page();
+    </script>
+  </head>
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        <ul class="pull-right nav">
+          <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+          <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+          <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+          <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content wikistyle gollum markdown">
+      <p>This chapter will focus on automated package management installations with PowerShell, NuGet, Chocolatey, and BoxStarter.  There are some very short
+manual processes you will need to follow first.</p>
+
+<h3>NuGet &amp; Chocolatey Quick Install</h3>
+
+<ol>
+<li>Open a Browser and visit <a href="http://chocolatey.org">Chocolatey.org</a>
+</li>
+<li>Click the link under the easy installation OR copy the text below</li>
+</ol><pre><code>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+</code></pre>
+
+<ol>
+<li>Open a regular CMD prompt and right-click and paste, hitting enter.  After the installation is completed, close the CMD prompt.</li>
+<li>Click the <strong>Windows</strong> key on your keyboard and type "Powershell", right-click on "Windows PowerShell" and pin to the "taskbar".</li>
+<li>Click Desktop off the metro view window or just click the Windows key again on your keyboard to go back to the desktop.</li>
+</ol><h3>PowerShell Scripting</h3>
+
+<p>You should now see a PowerShell icon on your task bar.  Right-click and "Run as Administrator" to open a PS prompt.</p>
+
+<h5>Execution Policy</h5>
+
+<p>We will be changing the execution policy in PS so that we can run local and remote scripts going forwad. Run the following commands:</p>
+
+<pre><code> C:\&gt; Get-ExecutionPolicy
+</code></pre>
+
+<p>You should see that it is set to "Restricted".  Let's change that</p>
+
+<pre><code> C:\&gt; Set-ExeuctionPolicy unrestricted
+</code></pre>
+
+<p>When prompted, click Y for Yes and hit enter.  Now if you type Get-ExecutionPolicy you'll see it shows Unrestricted now.</p>
+
+<pre><code> From this point forward, we will be working with automated scripting.
+</code></pre>
+
+<h3>Automated Installation</h3>
+
+<h4><a href="http://boxstarter.org/">BoxStarter</a></h4>
+
+<p>BoxStarter allows you to create an install script that can automate everything you need to install on your VM.  I've created an example script for this purpose.  Open a
+web browser and navigate to the following URL:  <a href="https://gist.github.com/elricstorm/7853016">Rails 4 Windows Script</a>.  This is a simple example script showing the items
+we'll be installing.</p>
+
+<p>In order to use boxstarter via a remote script like this we need to find the raw text and URL.  Click the &lt;&gt; raw text link to the upper right of the script.  You should see that the
+URL now shows:  <a href="https://gist.github.com/elricstorm/7853016/raw/0044e705651fe770cdb76bd89a7154697ebdf473/rails4windows">https://gist.github.com/elricstorm/7853016/raw/0044e705651fe770cdb76bd89a7154697ebdf473/rails4windows</a>.  We'll copy this and place this URL in a boxstarter
+START command:</p>
+
+<pre><code> PS C:\Windows\System32&gt; START http://boxstarter.org/package/url?https://gist.github.com/elricstorm/7853016/raw/250e2e03ab65a68bc0fdd2d2d91c7c26f4bd57c9/rails4windows
+</code></pre>
+
+<p>Please note that if you create your own script and place it on gist.github.com and then edit it later on, the raw text URL will change after the new edit is published.  Always
+make sure to click the &lt;&gt; raw text link after a new publish to find the URL.</p>
+
+<p>The START command above can be copied and pasted into PS to start the automated process.  Hit enter after pasting to begin the process.  We are able to use local scripts, gist
+scripts like this one, or even package things onto a USB flash drive.</p>
+
+<p>If you see any prompts, select the default <strong>Yes/Ok/Run/Download and Install this Feature</strong> prompts.  Automation should continue.  If prompted for a password, make sure to
+use the Passw0rd! from the IEUser installation.</p>
+
+<p><strong>THIS PROCESS MAY TAKE AWHILE</strong></p>
+
+<p>If you step away during this time and come back to find yourself at the Windows 8 metro view, click <strong>Desktop</strong> and the process will continue.  If the automation process fails for any
+reason, you can open a new window and try the process again.  Watch and review any errors, if they occur.  If the machine reboots, it will automatically log in with the
+password you provided and bring you to the metro view.  Click desktop and wait for the process to continue.  Likewise, if Windows prompts you to do system updates, you can cancel
+and update later on.</p>
+
+<p>Always remember that you can restart the automated process again as often as you like.  Chocolatey will know if you have already installed an application and bypass it,
+continuing on with the installation script.  In fact, when the automated process is completed, I recommend that you run the automated script a second time to see the process
+in action.</p>
+
+<p><a href="http://www.flickr.com/photos/69355230@N03/11263555476/" title="install_automated"><img src="http://farm4.staticflickr.com/3815/11263555476_1ba6eb50be_o.png" width="666" height="338" alt="install_automated"></a></p>
+
+<p>Once everything is completed, the following window should show with Enabling UAC before the exit command:</p>
+
+<p><a href="http://www.flickr.com/photos/69355230@N03/11263610373/" title="install_automated2"><img src="http://farm4.staticflickr.com/3789/11263610373_d46d568ca5_o.png" width="666" height="337" alt="install_automated2"></a></p>
+
+<p>Once done, let's verify that mysql2 is working properly by opening IRB from a command prompt.</p>
+
+<pre><code> C:\&gt; irb
+ C:\&gt; require 'mysql2'
+ =&gt; true
+</code></pre>
+
+<p>This should equal true.</p>
+
+<p>If everything has gone fine so far, pat yourself on the back for a job well done!  The majority of the software you need has been installed.  Reboot your Windows 8.1 vm and
+continue on in Chapter 06: Your First Rails App to find out how to use Ruby and Ruby on Rails.</p>
+    </div><!-- class="content" -->
+
+    <div class="comments" id="comments">
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'railsapps'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div><!-- class="comments" -->
+
+    <footer class="footer row">
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Getting Started</dt>
+        <dd><a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></dd>
+        <dd><a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></dd>
+        <dd><a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></dd>
+        <dd><a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></dd>
+        <dd><a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></dd>
+        <dd><a href="http://railsapps.github.io/">Rails Examples</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Articles</dt>
+        <dd><a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Tutorials</dt>
+        <dd><a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></dd>
+      </dl>
+    <dl class="footer_nav">
+      <dt>RailsApps Profile</dt>
+        <dd><a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></dd>
+        <dd><a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a></dd>
+      </dl>
+      </div>
+      <hr class="footer-divider">
+    </footer>
+
+  </div>
+
+  </body>
+</html>

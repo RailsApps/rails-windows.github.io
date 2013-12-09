@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>07 git and github &#183; Rails for Windows</title>
+    <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" type="text/css" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.6.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+    <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("fajdc3qt0c");
+    window.analytics.page();
+    </script>
+  </head>
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        <ul class="pull-right nav">
+          <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+          <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+          <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+          <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content wikistyle gollum markdown">
+      <p>What is <a href="http://git-scm.com/">Git</a>?</p>
+
+<p>Git is a free and open source distributed version control system.  It features branching and merging that allow you to commit saved work, switch back to where you branched from, apply any number of patches, switch back to where you are experimenting and merge the requests in.  It is a substantial part of how RoR developers are able to share so much information with others.  It also allows you to pull requests from other authors that may be helping you on your project. </p>
+
+<p><a href="https://github.com">GitHub</a> is a code host that houses code from over four million people.  It is 100% completely free to use and you have unlimited public repositories.  However, if you want to have private repositories then you will have to purchase a small plan.  Public repositories mean that anyone can see and clone your work locally.  This is one of the great ways we all share code with one another!  Collaboration is a huge key to open source projects and the success of those projects.  Rails is an open source project that is housed on GitHub.</p>
+
+<p>If you decide you want to use Git and not use GitHub but create and control your own remotely located code host server, I may showcase that in an advanced topic down the road.  I personally use GitHub for public and some private repositories that I collaborate with others on specific projects.  I also have my own remote git server that I use to develop and privatize code with on Rackspace. </p>
+
+<h2><a href="https://github.com/pricing">GitHub</a></h2>
+
+<p>This chapter section is completely voluntary, meaning the decision to participate is your own.  If you do plan on participating, I would start with a simple free account to get used to things.  If you feel that you need a private repository then you can always upgrade later.</p>
+
+<p>Once you visit <a href="https://github.com">GitHub</a> and sign-up or already have an account, let's continue.</p>
+
+<h3>Creating a Public Repository</h3>
+
+<p>Once you sign in you can click on the <strong>New repository</strong> button to create a public repo for your current project. Let's fill some things in together:</p>
+
+<ol>
+<li>Add a Repository name, you can call it anything you like so long as it's available.</li>
+<li>In the description field, just put in a test application.</li>
+<li>Public should be checked.</li>
+<li>Click the "Create repository" button.</li>
+</ol><p>GitHub should provide you 3 different ways to continue:  Quick Setup, Create a new repository on the command line, or Push an existing repository from the command line. We will be concentrating on the second option for now, creating a new repository from the command line.  Make sure you save or print the instructions that GitHub provides you for reference!</p>
+
+<p>Open Windows Explorer (WIN Key + E on your keyboard) and navigate to the directory you created your application in.  For my example app, the path is C:\Development\Wrails.  I will navigate to the C:\Development directory to begin with.  Once you are in the root of the directory that houses your entire Wrails application folder, do the following:</p>
+
+<ul>
+<li>Right-click on your Wrails folder and choose "Git bash".<br>
+</li>
+<li>-&gt; This puts me in my /C/Development/wrails (master) folder</li>
+</ul><p>Once here, type the following commands in Git Bash, in order:</p>
+
+<pre><code> $ git config --global user.email "yourEmail@example.com"
+ $ git config --global user.name "Your Name"
+ $ git config core.autocrlf false
+ $ touch README.md
+ $ git init
+ $ git add README.md
+ $ git commit -m "first commit"
+ $ git remote add origin https://github.com/YourAccountName/YourRepositoryName.git
+ $ git push -u origin master
+</code></pre>
+
+<p>You should be prompted with a username and password box and once you enter the credentials, your push should go through.  In the example above you need to substitute your email and your name.  You also need to put your account name and repo name in the git remote add origin command.  </p>
+
+<p>If you refresh your Internet Explorer webpage on GitHub, you should now see your first commit, a simple README file.  Keep your git bash window open and don't close it.  We're going to use it again shortly.</p>
+
+<h4>.gitignore</h4>
+
+<p>Open Sublime and look back in your wrails directory locally and find a file called .gitignore.  It should be in the root of your wrails directory.  Double-click and open it.  </p>
+
+<p>This file allows you to ignore which files should not be added to the GitHub repository.  Examples of things you wouldn't want to include would be SQLite database files, specific log files, configuration files that contain application keys or passwords to other social sharing or payment gateway sites.  </p>
+
+<p>More importantly, you want to protect your secret_token.rb and database.yml files. Your secret token is used to verify the integrity of signed cookies.  You want to keep this private.  Your database.yml file houses passwords to your database so you want to keep this safe as well.</p>
+
+<p>Add the following at the bottom of your .gitignore file:</p>
+
+<pre><code> /config/initializers/secret_token.rb
+ /config/database.yml
+</code></pre>
+
+<p>Save your file and let's try a full application push now.  From git bash:</p>
+
+<pre><code> $ git add .   (yes that's a period)
+ $ git commit -m "full base application push"
+ $ git push origin master  
+</code></pre>
+
+<p>Now do a refresh on GitHub.  Voila!  Your entire app is now stored on GitHub.  But, wait a minute.  If you go and look in your config directory you will see that the database.yml and the config/initializers/secret_token.rb files are not listed.  They were ignored by the .gitignore file.  Great!</p>
+
+<p>There are a lot of interesting things you can choose to ignore in your public repository.  Later on you may want to exclude any sublime workspace or project files.  You may want to exclude any custom folders you create.</p>
+
+<p>Close your git bash shell and let's move on.  </p>
+
+<h3><a href="http://windows.github.com/">GitHub for Windows</a></h3>
+
+<p>And lo and behold, an application came down from the mighty GitHub mountain and its name was <a href="http://windows.github.com/">GitHub Windows</a>.  Its claim?  The easiest way to use GitHub on Windows.  We have to try this out! That's why VMs are so much fun.  Let's download and install it.  Now, if you were following from either the automated or manual installations, I conveniently left this application out.  I wanted us to experience it together.  After you download it, install it using all default locations it provides.</p>
+
+<p>When the application is finished installing, type in your GitHub username or email address and your password and log in.  Click Continue. Click the dashboard link to get started.  Now the first thing you may notice is that it says there are no repositories.  If you double-click on your username below local repositories you'll see all of your "remote" repositories on GitHub.  Click on repositories under local to show that you have no repos yet.  Go to your windows explorer and drag your wrails folder locally on top of the "drag here" in GitHub Windows.  You just added your first local repository.</p>
+
+<h4>Local Repositories - Wrails</h4>
+
+<p>Double-click your user/wrails repository in GitHub Windows.  You should see the commits you made earlier on the left hand side, the commit to the right and some sync/master/settings buttons on the upper right corner.  Take a moment to look over things.  Once you are finished, continue on.</p>
+
+<p>Go back into sublime and look at your application root again.  Right-click and delete the README.rdoc file in your app.  Once deleted, go back to GitHub Windows and click the drop down on the upper left for uncommitted changes.  Type "deleted readme.rdoc" in the Commit Message and then click the checkmark next to "commit to master".  Look up in the right hand corner of GitHub Windows and you'll notice there's a numerical 1 next to sync.  Click the Sync button now.  Wait for it... Tada!!  </p>
+
+<h2>Summary</h2>
+
+<p>So, which one do <strong>you</strong> want to use?  Hey, that's up to you.  You can right-click and use Git Gui, or Git Bash.  You can use GitHub Windows if you prefer that.  The point is, you have choices and options.  You decide and make the final word!</p>
+
+<p>Let's continue on to the next section.</p>
+    </div><!-- class="content" -->
+
+    <div class="comments" id="comments">
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'railsapps'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div><!-- class="comments" -->
+
+    <footer class="footer row">
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Getting Started</dt>
+        <dd><a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></dd>
+        <dd><a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></dd>
+        <dd><a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></dd>
+        <dd><a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></dd>
+        <dd><a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></dd>
+        <dd><a href="http://railsapps.github.io/">Rails Examples</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Articles</dt>
+        <dd><a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Tutorials</dt>
+        <dd><a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></dd>
+      </dl>
+    <dl class="footer_nav">
+      <dt>RailsApps Profile</dt>
+        <dd><a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></dd>
+        <dd><a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a></dd>
+      </dl>
+      </div>
+      <hr class="footer-divider">
+    </footer>
+
+  </div>
+
+  </body>
+</html>
