@@ -1,0 +1,206 @@
+h1. The Learn Rails Website
+
+This repository contains the static web pages for the site at "http://rails-windows.github.io":http://rails-windows.github.io.
+
+This is the source repository for a community website featuring instructions for setting up Ruby on Rails on Windows. All contributions are screened by the project maintainers to prevent spam.
+
+h2. Contributing
+
+Anyone with a GitHub account can add items to the site.
+
+There are two ways to add items. You can open a GitHub issue or edit the GitHub wiki.
+
+h4. "Create a GitHub issue":https://github.com/rails-windows/rails-windows.github.io/issues
+
+Create a GitHub issue to suggest a resource. The project maintainers periodically review issues and update the site.
+
+h4. "Edit the GitHub wiki":https://github.com/rails-windows/rails-windows.github.io/wiki
+
+You can help out by editing the pages directly in the GitHub wiki.
+
+After editing a page, create a GitHub issue to let the project maintainers know your addition is ready for review.
+
+All contributions are screened before the website is updated.
+
+h2. Project Maintainers
+
+Ask for commit privileges if you'd like to contribute as a project maintainer.
+
+With commit privileges, you can clone the wiki and edit locally. Using your favorite text editor is easier than editing the wiki online. Also, you'll need a local copy of the repository to generate the web site.
+
+h3. Publishing Workflow
+
+There are two repositories:
+
+* the site repo at "https://github.com/rails-windows/rails-windows.github.io":https://github.com/rails-windows/rails-windows.github.io (for the static web pages)
+* the wiki repo at "https://github.com/rails-windows/rails-windows.github.io/wiki":https://github.com/rails-windows/rails-windows.github.io/wiki (for the wiki pages)
+
+GitHub automatically makes any HTML (and CSS and JavaScript) files available as a project website when a repository is present with the name rails-windows.github.io. All we have to do to publish the website is commit HTML files to the repository and push to GitHub.
+
+Using the wiki as a source for the pages gives us two benefits:
+
+* anyone with a GitHub account can contribute by editing the wiki
+* we can use Markdown or Textile (instead of HTML) to format the content
+
+To publish the site, we clone the wiki pages, make any edits locally, and then run the "gollum-site":https://github.com/dreverri/gollum-site gem to generate static web pages from the wiki. Commit and push the static pages and GitHub automatically updates the site. Typically it takes ten minutes for GitHub to refresh the site.
+
+h3. Requirements
+
+The "gollum-site":https://github.com/dreverri/gollum-site gem  requires Ruby 1.9.3 (it doesn't yet work for Ruby 2.0.)
+
+Use "RVM":https://rvm.io/ to install Ruby 1.9.3 and create a project-specific gemset.
+
+h3. Gems
+
+The gollum-site gem requires Nokogiri.
+
+<pre>
+$ gem install nokogiri
+</pre>
+
+The gollum-site gem requires the RedCloth gem to support "Textile":http://www.textism.com/tools/textile/ markup. To avoid an issue with the current RedCloth version 4.2.9, install an earlier version.
+
+<pre>
+$ gem install RedCloth --version '4.2.8'
+</pre>
+
+You may also need the Thor gem for a script that modifies the HTML files.
+
+<pre>
+$ gem install thor
+</pre>
+
+Install the gollum-site gem.
+
+<pre>
+$ gem install gollum-site
+</pre>
+
+h3. Clone the Repos
+
+Create a directory for the project and clone the repositories.
+
+<pre>
+$ mkdir ~/rails-windows
+$ cd ~/rails-windows
+$ git clone git@github.com:rails-windows/rails-windows.github.io.git
+$ git clone git@github.com:rails-windows/rails-windows.github.io.wiki.git
+</pre>
+
+h3. Edit the Content
+
+Make sure you are in the git "master" branch. Edit the wiki pages and commit any changes.
+
+<pre>
+$ cd rails-windows.github.io.wiki
+$ git checkout master
+# edit wiki pages with a text editor
+$ git add -A
+$ git commit -m "update"
+</pre>
+
+h3. Change the Layout and Design
+
+To change the layout and design, edit the *_Layout.html* file and change any CSS and Javascript files in the rails-windows.github.io.wiki repository. Then commit any changes.
+
+<pre>
+# edit the *_Layout.html* file with a text editor
+# edit the *css/screen.css* file with a text editor
+$ git add -A
+$ git commit -m "update layout"
+</pre>
+
+h3. Generate Static Web Pages
+
+When you are ready to generate the static pages, use the gollum-site gem to generate the static web pages in the wiki repo. Gollum-site has a built-in web server if you want to view the site locally before committing and publishing to GitHub.
+
+<pre>
+$ gollum-site generate ## to generate static webpages in "./_site" folder
+$ gollum-site serve ## to view the static site at http://localhost:8000
+</pre>
+
+h3. Publish to GitHub
+
+Copy the generated @_site@ directory to the site repo. Rename the @Home.html@ page as @index.html@. Commit the changes and push the repo up to GitHub. To commit the generated web pages, you'll need repository read+write permission as an organization team member. GitHub will automatically publish the updated site in ten minutes or less.
+
+<pre>
+$ cp -R _site/* ../rails-windows.github.io
+$ rm -rf _site/
+$ cd ../rails-windows.github.io
+$ mv Home.html index.html
+$ git add -A
+$ git commit -am "update website"
+$ git push origin master
+</pre>
+
+See the updated site at "http://rails-windows.github.io":http://rails-windows.github.io.
+
+h3. Script to Publish
+
+The rails-windows.github.io.wiki repository contains a shell script to automate the publishing process.
+
+<pre>
+#!/usr/bin/env bash
+
+echo "publishing to the rails-windows.github.io site"
+cd ~/workspace/rails-windows/rails-windows.github.io.wiki
+gollum-site generate
+echo "GENERATED";
+cp -R _site/* ../rails-windows.github.io
+rm -rf _site/
+cd ../rails-windows.github.io
+mv Home.html index.html
+echo "COMMITTING";
+git add -A
+git commit -am "update website"
+git push origin master
+echo "FINISHED";
+exit 0
+</pre>
+
+Run the script as an alternative to entering commands manually.
+
+<pre>
+$ cd ~/workspace/rails-windows/rails-windows.github.io.wiki
+$ ./publish.sh
+</pre>
+
+h2. Why?
+
+Here are the goals I had in mind when I set up the project:
+
+* I wanted to set up a process where anyone with a GitHub account could contribute but project maintainers screened the contributions before publishing the site.
+
+* I wanted to use GitHub's capability for hosting the site. The hosting is free and the wiki is familiar to GitHub users. I didn't want to deploy a dedicated CMS or use a wiki hosted elsewhere.
+
+* I'd like any GitHub user to be able to add to the site (or make corrections) by editing the repository's wiki pages directly.
+
+* I like being able to edit the wiki pages locally using Markdown or Textile markup. I use the same text editor and workflow that I use for maintaining code.
+
+* On its own, the GitHub wiki does not provide everything I wanted for the project website. I wanted to improve the layout and design to make the site more attractive and useful. I wanted to add Javascript for a commenting system as well as a Google Analytics tracking script.
+
+h3. Alternative Approaches
+
+I looked at several "static website generators":http://nanoc.stoneship.org/docs/1-introduction/, including "Jekyll":https://github.com/mojombo/jekyll, and decided "gollum-site":https://github.com/dreverri/gollum-site most closely fit my requirements.
+
+"Jekyll":https://github.com/mojombo/jekyll generates static pages from markup but it's more complex and better suited to publishing a blog.
+
+I looked at "Smeagol":https://github.com/benbjohnson/smeagol. It is a server that hosts and renders a "Gollum":http://github.com/github/gollum wiki (such as GitHub wiki pages). It requires installation as an app on a hosting site that runs Ruby. It would require maintaining a server and would not allow the site to be hosted on a GitHub subdomain.
+
+h2. Issues
+
+Improvements or corrections to the web site? You can edit the "wiki pages":https://github.com/rails-windows/rails-windows.github.io/wiki directly.
+
+h2. Credits
+
+Joel Dezenzio wrote the guide to Rails for Windows.
+
+Daniel Kehoe set up the organization website.
+
+You are welcome to volunteer as a project maintainer.
+
+h2. MIT License
+
+"MIT License":http://www.opensource.org/licenses/mit-license
+
+!https://cruel-carlota.pagodabox.com/876f9ea656d4dab128e7265f660ea022(githalytics.com alpha)!
