@@ -1,4 +1,4 @@
-h1. The Learn Rails Website
+h1. The Rails for Windows Website
 
 This repository contains the static web pages for the site at "http://rails-windows.github.io":http://rails-windows.github.io.
 
