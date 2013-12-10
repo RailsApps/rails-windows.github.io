@@ -160,7 +160,7 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 <pre><code> NOTE:  If you plan on using a VM, you can come back to these instructions after you've created your VM and installed Sublime Text 3 on it instead.  Otherwise, if you're doing this locally and without a VM you can finish the setup configuration below:
 </code></pre>
 
-<p>After you have sublime text 3 downloaded and running, do the following:</p>
+<p>After you have Sublime text 3 downloaded and running, do the following:</p>
 
 <p>Setup Package Control.</p>
 
@@ -169,8 +169,10 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 
 <p>Copy and Paste the following below into the console and hit enter.</p>
 
-<pre><code> import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+<pre><code> import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime
 </code></pre>
+
+<p>.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( '<a href="http://sublime.wbond.net/">http://sublime.wbond.net/</a>' + pf.replace(' ','%20')).read())</p>
 
 <p>Close and restart Sublime Text 3.  Next, let's add some packages to make it look more friendly:</p>
 
@@ -192,11 +194,11 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 
 <p>Copy and paste in the settings from <a href="http://elricstorm.viewdocs.io/rails-for-windows/sublime-preferences">sublime-preferences</a>.  Also, you may want to change/edit the ignored words.  I threw in a couple of words for fun.</p>
 
-<p>Next, download the <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata font</a>.  It's a great font for developing and coding.  Use the .otf version and once you download it, just click and install it.  It's that easy.  Now then, restart sublime text 3 and you should see everything looks pretty solid.  Good job!</p>
+<p>Next, download the <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata font</a>.  It's a great font for developing and coding.  Use the .otf version and once you download it, just click and install it.  It's that easy.  Now then, restart Sublime text 3 and you should see everything looks pretty solid.  Good job!</p>
 
 <h5><a href="http://foundation.zurb.com/">Zurb Foundation</a></h5>
 
-<p>If you are planning on using Zurb Foundation in your rails project, I would recommend importing some of foundation's sublime 3 snippets:</p>
+<p>If you are planning on using Zurb Foundation in your rails project, I would recommend importing some of foundation's Sublime 3 snippets:</p>
 
 <p>From a cmd prompt:</p>
 
@@ -246,15 +248,13 @@ add a proxy, do the following from an elevated CMD prompt as an administrator:</
 
 <p><a href="http://stackoverflow.com/search?q=ruby+on+windows">Stack Overflow:  Ruby on Windows</a></p>
 
-<h2>Do You Like This Guide?</h2>
+<h2>Next Chapter</h2>
 
-<p>Was this guide useful to you? Follow <a href="http://twitter.com/rails_apps">@rails_apps</a> on Twitter and tweet some praise. I'd love to know you were helped out by the guide.</p>
+<p>Read on to learn about using virtual machines on Windows:</p>
 
-<h3>Credits</h3>
-
-<p>This article was written by Joel Dezenzio. You can reach me at <a href="mailto:jdezenzio@gmail.com">jdezenzio@gmail.com</a>.</p>
-
-<p>Please contribute your comments and suggestions for improvement.</p>
+<ul>
+<li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html"><strong>Virtual Machines for Ruby on Rails on Windows</strong></a></li>
+</ul>
     </div><!-- class="content" -->
 
     <div class="comments" id="comments">
