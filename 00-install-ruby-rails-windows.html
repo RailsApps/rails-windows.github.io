@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Git and GitHub for Ruby on Rails on Windows &#183; Rails for Windows</title>
+    <title>Install Ruby on Rails on Windows &#183; Rails for Windows</title>
     <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
     <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
     <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
@@ -38,115 +38,32 @@
   <div class="container">
 
     <div class="content wikistyle gollum markdown">
-      <h1>Git and GitHub for Ruby on Rails on Windows</h1>
+      <h1>Install Ruby on Rails on Windows</h1>
 
 <h4>by Joel Dezenzio</h4>
 
 <p><em>Last updated 9 December 2013</em></p>
 
+<p>Installing Ruby on Rails on Windows. Up-to-date, detailed Rails tutorial for Windows shows how to install Rails for Microsoft Windows 7 and 8.</p>
+
 <hr><p><em>Rails for Windows</em></p>
 
 <ul>
-<li><a href="http://rails-windows.github.io/index.html">Introduction to Ruby on Rails for Windows</a></li>
-<li><a href="http://rails-windows.github.io/00-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/01-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
+<li><a href="http://rails-windows.github.io/01-windows-environment-ruby-rails.html">Introduction to Ruby on Rails for Windows</a></li>
+<li><strong>Install Ruby on Rails on Windows</strong></li>
 <li><a href="http://rails-windows.github.io/02-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/03-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/04-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/05-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/06-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
-<li><strong>Git and GitHub for Ruby on Rails on Windows</strong></li>
-</ul><hr><h3>Git and GitHub</h3>
+<li><a href="http://rails-windows.github.io/07-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
+</ul><hr><h3>Overview</h3>
 
-<p>What is <a href="http://git-scm.com/">Git</a>?</p>
+<p>TODO</p>
 
-<p>Git is a free and open source distributed version control system.  It features branching and merging that allow you to commit saved work, switch back to where you branched from, apply any number of patches, switch back to where you are experimenting and merge the requests in.  It is a substantial part of how RoR developers are able to share so much information with others.  It also allows you to pull requests from other authors that may be helping you on your project.</p>
+<p>What are your options.</p>
 
-<p><a href="https://github.com">GitHub</a> is a code host that houses code from over four million people.  It is 100% completely free to use and you have unlimited public repositories.  However, if you want to have private repositories then you will have to purchase a small plan.  Public repositories mean that anyone can see and clone your work locally.  This is one of the great ways we all share code with one another!  Collaboration is a huge key to open source projects and the success of those projects.  Rails is an open source project that is housed on GitHub.</p>
-
-<p>If you decide you want to use Git and not use GitHub but create and control your own remotely located code host server, I may showcase that in an advanced topic down the road.  I personally use GitHub for public and some private repositories that I collaborate with others on specific projects.  I also have my own remote git server that I use to develop and privatize code with on Rackspace.</p>
-
-<h2><a href="https://github.com/pricing">GitHub</a></h2>
-
-<p>This chapter section is completely voluntary, meaning the decision to participate is your own.  If you do plan on participating, I would start with a simple free account to get used to things.  If you feel that you need a private repository then you can always upgrade later.</p>
-
-<p>Once you visit <a href="https://github.com">GitHub</a> and sign-up or already have an account, let's continue.</p>
-
-<h3>Creating a Public Repository</h3>
-
-<p>Once you sign in you can click on the <strong>New repository</strong> button to create a public repo for your current project. Let's fill some things in together:</p>
-
-<ol>
-<li>Add a Repository name, you can call it anything you like so long as it's available.</li>
-<li>In the description field, just put in a test application.</li>
-<li>Public should be checked.</li>
-<li>Click the "Create repository" button.</li>
-</ol><p>GitHub should provide you 3 different ways to continue:  Quick Setup, Create a new repository on the command line, or Push an existing repository from the command line. We will be concentrating on the second option for now, creating a new repository from the command line.  Make sure you save or print the instructions that GitHub provides you for reference!</p>
-
-<p>Open Windows Explorer (WIN Key + E on your keyboard) and navigate to the directory you created your application in.  For my example app, the path is C:\Development\Wrails.  I will navigate to the C:\Development directory to begin with.  Once you are in the root of the directory that houses your entire Wrails application folder, do the following:</p>
-
-<ul>
-<li>Right-click on your Wrails folder and choose "Git bash".</li>
-<li>-&gt; This puts me in my /C/Development/wrails (master) folder</li>
-</ul><p>Once here, type the following commands in Git Bash, in order:</p>
-
-<pre><code> $ git config --global user.email "yourEmail@example.com"
- $ git config --global user.name "Your Name"
- $ git config core.autocrlf false
- $ touch README.md
- $ git init
- $ git add README.md
- $ git commit -m "first commit"
- $ git remote add origin https://github.com/YourAccountName/YourRepositoryName.git
- $ git push -u origin master
-</code></pre>
-
-<p>You should be prompted with a username and password box and once you enter the credentials, your push should go through.  In the example above you need to substitute your email and your name.  You also need to put your account name and repo name in the git remote add origin command.</p>
-
-<p>If you refresh your Internet Explorer webpage on GitHub, you should now see your first commit, a simple README file.  Keep your git bash window open and don't close it.  We're going to use it again shortly.</p>
-
-<h4>.gitignore</h4>
-
-<p>Open Sublime and look back in your wrails directory locally and find a file called .gitignore.  It should be in the root of your wrails directory.  Double-click and open it.</p>
-
-<p>This file allows you to ignore which files should not be added to the GitHub repository.  Examples of things you wouldn't want to include would be SQLite database files, specific log files, configuration files that contain application keys or passwords to other social sharing or payment gateway sites.</p>
-
-<p>More importantly, you want to protect your secret_token.rb and database.yml files. Your secret token is used to verify the integrity of signed cookies.  You want to keep this private.  Your database.yml file houses passwords to your database so you want to keep this safe as well.</p>
-
-<p>Add the following at the bottom of your .gitignore file:</p>
-
-<pre><code> /config/initializers/secret_token.rb
- /config/database.yml
-</code></pre>
-
-<p>Save your file and let's try a full application push now.  From git bash:</p>
-
-<pre><code> $ git add .   (yes that's a period)
- $ git commit -m "full base application push"
- $ git push origin master
-</code></pre>
-
-<p>Now do a refresh on GitHub.  Voila!  Your entire app is now stored on GitHub.  But, wait a minute.  If you go and look in your config directory you will see that the database.yml and the config/initializers/secret_token.rb files are not listed.  They were ignored by the .gitignore file.  Great!</p>
-
-<p>There are a lot of interesting things you can choose to ignore in your public repository.  Later on you may want to exclude any sublime workspace or project files.  You may want to exclude any custom folders you create.</p>
-
-<p>Close your git bash shell and let's move on.</p>
-
-<h3><a href="http://windows.github.com/">GitHub for Windows</a></h3>
-
-<p>And lo and behold, an application came down from the mighty GitHub mountain and its name was <a href="http://windows.github.com/">GitHub Windows</a>.  Its claim?  The easiest way to use GitHub on Windows.  We have to try this out! That's why VMs are so much fun.  Let's download and install it.  Now, if you were following from either the automated or manual installations, I conveniently left this application out.  I wanted us to experience it together.  After you download it, install it using all default locations it provides.</p>
-
-<p>When the application is finished installing, type in your GitHub username or email address and your password and log in.  Click Continue. Click the dashboard link to get started.  Now the first thing you may notice is that it says there are no repositories.  If you double-click on your username below local repositories you'll see all of your "remote" repositories on GitHub.  Click on repositories under local to show that you have no repos yet.  Go to your windows explorer and drag your wrails folder locally on top of the "drag here" in GitHub Windows.  You just added your first local repository.</p>
-
-<h4>Local Repositories - Wrails</h4>
-
-<p>Double-click your user/wrails repository in GitHub Windows.  You should see the commits you made earlier on the left hand side, the commit to the right and some sync/master/settings buttons on the upper right corner.  Take a moment to look over things.  Once you are finished, continue on.</p>
-
-<p>Go back into sublime and look at your application root again.  Right-click and delete the README.rdoc file in your app.  Once deleted, go back to GitHub Windows and click the drop down on the upper left for uncommitted changes.  Type "deleted readme.rdoc" in the Commit Message and then click the checkmark next to "commit to master".  Look up in the right hand corner of GitHub Windows and you'll notice there's a numerical 1 next to sync.  Click the Sync button now.  Wait for it... Tada!!</p>
-
-<h2>Summary</h2>
-
-<p>So, which one do <strong>you</strong> want to use?  Hey, that's up to you.  You can right-click and use Git Gui, or Git Bash.  You can use GitHub Windows if you prefer that.  The point is, you have choices and options.  You decide and make the final word!</p>
+<p>Which option is suitable (use cases).</p>
 
 <h2>Do You Like This Guide?</h2>
 
