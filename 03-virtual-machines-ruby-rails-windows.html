@@ -1,120 +1,249 @@
-Virtual Machines for Ruby on Rails on Windows
-================================
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Virtual Machines for Ruby on Rails on Windows &#183; Rails for Windows</title>
+    <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" type="text/css" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.6.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+    <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("fajdc3qt0c");
+    window.analytics.page();
+    </script>
+  </head>
+  <body>
 
-#### by Joel Dezenzio
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        <ul class="pull-right nav">
+          <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+          <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+          <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+          <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-*Last updated 9 December 2013*
+  <div class="container">
 
-Installing Ruby on Rails on Windows. Up-to-date, detailed Rails tutorial for Windows shows how to install Rails and develop web applications using Ruby on Rails for Microsoft Windows 7 and 8.
+    <div class="content wikistyle gollum markdown">
+      <h1>Virtual Machines for Ruby on Rails on Windows</h1>
 
-<hr>
+<h4>by Joel Dezenzio</h4>
 
-*Rails for Windows*
+<p><em>Last updated 9 December 2013</em></p>
 
-* [Introduction to Ruby on Rails for Windows] (http://rails-windows.github.io/index.html)
-* [Windows Environment for Ruby on Rails] (http://rails-windows.github.io/01-windows-environment-ruby-rails.html)
-* [Required Software for Ruby on Rails on Windows] (http://rails-windows.github.io/02-software-ruby-rails-windows.html)
-* **Virtual Machines for Ruby on Rails on Windows**
-* [Automated Install for Ruby on Rails on Windows] (http://rails-windows.github.io/04-automated-install-ruby-rails-windows.html)
-* [Manual Installation for Ruby on Rails on Windows] (http://rails-windows.github.io/05-manual-install-ruby-rails-windows.html)
-* [Using Ruby on Rails on Windows] (http://rails-windows.github.io/06-using-ruby-rails-windows.html)
-* [Git and GitHub for Ruby on Rails on Windows] (http://rails-windows.github.io/07-git-github-ruby-rails-windows.html)
+<p>Installing Ruby on Rails on Windows. Up-to-date, detailed Rails tutorial for Windows shows how to install Rails and develop web applications using Ruby on Rails for Microsoft Windows 7 and 8.</p>
 
-<hr>
+<hr><p><em>Rails for Windows</em></p>
 
-### Virtual Machines
+<ul>
+<li><a href="http://rails-windows.github.io/index.html">Introduction to Ruby on Rails for Windows</a></li>
+<li><a href="http://rails-windows.github.io/01-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
+<li><a href="http://rails-windows.github.io/02-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
+<li><strong>Virtual Machines for Ruby on Rails on Windows</strong></li>
+<li><a href="http://rails-windows.github.io/04-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/05-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/06-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/07-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
+</ul><hr><h3>Virtual Machines</h3>
 
-If you plan on installing directly to your windows machine and do not wish to use virtualization technology, you can skip this chapter and move on to the next.
+<p>If you plan on installing directly to your windows machine and do not wish to use virtualization technology, you can skip this chapter and move on to the next.</p>
 
-#### Setting Expectations
+<h4>Setting Expectations</h4>
 
-The topics we will discuss here are:
+<p>The topics we will discuss here are:</p>
 
-* Virtual Machines
-* Virtual Machine Settings
+<ul>
+<li>Virtual Machines</li>
+<li>Virtual Machine Settings</li>
+</ul><h3>VMs (Virtual Machines)</h3>
 
-### VMs (Virtual Machines)
-
-When trying something out for the very first time it is recommended to install a virtual environment that can provide you with a way to preview, test, create,
+<p>When trying something out for the very first time it is recommended to install a virtual environment that can provide you with a way to preview, test, create,
 destroy without affecting your current windows operating environment.  Likewise, if you are actively developing multiple applications you may want to have
-multiple development boxes.  Luckily, Microsoft provides us a way to do that with limited fuss.
+multiple development boxes.  Luckily, Microsoft provides us a way to do that with limited fuss.</p>
 
-#### *[Virtual Machines by Microsoft] (http://www.modern.ie/en-us/virtualization-tools)*
+<h4><em><a href="http://www.modern.ie/en-us/virtualization-tools">Virtual Machines by Microsoft</a></em></h4>
 
-You can navigate by clicking the link above and selecting the following:
+<p>You can navigate by clicking the link above and selecting the following:</p>
 
-* Click on **Get Free VMs**
-* Select **Windows** as the desired test OS
-* Select **VirtualBox on Windows** as the desired Virtualization platform
-* Download all 5 files for IE11 Preview - Win8.1 Preview to a local folder on your computer
+<ul>
+<li>Click on <strong>Get Free VMs</strong>
+</li>
+<li>Select <strong>Windows</strong> as the desired test OS</li>
+<li>Select <strong>VirtualBox on Windows</strong> as the desired Virtualization platform</li>
+<li>Download all 5 files for IE11 Preview - Win8.1 Preview to a local folder on your computer</li>
+</ul><p>If you are having trouble navigating, the links should all be here:</p>
 
-If you are having trouble navigating, the links should all be here:
+<p><em><a href="https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/Windows/IE11_Win81/IE11.Win8.1Preview.For.WindowsVirtualBox.txt">IE11 Preview - Win8.1 Preview</a></em></p>
 
-*[IE11 Preview - Win8.1 Preview] (https://az412801.vo.msecnd.net/vhd/IEKitV1_Final/VirtualBox/Windows/IE11_Win81/IE11.Win8.1Preview.For.WindowsVirtualBox.txt)*
+<p>There are 4 files (1 executable and 3 rar files) that we will need to install our VM</p>
 
-There are 4 files (1 executable and 3 rar files) that we will need to install our VM
+<ol>
+<li>Download the four files to a directory of your choosing.</li>
+<li>Run the executable to compile the .OVA file.  Click <strong>extract</strong> when prompted and choose the same directory.</li>
+<li>Right-click the .OVA and extract with 7zip to a folder of your choice or extract to the IE11 - Win8.1Preview directory by default.</li>
+<li>Open VirtualBox and select <strong>Import Appliance</strong> and then <strong>Open Appliance</strong>.</li>
+<li>Navigate to the directory that contains your Win8.1 Preview files and select the IE11 - Win8.1Preview.OVF file.  Click <strong>Next</strong> but DO NOT choose Import.</li>
+</ol><p>Look at the settings section below before clicking Import.</p>
 
-1. Download the four files to a directory of your choosing.
-2. Run the executable to compile the .OVA file.  Click **extract** when prompted and choose the same directory.
-3. Right-click the .OVA and extract with 7zip to a folder of your choice or extract to the IE11 - Win8.1Preview directory by default.
-4. Open VirtualBox and select **Import Appliance** and then **Open Appliance**.
-5. Navigate to the directory that contains your Win8.1 Preview files and select the IE11 - Win8.1Preview.OVF file.  Click **Next** but DO NOT choose Import.
+<h4>VM Settings</h4>
 
-Look at the settings section below before clicking Import.
+<p>Under the Description column in Appliance Settings you can double click on any of the words to be prompted to change settings.  See the image above.</p>
 
-#### VM Settings
+<ul>
+<li>Double click <strong>Name</strong> and change it to "Windows on Rails".</li>
+<li>Double click <strong>RAM</strong> and change it to a desired amount.  I'm changing mine to 4096.</li>
+<li>Double click <strong>Network Adapter</strong> and change yours to an appropriate adapter.</li>
+</ul><p>Once you've set the initial configuration, click the <strong>Import</strong> button.  This process may take some time.  Be patient until the import process is finished.</p>
 
-Under the Description column in Appliance Settings you can double click on any of the words to be prompted to change settings.  See the image above.
+<h5>Finalizing Settings</h5>
 
-* Double click **Name** and change it to "Windows on Rails".
-* Double click **RAM** and change it to a desired amount.  I'm changing mine to 4096.
-* Double click **Network Adapter** and change yours to an appropriate adapter.
+<p>On my system, my bridged network adapter did not show up in the initial configuration.  So, I changed that after the VM was built.  You can do the same by
+selecting the new VM <strong>Windows on Rails</strong> and then click the <strong>Settings</strong> button.  I then clicked on network and changed to bridged and selected my adapter.  See
+the image below:</p>
 
-Once you've set the initial configuration, click the **Import** button.  This process may take some time.  Be patient until the import process is finished.
+<p><a href="http://www.flickr.com/photos/69355230@N03/11257903995/" title="network_settings"><img src="http://farm4.staticflickr.com/3834/11257903995_6eb5128b56_o.png" width="654" height="486" alt="network_settings"></a></p>
 
-##### Finalizing Settings
+<h4>Launching Windows on Rails VM</h4>
 
-On my system, my bridged network adapter did not show up in the initial configuration.  So, I changed that after the VM was built.  You can do the same by
-selecting the new VM **Windows on Rails** and then click the **Settings** button.  I then clicked on network and changed to bridged and selected my adapter.  See
-the image below:
+<p>Double click your Windows on Rails appliance to launch it for the first time.  You will see MS setting up and configuring the appliance for you.  When finished, you
+should now see the Windows 8.1 metro app screen (nice colors!).</p>
 
-<a href="http://www.flickr.com/photos/69355230@N03/11257903995/" title="network_settings"><img src="http://farm4.staticflickr.com/3834/11257903995_6eb5128b56_o.png" width="654" height="486" alt="network_settings"></a>
+<h5>IMPORTANT!!</h5>
 
-#### Launching Windows on Rails VM
+<p>Your credentials should be the following.  If you find they aren't you may need to revisit the download page and find the credentials located there.  The following
+is the default at the time of this writing:</p>
 
-Double click your Windows on Rails appliance to launch it for the first time.  You will see MS setting up and configuring the appliance for you.  When finished, you
-should now see the Windows 8.1 metro app screen (nice colors!).
+<pre><code> User:  IEUser
+ Pass:  Passw0rd!
+</code></pre>
 
-##### IMPORTANT!!
+<ul>
+<li>Maximize the screen and install the guest additions.  Click <strong>Devices</strong> and then <strong>Install Guest Additions</strong>.</li>
+<li>Click Tap to choose what happens with this drive.</li>
+<li>Run the install and select all the defaults when prompted.</li>
+<li>Once finished, you will be prompted to reboot the machine.  Click <strong>Finish</strong> to do so.</li>
+</ul><p><a href="http://www.flickr.com/photos/69355230@N03/11257935436/" title="guest_additions"><img src="http://farm8.staticflickr.com/7448/11257935436_14c16ca277_o.png" width="371" height="369" alt="guest_additions"></a></p>
 
-Your credentials should be the following.  If you find they aren't you may need to revisit the download page and find the credentials located there.  The following
-is the default at the time of this writing:
+<p>Once the machine is rebooted, install any Windows Updates when prompted.  That's it!  Microsoft will automatically activate windows for you.</p>
 
-     User:  IEUser
-     Pass:  Passw0rd!
+<h2>CONGRATULATIONS ON YOUR NEW VM!</h2>
 
-* Maximize the screen and install the guest additions.  Click **Devices** and then **Install Guest Additions**.
-* Click Tap to choose what happens with this drive.
-* Run the install and select all the defaults when prompted.
-* Once finished, you will be prompted to reboot the machine.  Click **Finish** to do so.
+<p>You should now have a fully functioning Windows 8.1 Pro Preview machine as an evaluation copy to play with.  This VM automatically comes with Internet Explorer 11 and
+also has the appropriate .NET 4.5.x framework as well as Powershell 4.0.  If you plan on installing things manually from this point forward so that you can experience everything for yourself, skip to <strong>Chapter 05</strong>.  Otherwise, you can
+use the automated script and installs in <strong>Chapter 04</strong>.</p>
 
-<a href="http://www.flickr.com/photos/69355230@N03/11257935436/" title="guest_additions"><img src="http://farm8.staticflickr.com/7448/11257935436_14c16ca277_o.png" width="371" height="369" alt="guest_additions"></a>
+<h3>Cloning your VM</h3>
 
+<p>If you decide that you want to clone your VM in the state it is in now, you can right-click the appliance "Windows on Rails", and choose "Clone".  Name your VM
+clone "Windows on Rails Automated" and click "Next".  Leave the "Full Clone" checked and then click the <strong>Clone</strong> button.</p>
 
-Once the machine is rebooted, install any Windows Updates when prompted.  That's it!  Microsoft will automatically activate windows for you.
+<p>You will now have two VMs (Windows on Rails) for the Manual Installation chapter.  You will also have a (Windows on Rails Automated) for the Automated Installation chapter.</p>
 
-## CONGRATULATIONS ON YOUR NEW VM!
+<h2>Do You Like This Guide?</h2>
 
-You should now have a fully functioning Windows 8.1 Pro Preview machine as an evaluation copy to play with.  This VM automatically comes with Internet Explorer 11 and
-also has the appropriate .NET 4.5.x framework as well as Powershell 4.0.  If you plan on installing things manually from this point forward so that you can experience everything for yourself, skip to **Chapter 05**.  Otherwise, you can
-use the automated script and installs in **Chapter 04**.
+<p>Was this guide useful to you? Follow <a href="http://twitter.com/rails_apps">@rails_apps</a> on Twitter and tweet some praise. I'd love to know you were helped out by the guide.</p>
 
-### Cloning your VM
+<h3>Credits</h3>
 
-If you decide that you want to clone your VM in the state it is in now, you can right-click the appliance "Windows on Rails", and choose "Clone".  Name your VM
-clone "Windows on Rails Automated" and click "Next".  Leave the "Full Clone" checked and then click the **Clone** button.
+<p>This article was written by Joel Dezenzio. You can reach me at <a href="mailto:jdezenzio@gmail.com">jdezenzio@gmail.com</a>.</p>
 
-You will now have two VMs (Windows on Rails) for the Manual Installation chapter.  You will also have a (Windows on Rails Automated) for the Automated Installation chapter.
+<p>Please contribute your comments and suggestions for improvement.</p>
+    </div><!-- class="content" -->
 
-Good luck!
+    <div class="comments" id="comments">
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'railsapps'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div><!-- class="comments" -->
 
+    <footer class="footer row">
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Getting Started</dt>
+        <dd><a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></dd>
+        <dd><a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></dd>
+        <dd><a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></dd>
+        <dd><a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></dd>
+        <dd><a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></dd>
+        <dd><a href="http://railsapps.github.io/">Rails Examples</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Articles</dt>
+        <dd><a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Tutorials</dt>
+        <dd><a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></dd>
+      </dl>
+    <dl class="footer_nav">
+      <dt>RailsApps Profile</dt>
+        <dd><a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></dd>
+        <dd><a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a></dd>
+      </dl>
+      </div>
+      <hr class="footer-divider">
+    </footer>
+
+  </div>
+
+  </body>
+</html>
