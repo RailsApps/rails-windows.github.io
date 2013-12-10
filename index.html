@@ -60,40 +60,24 @@
 <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
 </ul><hr><h2>Introduction</h2>
 
-<p>Rails for Windows was created to help novice to intermediate Rails Developers integrate and develop applications
-on a Windows OS platform.  If you've searched and combed the web for resources pertaining to Windows/Ruby/Rails
-development then you've probably ascertained what many of us already know and realize:</p>
+<p>This guide was created to help developers build Rails applications on the Windows OS platform. If you've searched and combed the web for resources pertaining to Ruby on Rails development on Windows then you've probably realized:</p>
 
 <pre lang="ruby"><code>def information_related_to_windows
   puts ("bangs head on wall " * 1000)
 end
 </code></pre>
 
-<p>Information is either missing or scattered about in hard to reach places.  You may also begin to realize that
-linux and mac discussions start to overwhelm your searches on the web.  Even if you manage to find some resources
-that seem viable, the information may be outdated or unusable.  This leads many windows developers towards the path
-of absolute frustration.  The goal for this project is to provide you as much information as possible about Windows,
-Ruby, Rails, virtual development, package management, and more.</p>
+<p>Or, in plain words: It is difficult to find information about developing Rails applications on the Windows platform.</p>
 
-<h3>Why use Windows when...</h3>
+<p>Information is either missing or scattered about in hard-to-find places.  You will likely find that
+Linux and Mac discussions overwhelm your searches on the web.  Even if you find some resources
+that seem relevant, the information may be outdated or unusable.  This leads many Windows developers to feelings of frustration.  The goal for this project is to provide the information you need to be productive developing with Ruby on Rails on a Windows machine.</p>
 
-<pre><code>Linux has apt-get for package management
-</code></pre>
+<h3>Misconceptions</h3>
 
-<p>Windows has NuGet, Chocolatey, Boxstarter, and a host of other package management configurations.  Chocolatey is
-the equivallent of apt-get for windows. Boxstarter, coupled with chocolately, allows you to do remote installations, automate installs from
-he web, network shares, usb keys, or locally.  It even has reboot resiliency with administrative rights from
-start to finish. The NuGet software that helps us to achieve package management is also <i>open source</i>.</p>
+<p>As a first step, I'd like to dispel misconceptions that result from a lack of knowledge about Rails for Windows.</p>
 
-<pre><code>Linux has Linux Shell or Bash
-</code></pre>
-
-<p>Windows has PowerShell.  PowerShell uses cmdlets which allows windows developers to create complex scripting for
-managing windows systems.  It makes use of pipes, similar to Linux. However linux shells output text while PowerShell
-takes advantage of using objects with the <em><a href="http://www.howtogeek.com/138121/geek-school-learning-powershell-objects/">pipeline</a></em>.  It
-is also used with Chocolatey and package management.</p>
-
-<pre><code>Ruby is hard to install on Windows
+<pre><code>Ruby is difficult to install on Windows
 </code></pre>
 
 <p>You can manually install Ruby using <em><a href="http://rubyinstaller.org/">Rubyinstaller</a></em> and you can also automate
@@ -101,14 +85,25 @@ installations for Ruby using chocolatey or boxstarter.  All of the installation 
 installers can also make use of the DevKit which will build and use native C/C++ extensions automatically
 when required during gem installations.</p>
 
-<pre><code>Linux has RVM
+<pre><code>Windows has no package management
 </code></pre>
 
-<p>Windows can use URU.  There are also new free Ruby Stack providers like <em><a href="https://bitnami.com/stack/ruby">Bitnami</a></em> which
-allow developers to deploy a complete environment stack with one click installation.</p>
+<p>Linux has apt-get for package management. Windows has NuGet, Chocolatey, Boxstarter, and a host of other package management configurations.  Chocolatey is the equivalent of apt-get for windows. Boxstarter, coupled with chocolately, allows you to do remote installations, automate installs from the web, network shares, usb keys, or locally.  It even has reboot resiliency with administrative rights from
+start to finish. The NuGet software that helps us to achieve package management is also <i>open source</i>.</p>
 
-<p>The main thing to realize is that Windows has come far and there are many contributors across many projects that
-invest their time to help new developers get up to speed quickly.  It can be done.</p>
+<pre><code>Windows has no Shell or Bash
+</code></pre>
+
+<p>Linux has Linux Shell or Bash. Windows has PowerShell.  PowerShell uses cmdlets which allows Windows developers to create complex scripting for managing Windows systems.  It makes use of pipes, similar to Linux. However Linux shells output text while PowerShell
+takes advantage of using objects with the <em><a href="http://www.howtogeek.com/138121/geek-school-learning-powershell-objects/">pipeline</a></em>.  It
+is also used with Chocolatey and package management.</p>
+
+<pre><code>Windows has no RVM
+</code></pre>
+
+<p>Linux has RVM, the "Ruby Version Manager":<a href="https://rvm.io/">https://rvm.io/</a>. Windows can use URU.  There are also free Ruby Stack providers like <em><a href="https://bitnami.com/stack/ruby">Bitnami</a></em> which allow developers to deploy a complete environment stack with one-click installation.</p>
+
+<p>The main thing to realize is that, despite misconceptions, Windows is a practical and productive development environment for Rails. Though Rails had its origins in the open source Unix community, there are many talented contributors that invest their time to support development of Rails applications on Windows. The community is friendly and eager to help new developers get up to speed quickly.</p>
 
 <h2>What do I need to get started?</h2>
 
@@ -125,15 +120,15 @@ invest their time to help new developers get up to speed quickly.  It can be don
 <p>When you are finished reading everything (<i>this includes the wiki</i>), you should know how to do the following:</p>
 
 <ul>
-<li>How to use windows as a development platform</li>
+<li>How to use Windows as a development platform</li>
 <li>How to install and use Ruby on Windows via manual or automated methods</li>
 <li>How to install and use Ruby on Rails via manual or automated methods</li>
 <li>An understanding of NuGet, Chocolatey, Boxstarter, RubyInstaller, Devkit, Ruby, Ruby on Rails, URU, and PowerShell</li>
-<li>How to setup and use virtualbox and windows as a virtual development box</li>
+<li>How to setup and use virtualbox and Windows as a virtual development box</li>
 <li>How to setup and use git on Windows</li>
 <li>How to find reference material on the web</li>
 <li>How to contribute to the discussion</li>
-</ul><h3>References and Definitions (each term has a link directly to the site)</h3>
+</ul><h3>References and Definitions</h3>
 
 <h4><em><a href="http://www.nuget.org/">NuGet</a></em></h4>
 
