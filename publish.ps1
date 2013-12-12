@@ -24,14 +24,14 @@ cd $wiki
 gollum-site generate
 echo "GENERATED";
 Copy-Item $fullsite $destination -Recurse -Force
-#Remove-Item -Recurse -Force $site
-#cd $destination
-#del index.html;move-item Home.html index.html
-#echo "COMMITTING"
-#git add -A
-#git commit -am "update website"
-#git push origin master
-#echo "FINISHED";
+Remove-Item -Recurse -Force $site
+cd $destination
+del index.html;move-item Home.html index.html
+echo "COMMITTING"
+git add -A
+git commit -am "update website"
+git push origin master
+echo "FINISHED";
 # END OF SCRIPT
 
 
