@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windows Environment for Ruby on Rails &#183; Rails for Windows</title>
+  <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+  <link rel="stylesheet" href="http://rails-windows.github.io/css/foundation.css" />
+  <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" />
+  <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" />
+  <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" />
+  <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" />
+  <script src="http://rails-windows.github.io/javascript/modernizr.js" type="text/javascript"></script>
+  <script src="http://rails-windows.github.io/javascript/jquery.js" type="text/javascript"></script>
+  <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+  <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+  <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+  <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+  <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+  window.analytics.load("fajdc3qt0c");
+  window.analytics.page();
+  </script>
+</head>
+<body>
+
+  <!-- Header and Nav -->
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1>
+          <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider"></li>
+        <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+        <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+        <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+        <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        <li class="has-dropdown">
+          <a href="#">Chapters</a>
+          <ul class="dropdown">
+            <li><label>Introduction</label></li>
+            <li><a href="http://rails-windows.github.io/">Introduction to Ruby on Rails for Windows</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 01</label></li>
+            <li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 02</label></li>
+            <li><a href="http://rails-windows.github.io/20-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 03</label></li>
+            <li><a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 04</label></li>
+            <li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 05</label></li>
+            <li><a href="http://rails-windows.github.io/50-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 06</label></li>
+            <li><a href="http://rails-windows.github.io/60-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
+            <li class="divider"></li>
+            <li><label>Chapter 07</label></li>
+            <li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
+            <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </nav>
+  <!-- End Header and Nav -->
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="content wikistyle gollum markdown">
+        <h1>Windows Environment for Ruby on Rails</h1>
+
+<h4>by Joel Dezenzio</h4>
+
+<p><em>Last updated 9 December 2013</em></p>
+
+<hr><p><em>Rails for Windows</em></p>
+
+<ul>
+<li><a href="http://rails-windows.github.io/">Introduction to Ruby on Rails for Windows</a></li>
+<li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
+<li><strong>Windows Environment for Ruby on Rails</strong></li>
+<li><a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/50-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/60-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
+</ul><hr><h3>Windows Environments</h3>
+
+<p>Before you jump into this chapter let me start by setting some very simple expectations for you.  This chapter is meant to help you better understand and familiarize yourself with Windows and some of the basics you'll need to grasp before diving into the other chapters later.  The main environments we will focus on are Windows 7 and Windows 8.  We'll also look into the difference between 32-bit and 64-bit OS's and discuss potential impacts on developing and what changes you may need to make.</p>
+
+<h4>Setting Expectations</h4>
+
+<p>The topics we will discuss here are:</p>
+
+<ul>
+<li>Working with and how to set Environment Variables</li>
+<li>Working with and how to set up the PowerShell environment</li>
+</ul><p>The main components we'll be working with in both Windows environments will either be GUI related, or involve the use of command prompts (CMD) or PowerShell (PS).</p>
+
+<h4>The Legend</h4>
+
+<p>Here are the terms we'll use throughout this chapter:</p>
+
+<ul>
+<li>Win7 = Windows 7</li>
+<li>Win8 = Windows 8</li>
+<li>GUI = Graphical User Interface or doing something <em>visually</em>
+</li>
+<li>CMD = Command Prompt (a standard DOS command prompt)</li>
+<li>PS = PowerShell</li>
+<li>RoR = Ruby on Rails</li>
+<li>VM = Virtual Machine</li>
+<li>IDE = Integrated Development Environment</li>
+</ul><h3>Windows 8.1 (Blue)</h3>
+
+<p>For those of you unfamiliar to Windows 8.1 I recommend installing it for free!  Skip to <strong>Chapter 03:  Virtualization</strong> to find out how to get an environment up and running virtually in under 15 minutes. If you already have an environment ready to go or you've completed the Virtualization chapter, continue on here.</p>
+
+<hr><h4>Why use Windows again?  Please remind me</h4>
+
+<p>Windows is one of the easiest operating environments to use from a feature, hardware, software, and support viewpoint.  One of the main reasons is that the <a href="http://en.wikipedia.org/wiki/Usage_share_of_operating_systems">usage share</a> is much greater with <strong>any</strong> Windows environment than it is with Linux and Mac.  Even newly showcased Windows 8 has a much greater usage share than Linux and Mac (roughly 9.25% compared to Mac(7.73%) and Linux(1.61%)).  Windows 7's usage is at almost 47%!  Windows also has better commercial support worldwide than any other environment.  I personally use (all) Windows environments, Linux (centOS, Ubuntu), and MAC (Leopard).  This is not a discussion about whether or not Windows is better than the other environments.  That discussion is heavily opinionated and available all over the web.</p>
+
+<p>Everything you need to initially setup and use Ruby and Ruby on Rails (RoR) is just as readily available for Windows as it is for any other operating environments.  You aren't going to install Ruby (the language) or RoR (the framework) and find out you can't use them.  You will also find that what you thought you knew about Windows as a development environment has changed quite substantially over the years.</p>
+
+<h3>Working with and setting up Environment Variables</h3>
+
+<p>I'm going to show you how to view/set your environment variables in three different modes:  GUI, CMD(dos), PS(powershell).</p>
+
+<h4>Viewing or Finding Variables</h4>
+
+<h5>GUI View</h5>
+
+<p>Win7: Click <strong>Start</strong> &gt; Type <strong>environment</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
+
+<p>Win8: Press the <strong>Windows key</strong> on your keyboard &gt; Type <strong>environment</strong> &gt; select <strong>system</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
+
+<p><a href="http://www.flickr.com/photos/69355230@N03/10979785133/" title="gui_environment"><img src="http://farm8.staticflickr.com/7453/10979785133_66022415c8_c.jpg" width="800" height="466" alt="gui_environment"></a></p>
+
+<p>This environment variables window is divided into two sections (top/bottom) for User variables and System variables.  The system variables take place system wide regardless of which users are logged in.  The user variables pertain only to the current user.  As you can see from the image, variables can be created, edited/modified right from this window.</p>
+
+<h5>Command Prompt</h5>
+
+<p>Win7: Click <strong>Start</strong> &gt; Type <strong>cmd</strong> and hit the Enter key</p>
+
+<p>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</p>
+
+<pre>
+     C:\Users\Joel&gt; set
+     C:\Users\Joel&gt; set nameOfVariable
+</pre>
+
+<p><a href="http://www.flickr.com/photos/69355230@N03/10979561275/" title="cmd_environment"><img src="http://farm4.staticflickr.com/3811/10979561275_c62d9ce40e_b.jpg" width="667" height="787" alt="cmd_environment"></a></p>
+
+<p>The command prompt allows you to find/retrieve your environment variables through the set command.  You can also use set to temporarily set an environment variable that will remain active <em>only</em> while the current command window is open.  Once the window is closed, all variables set for that previously active session are no longer available.  In order to set permanent variables we can use the setx command.</p>
+
+<h5>PowerShell</h5>
+
+<p>Finding your environment variables in PowerShell is also relatively easy.  Go to Start &gt; type powershell and open <em>Windows PowerShell</em>.  Type the following:</p>
+
+<pre>
+     PS C:\Users\Joel&gt; cd env:
+     PS Env:\&gt; dir
+</pre>
+
+<p><a href="http://www.flickr.com/photos/69355230@N03/10979657776/" title="ps_environment"><img src="http://farm8.staticflickr.com/7405/10979657776_a86a6201eb_c.jpg" width="800" height="603" alt="ps_environment"></a></p>
+
+<p>PowerShell allows you to go straight to your environment path and view your variables similar to a directory structure.</p>
+
+<h4>Setting Environment Variables</h4>
+
+<h5>GUI View</h5>
+
+<p>Win7: Click <strong>Start</strong> &gt; Type <strong>environment</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
+
+<p>Win8: Press the <strong>Windows key</strong> on your keyboard &gt; Type <strong>environment</strong> &gt; select <strong>system</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
+
+<p>For user specific variables that only apply to you, variables can be created and set in the top section.  Click the <strong>New</strong> button and type a variable name and also a variable value.  As an example, if you wanted to set your GEM paths to a specific location you could do:</p>
+
+<pre>
+     Variable name:  GEM_HOME
+     Variable value: C:\Users\YourUserName\.gems
+</pre>
+
+<p>Likewise, you can also reference another location from its variable name by surrounding it with the percent sign (%).  Let's say you want to set the GEM_PATH variable to the GEM_HOME location as well.</p>
+
+<pre>
+     Variable name:  GEM_PATH
+     Variable value: %GEM_HOME%
+</pre>
+
+<p>For system variables, if you wanted to append to your current path you would find the Path variable and click the <strong>Edit</strong> button.  Go to the end of the line and place a semicolon ; and then add your new path location.  Example:  ;C:\SomeNewPath\Location.</p>
+
+<h5>Command Prompt</h5>
+
+<p>Win7: Click <strong>Start</strong> &gt; Type <strong>cmd</strong> and hit the Enter key</p>
+
+<p>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</p>
+
+<pre><code> C:\&gt; setx /?
+</code></pre>
+
+<p>Here are some examples (you do not need to set these):</p>
+
+<pre>
+     C:\&gt; setx PATHEXT %PATHEXT%;.RB;.RBW
+     C:\&gt; setx HTTP_PROXY http://yourproxy:port
+     C:\&gt; setx HOME %USERPROFILE%
+     C:\&gt; setx GEM_HOME %HOME%\.gems
+     C:\&gt; setx GEM_PATH %GEM_HOME%
+     C:\&gt; setx CHOCOLATEY_BIN_ROOT C:\Development
+</pre>
+
+<p>Setx takes the following simple conditions:  SETX [SOME_VARIABLE] <a href="without%20the%20brackets">SOME_VALUE</a>.</p>
+
+<h5>PowerShell</h5>
+
+<p>Go to Start &gt; type powershell and open <em>Windows PowerShell</em>.  Type the following:</p>
+
+<pre>
+     PS C:\&gt; cd env:
+     PS Env:\&gt; dir
+</pre>
+
+<p>Notice all of those environment variables.  You can edit them by just typing:</p>
+
+<pre><code> PS C:\&gt; $env:NAMEofVARIABLE = "SomeValue";
+</code></pre>
+
+<p>If you want to create a new variable run an example test using:</p>
+
+<pre><code> PS C:\&gt; $env:TESTVAR = "C:\"
+ PS C:\&gt; dir
+</code></pre>
+
+<p>You should see your new test variable.  I should also note that you still have the availability of using the setx commands in PS.  So, you could use that method also.</p>
+
+<h3>Working with and setting up the PowerShell environment</h3>
+
+<p>Before you jump into using PowerShell, it will be beneficial to know what version you are using.  The simplest way is to open up powershell and run the following command:</p>
+
+<pre><code> PS C:\Some\Path&gt; $PSVersionTable.psversion
+</code></pre>
+
+<p>You can open up powershell a couple of different ways.</p>
+
+<ul>
+<li>Win8:  Click the Windows key and type powershell.  Run Powershell.</li>
+<li>Win7:  Click Start and type powershell.  Run Powershell.</li>
+</ul><p>$PSVersionTable.psversion provides you the exact version from Major|Minor|Build|Revision number.  Also, don't make the mistake of using $host or $host.version as this only returns the host version and not the engine version.  $PSVersiontable.psversion is the most reliable of them all.</p>
+
+<p>At the time of this writing PowerShell is at 4.0.  If you find your PowerShell environment is lower than this you can easily upgrade it by <a href="http://www.microsoft.com/en-us/download/details.aspx?id=40855">visiting the Microsoft download Windows management framework 4.0</a> page.  The Windows management framework will upgrade your system to the latest PS version.  Windows 8.1 by default already comes with 4.0.</p>
+
+<h6>Configuring PowerShell</h6>
+
+<p>You will want to configure a few things in PowerShell.  The first task is setting the execution policy to unrestricted.  This will be one of the pre-configuration steps so that PowerShell can be used with Chocolatey and NuGet.  Follow the previous steps to open PowerShell but before clicking on PowerShell, right-click and run as an administrator.</p>
+
+<pre><code> Tip:  You can also open a command prompt and type powershell -noprofile -command "&amp;{start-process powershell -verb RunAs}"
+</code></pre>
+
+<p>The tip will open powershell as an administrator.  The main objective of sharing the tip is to show that you can access powershell many different ways.  To set the execution policy from powershell type:</p>
+
+<pre><code> PS C:\Some\Path&gt;  Set-ExecutionPolicy unrestricted
+ PS C:\Some\Path&gt;  Get-ExecutionPolicy
+</code></pre>
+
+<p>You should see that your execution policy is now unrestricted.  For now, that's all we are going to do with PowerShell.  We'll use it later on.  As an extra credit reading tip, if you want to find out more about the two commands we just used do the following:</p>
+
+<pre><code> PS C:\Some\Path&gt; Get-Help Set-ExecutionPolicy
+ PS C:\Some\Path&gt; Get-Help Set-ExeuctionPolicy -Detailed
+ PS C:\Some\Path&gt; Get-Help Get-ExecutionPolicy
+ PS C:\Some\Path&gt; Get-Help Get-ExecutionPolicy -Detailed
+</code></pre>
+
+<p>Likewise, understand that PowerShell utilizes "objects" and "classes" similar to Ruby!  In Ruby you would access methods by typing someclass.methods.  In PowerShell you do the same by pipelining Get-Member.  Like so:</p>
+
+<pre><code> PS C:\Some\Path&gt; Get-ExecutionPolicy | Get-Member
+</code></pre>
+
+<p>And, you'll notice that there's a nice list of methods you can access for Microsoft.PowerShell.ExecutionPolicy.  If you followed this far, you've earned some <strong>extra credit</strong>!</p>
+
+<h4>32-bit or 64-bit Environment</h4>
+
+<p>The benefits of using a 64-bit operating system are most apparent when you have a large amount of random access memory (RAM) installed on your computer, typically 4 GB of RAM or more. In such cases, because a 64-bit operating system can handle large amounts of memory more efficiently than a 32-bit operating system, a 64-bit system can be more responsive when running several programs at the same time and switching between them frequently.  Driver support is likely to be a non-issue with newer systems now as most software developers have worked diligently to keep up with changes in technology.  Most programs designed for the 32-bit version of Windows will work on the 64-bit version of Windows. Notable exceptions are many antivirus programs.</p>
+
+<p>If you plan on using virtualization, you can make use of multi-core processors and additional RAM to run multiple instances simultaneously.  32-bit OS environments do not allow you to make use of RAM over 4gb whereas 64-bit does.</p>
+
+<p>Ruby also comes in 32-bit and 64-bit flavors.  We'll discuss some of the issues with Ruby versions in <strong>Chapter 02: Getting Started</strong>.  However, the main issues you may encounter when operating on 64-bit Ruby environment are with pre-compiled gems.  Some gems may not work.</p>
+
+<h2>Next Chapter</h2>
+
+<p>Read on for what you need to know about the software you need for developing with Rails on Windows:</p>
+
+<ul>
+<li><a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html"><strong>Required Software for Ruby on Rails on Windows</strong></a></li>
+</ul>
+      </div><!-- class="content" -->
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="row">
+    <div class="large-12 columns"><hr />
+      <div class="row">
+        <div class="row">
+          <div class="medium-4 large-4 columns">
+           <h4>RailsApps &#183; Getting Started</h4>
+           <a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></br>
+           <a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></br>
+           <a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></br>
+           <a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></br>
+           <a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></br>
+           <a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></br>
+           <a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></br>
+           <a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails - Windows</a></br>
+           <a href="http://rails-windows.github.io/">Ruby on Rails for Windows</a></br>
+           <a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></br>
+           <a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></br>
+           <a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></br>
+           <a href="http://railsapps.github.io/">Rails Examples</a></br>
+           <a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a>
+         </div>
+         <div class="medium-4 large-4 columns">
+           <h4>RailsApps &#183; Articles</h4></a>
+           <a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></br>
+           <a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></br>
+           <a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></br>
+           <a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></br>
+           <a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></br>
+           <a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></br>
+           <a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></br>
+           <a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></br>
+           <a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></br>
+           <a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></br>
+           <a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></br>
+           <a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></br>
+           <a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></br>
+           <a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></br>
+           <a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a>
+         </div>
+         <div class="medium-4 large-4 columns">
+           <h4>RailsApps &#183; Tutorials</h4>
+           <a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></br>
+           <a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></br>
+           <a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></br>
+           <a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></br>
+           <a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></br>
+           <a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></br>
+           <a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></br>
+           <a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></br>
+           <a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></br>
+           <h3>RailsApps Profile</h3></br>
+           <a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></br>
+           <a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </footer>
+ <!-- End Footer -->
+
+
+
+
+
+
+ <script src="http://rails-windows.github.io/javascript/foundation.min.js" type="text/javascript"></script>
+ <script>
+ $(document).foundation();
+
+ var doc = document.documentElement;
+ doc.setAttribute('data-useragent', navigator.userAgent);
+ </script>
+
+
+</body>
+</html>

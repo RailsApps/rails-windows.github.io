@@ -1,0 +1,50 @@
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 22px;
+  border-left: 5px;
+}
+blockquote p {
+  margin-bottom: -14px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+}
+code {
+  font: 12px 'Bitstream Vera Sans Mono','Courier',monospace;
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #EAEAEA;
+  color: #333;
+  background-color: #F8F8F8;
+  border-radius: 3px;
+}
+table {
+  font-size: 12px;
+}
+ul, ol {
+  font-size: 12px;
+}
+#post-count {
+  display: none;
+}
+
+footer {
+  position: relative;
+  margin: 40px 0 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #777;
+  text-shadow: 0 1px 0 #fff;
+}
+.footer_nav dt {
+  display: block;
+  color: #52595d;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.footer_nav dd {
+  display: block;
+  margin-left: 0px;
+  line-height: 1.5;
+}
