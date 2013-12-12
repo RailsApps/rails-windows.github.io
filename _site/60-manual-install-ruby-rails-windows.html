@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Manual Install for Ruby on Rails on Windows &#183; Rails for Windows</title>
+    <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" type="text/css" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.6.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+    <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("fajdc3qt0c");
+    window.analytics.page();
+    </script>
+  </head>
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        <ul class="pull-right nav">
+          <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+          <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+          <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+          <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content wikistyle gollum markdown">
+      <h1>Manual Install for Ruby on Rails on Windows</h1>
+
+<h4>by Joel Dezenzio</h4>
+
+<p><em>Last updated 9 December 2013</em></p>
+
+<hr><p><em>Rails for Windows</em></p>
+
+<ul>
+<li><a href="http://rails-windows.github.io/index.html">Introduction to Ruby on Rails for Windows</a></li>
+<li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/20-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
+<li><a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/50-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
+<li><strong>Manual Installation for Ruby on Rails on Windows</strong></li>
+<li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
+</ul><hr><h3>Manual Install</h3>
+
+<p>This chapter will focus on manual installations.  Because we will be managing applications going forward, we still want to install Chocolatey and set up our PS environment for automated scripting in the future.</p>
+
+<h3>NuGet &amp; Chocolatey Quick Install</h3>
+
+<ol>
+<li>Open a Browser and visit <a href="http://chocolatey.org">Chocolatey.org</a>
+</li>
+<li>Click the link under the easy installation OR copy the text below</li>
+</ol><pre><code>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+</code></pre>
+
+<ol>
+<li>Open a regular CMD prompt and right-click and paste, hitting enter.  After the installation is completed, close the CMD prompt.</li>
+<li>Click the <strong>Windows</strong> key on your keyboard and type "Powershell", right-click on "Windows PowerShell" and pin to the "taskbar".</li>
+<li>Click Desktop off the metro view window or just click the Windows key again on your keyboard to go back to the desktop.</li>
+</ol><h3>PowerShell Scripting</h3>
+
+<p>You should now see a PowerShell icon on your task bar.  Right-click and "Run as Administrator" to open a PS prompt.  Type cd\ and hit enter.</p>
+
+<h5>Execution Policy</h5>
+
+<p>We will be changing the execution policy in PS so that we can run local and remote scripts going forwad. Run the following commands:</p>
+
+<pre><code> C:\&gt; Get-ExecutionPolicy
+</code></pre>
+
+<p>You should see that it is set to "Restricted".  Let's change that</p>
+
+<pre><code> C:\&gt; Set-ExeuctionPolicy unrestricted
+</code></pre>
+
+<p>When prompted, click Y for Yes and hit enter.  Now if you type Get-ExecutionPolicy you'll see it shows Unrestricted now.  All set!</p>
+
+<h5>Chocolatey Packages with PS</h5>
+
+<p>Let's run some updates and install some packages with PS to make it feel more like a Windows Dev environment!  You can copy and paste the commands into PS if you want.  If you
+want to know what each app does, you can type the app in the chocolatey.org search box and read about it.  Do these in order.  Also note that some of the commands may be
+slightly longer in PS.  The main reason is to teach you how to run additional commands in PS.</p>
+
+<pre><code> C:\&gt; chocolatey update
+ C:\&gt; cup all
+ C:\&gt; cinst 7zip
+ C:\&gt; cinst fiddler
+ C:\&gt; $webpifeed="https://www.microsoft.com/web/webpi/4.6/webproductlist.xml"
+ C:\&gt; cinst webpicmd
+ C:\&gt; webpicmd /install /products:WebMatrix /accepteula
+ C:\&gt; cinst VisualStudio2012Ultimate
+ C:\&gt; cinst Dogtail.VS2012.3
+ C:\&gt; cinst resharper
+ C:\&gt; cinst bleachbit
+ C:\&gt; cinst sublime
+ C:\&gt; cinst curl
+</code></pre>
+
+<p>Web Browsers</p>
+
+<pre><code> C:\&gt; cinst GoogleChrome
+ C:\&gt; cinst FireFox
+ C:\&gt; cinst Opera
+ C:\&gt; cinst safari
+</code></pre>
+
+<p>Git</p>
+
+<pre><code> C:\&gt; cinst git
+</code></pre>
+
+<p>Set Paths and Environment Variables</p>
+
+<pre><code> C:\&gt; cd env:
+ C:\&gt; mkdir $env:userprofile\.gems
+ C:\&gt; [Environment]::SetEnvironmentVariable("HOME",$env:userprofile,"User")
+ C:\&gt; [Environment]::SetEnvironmentVariable("GEM_HOME",$env:userprofile + "\.gems","User")
+ C:\&gt; [Environment]::SetEnvironmentVariable("GEM_PATH",$env:userprofile + "\.gems","User")
+ C:\&gt; [Environment]::SetEnvironmentVariable("PATH",$env:path + ";" + $env:userprofile + "\.gems\bin","User")
+</code></pre>
+
+<p>Install Ruby and Ruby DevKit</p>
+
+<pre><code> C:\&gt; cinst ruby
+ C:\&gt; cmd /c start powershell -command {cinst ruby.devkit}
+</code></pre>
+
+<p>Install and update Gems and Rails</p>
+
+<pre><code> C:\&gt; cmd /c start powershell -command {gem update --system}
+ C:\&gt; cmd /c start powershell -command {gem install rails}
+</code></pre>
+
+<p>Install MySQL and gems</p>
+
+<pre><code> C:\&gt; cinst mysql
+ C:\&gt; cmd /c start powershell -command {mysqladmin -u root password Passw0rd!}
+</code></pre>
+
+<p>When installing the mysql2 gem ensure that the statement below best reflects the package of mysql that was installed above.  The easiest way to find this out is to
+go to the C:\tools directory and see what the mysql version is on the folder.  At the time of this writing it is 5.6.15.  This may change.  If it does, substitute the
+correct version in the statement below.</p>
+
+<pre><code> C:\&gt; cmd /c start powershell -command {gem install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql\mysql-5.6.15-win32\lib --with-mysql-include=C:\tools\mysql\mysql-5.6.15-win32\include}
+</code></pre>
+
+<p>Copy the libmysql.dll to the ruby200\bin directory (also keeping in mind that the version of mysql may have changed at the time of this writing it is 5.6.15)</p>
+
+<pre><code> C:\&gt; Copy-Item -Path C:\tools\mysql\mysql-5.6.15-win32\lib\libmysql.dll -Destination c:\ruby200\bin
+</code></pre>
+
+<p>Once done, let's verify that mysql2 is working properly by opening IRB.</p>
+
+<pre><code> C:\&gt; irb
+ C:\&gt; require 'mysql2'
+ =&gt; true
+</code></pre>
+
+<p>This should equal true.</p>
+
+<p>If everything has gone fine so far, pat yourself on the back for a job well done!  The majority of the software you need has been installed.</p>
+
+<h2>Next Chapter</h2>
+
+<p>Read on to learn how to build your first Rails application on Windows:</p>
+
+<ul>
+<li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html"><strong>Using Ruby on Rails on Windows</strong></a></li>
+</ul>
+    </div><!-- class="content" -->
+
+    <div class="comments" id="comments">
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+    </div><!-- class="comments" -->
+
+    <footer class="footer row">
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Getting Started</dt>
+        <dd><a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></dd>
+        <dd><a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></dd>
+        <dd><a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></dd>
+        <dd><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails - Windows</a></dd>
+        <dd><a href="http://rails-windows.github.io/">Ruby on Rails for Windows</a></dd>
+        <dd><a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></dd>
+        <dd><a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></dd>
+        <dd><a href="http://railsapps.github.io/">Rails Examples</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Articles</dt>
+        <dd><a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Tutorials</dt>
+        <dd><a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></dd>
+      </dl>
+    <dl class="footer_nav">
+      <dt>RailsApps Profile</dt>
+        <dd><a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></dd>
+        <dd><a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a></dd>
+      </dl>
+      </div>
+      <hr class="footer-divider">
+    </footer>
+
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Required Software for Ruby on Rails on Windows &#183; Rails for Windows</title>
+    <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/bootstrap.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/gollum.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/site.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="http://rails-windows.github.io/css/syntax.css" type="text/css" charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.6.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.text_selection-1.0.0.min.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.previewable_comment_form.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/jquery.tabs.js" type="text/javascript"></script>
+    <script src="http://rails-windows.github.io/javascript/gollum.js" type="text/javascript"></script>
+    <script type="text/javascript"> window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
+    window.analytics.load("fajdc3qt0c");
+    window.analytics.page();
+    </script>
+  </head>
+  <body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a href="http://railsapps.github.io/" class="brand">RailsApps Project</a>
+        <ul class="pull-right nav">
+          <li><a href="https://tutorials.railsapps.org/" class="google">Tutorials</a></li>
+          <li><a href="http://twitter.com/rails_apps" class="twitter">Twitter</a></li>
+          <li><a href="http://blog.railsapps.org/" class="twitter">Blog</a></li>
+          <li><a href="https://github.com/RailsApps" class="github">GitHub Repository</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content wikistyle gollum markdown">
+      <h1>Required Software for Ruby on Rails on Windows</h1>
+
+<h4>by Joel Dezenzio</h4>
+
+<p><em>Last updated 9 December 2013</em></p>
+
+<hr><p><em>Rails for Windows</em></p>
+
+<ul>
+<li><a href="http://rails-windows.github.io/index.html">Introduction to Ruby on Rails for Windows</a></li>
+<li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/20-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
+<li><strong>Required Software for Ruby on Rails on Windows</strong></li>
+<li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/50-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/60-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
+<li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
+</ul><hr><h3>Software You'll Need</h3>
+
+<p>Before continuing you should make sure you have all of the tools necessary to continue with the tutorials and documentation.  All of the utilities for the tutorials are free to download and free to use, with the exception of Sublime Text 3 should you use that as your editor.  Here is a list of recommended software:</p>
+
+<ul>
+<li><em><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30653">.NET Framework 4.5</a></em></li>
+<li>PowerShell 2.0 or higher (recommended PS 4.0)</li>
+<li>Windows 7 or Windows 8 or Windows 8.1 (see <strong>Chapter 03: Virtualization</strong> for a free preview of Windows 8.1)</li>
+<li><em><a href="http://www.7-zip.org/download.html">7zip</a></em></li>
+<li>
+<em><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></em> (if you plan on installing a VM)</li>
+<li>Text Editor (recommended <a href="http://www.sublimetext.com/3">Sublime Text 3</a>)</li>
+</ul><p>That should get you started initially.  If you plan on doing manual installations later on, you can look at the pre-requisites in <strong>Chapter 05: Manual Installations</strong>.  Otherwise, no other software is required.  If you decide you don't want to use Sublime Text 3 but still want a solid free code editor, I recommend <a href="http://www.scintilla.org/SciTE.html">SciTE</a>.</p>
+
+<h4>Setting Expectations</h4>
+
+<p>The topics we will discuss here are:</p>
+
+<ul>
+<li>VirtualBox</li>
+<li>Structuring and Organizing your Development Area</li>
+<li>IDE and Text Editors</li>
+<li>Handling Proxies</li>
+</ul><h3><a href="https://www.virtualbox.org/">VirtualBox</a></h3>
+
+<p>VirtualBox is a cross-platform virtualization application. What does that mean? For one thing, it installs on your existing Intel or AMD-based computers operating system. Secondly, it extends the capabilities of your existing computer so that it can run multiple operating systems (inside multiple virtual machines) at the same time. So, for example, you can run Windows 8, Windows 8.1 preview, and even Linux on your Windows PC, all alongside your existing applications. You can install and run as many virtual machines as you like -- the only practical limits are disk space and memory.</p>
+
+<p>VirtualBox is free and the binaries are released under the terms of the GPL version 2 license.  Visit the <a href="https://www.virtualbox.org/wiki/Downloads">downloads</a> section to find the latest platform package for Windows hosts.</p>
+
+<p>If you plan to not utilize virtualization in development, you can skip the download and install of VirtualBox.</p>
+
+<p>Once installed you can read up on using VirtualBox by accessing the <a href="http://dlc.sun.com.edgesuite.net/virtualbox/4.3.4/UserManual.pdf">User Manual</a>.  We will go over VirtualBox more in Chapter 3.</p>
+
+<h3>Structuring and Organizing your Development Area</h3>
+
+<p>Before beginning any new development project it is important to determine the layout and structure of your working area.</p>
+
+<h5>Virtual or Local</h5>
+
+<p>VMs have their advantages.  The ability to build an environment in minutes, test or isolate application scenarios, and then break it all down in moments can be a wonderful thing. VMs operate independently and don't affect any local configurations at all.  If you plan on staying with a simple structured environment with very few base changes, you may decide to keep a local non-virtual environment.  If you plan on setting up a VM see <strong>Chapter 03:</strong>  <strong>Virtualization</strong> and then come back here.  Otherwise, let's continue on.</p>
+
+<h3>Design your environment on paper</h3>
+
+<p>Sometimes the simplest approach to deciding where things are going to go and how things will work is just to take out a piece of paper and start writing your ideas down as a form of questions.</p>
+
+<h6>Questioning and Setting Your Own Expectations</h6>
+
+<pre><code> \&gt; Are you planning on developing GUI tools or other apps with Ruby by itself?
+ \&gt; Are you planning to only use ruby on rails and work with web development?
+ \&gt; If web development is your focus, what type of stack do you want to build?
+ \&gt; Are there any special dependencies you need for your development stack?
+ \&gt; What editor or IDE do you want to use when coding or developing?
+ \&gt; Do you plan on using a VM for virtual developing?
+ \&gt; How do you plan on handling versioning and backups?
+ \&gt; If using databases, what type of database management system will you use?
+</code></pre>
+
+<p>This is a very simple list of questions that help you determine what things you may want to consider.  For instance, if you plan on developing GUI apps at some point, you might want to check out WxRuby widgets. You also may want to have a GitHub account for backing up and handling versioning.  Try to focus on core components and ideas pertaining to how you develop.  The pieces you need later to complete your website can be saved for another time.</p>
+
+<p>You may want to also organize a checklist:</p>
+
+<ul>
+<li>[x] Install and use VirtualBox for VM management</li>
+<li>[x] Install and use a Windows 8.1 VM</li>
+<li>[x] Configure Windows PowerShell</li>
+<li>[ ] Install and use Chocolatey and NuGet for package management</li>
+<li>[ ] Install Ruby 2.0 using Chocolatey</li>
+<li>[ ] Install Rails 4.x using Chocolatey</li>
+<li>[ ] Install Uru for managing Ruby environments</li>
+<li>[ ] Install MySQL using Chocolatey for my Database Management</li>
+<li>[ ] Install and use Msysgit and GitHub</li>
+<li>[x] Install and use Sublime Text 3 as my code editor</li>
+<li>[ ] Set Windows Environment Paths for Ruby Path Extensions</li>
+<li>[ ] Set Windows Environment Paths for Gems</li>
+<li>[ ] Set Windows Environment Paths for Chocolatey</li>
+</ul><p>You don't have to do anything right now.  This is just an example list.  You may also want to determine if you would like to setup your directory structures a certain way.  Maybe you'd like everything that is tool related to automatically go in C:\tools\bin, or you might want to have a development library setup in C:\Development.</p>
+
+<p>Take a few minutes to determine what you want.  If you don't know then you may want to <strong>embrace the stack</strong>.</p>
+
+<h6>Embracing the Stack</h6>
+
+<p>Don't know what you want?  That's fine.  Start with a default stack that someone else created for you.  A stack can be a number of items that form a working environment.  An example stack might be:</p>
+
+<ul>
+<li>Windows 8.1</li>
+<li>Ruby 2.0</li>
+<li>Rails 4.0</li>
+<li>Mongrel</li>
+<li>RubyMine IDE</li>
+<li>MongoDB</li>
+<li>Rspec | Cucumber Testing</li>
+</ul><p>This is just a base example.  You start with someone else's idea in a VM test environment, play with it, get to know it, and then decide what you like the most.  You can then test other stacks until you find a good mix and match of development style that fits your own.  Then create your own stack!  This is one reason why a VM may be one of the best options to go as it provides very good flexibility.</p>
+
+<h3>IDE or Text Editors</h3>
+
+<p>An IDE normally consists of a source code editor, build automation tools and a debugger. Several modern IDEs integrate with Intelli-sense coding features.  Editors are standard
+text or code editors that may or may not do additional tasks.  You could call some of the fancier editors hybrid IDE applications.  Some IDEs that are usable on Windows
+include RubyMine and Netbeans.  Both of these IDEs have extreme load times and tend to bottleneck resources.</p>
+
+<p>For our tutorials I recommend <a href="http://www.sublimetext.com/3">Sublime Text 3</a>.  It is a very sophisticated and extremely easy to use editor that has very little resource usage.</p>
+
+<pre><code> NOTE:  If you plan on using a VM, you can come back to these instructions after you've created your VM and installed Sublime Text 3 on it instead.  Otherwise, if you're doing this locally and without a VM you can finish the setup configuration below:
+</code></pre>
+
+<p>After you have Sublime text 3 downloaded and running, do the following:</p>
+
+<p>Setup Package Control.</p>
+
+<pre><code> Click CTRL + ~
+</code></pre>
+
+<p>Copy and Paste the following below into the console and hit enter.</p>
+
+<pre><code> import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime
+</code></pre>
+
+<p>.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( '<a href="http://sublime.wbond.net/">http://sublime.wbond.net/</a>' + pf.replace(' ','%20')).read())</p>
+
+<p>Close and restart Sublime Text 3.  Next, let's add some packages to make it look more friendly:</p>
+
+<pre><code> Click Preferences &gt; Package Control &gt; Install Package
+ Type Soda theme and click to install.
+ .. repeat and type RailsCasts color and click to install this theme.
+ .. repeat and type All Autocomplete and click to install.
+ .. repeat and type BeautifyRuby and click to install.
+ .. repeat and type Better Coffeescript and click to install.
+ .. repeat and type ChangeQuotes and click to install.
+ .. repeat and type SideBarEnhancements and click to install.
+ .. repeat and type GitGutter and click to install.
+</code></pre>
+
+<p>Edit your user preferences:</p>
+
+<pre><code> Click Preferences &gt; Settings-User
+</code></pre>
+
+<p>Copy and paste in the settings from <a href="http://elricstorm.viewdocs.io/rails-for-windows/sublime-preferences">sublime-preferences</a>.  Also, you may want to change/edit the ignored words.  I threw in a couple of words for fun.</p>
+
+<p>Next, download the <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata font</a>.  It's a great font for developing and coding.  Use the .otf version and once you download it, just click and install it.  It's that easy.  Now then, restart Sublime text 3 and you should see everything looks pretty solid.  Good job!</p>
+
+<h5><a href="http://foundation.zurb.com/">Zurb Foundation</a></h5>
+
+<p>If you are planning on using Zurb Foundation in your rails project, I would recommend importing some of foundation's Sublime 3 snippets:</p>
+
+<p>From a cmd prompt:</p>
+
+<pre><code> cd "%AppData%\Sublime Text 3\Packages\User"
+ git clone https://github.com/zurb/foundation-5-sublime-snippets.git
+</code></pre>
+
+<ul>
+<li>Each snippet is prefixed with zf- (ZURB Foundation).</li>
+<li>Each snippet is singular, unless the name of the component ends in an s (offcanvas)</li>
+<li>Available classes are included as comments in the snippets</li>
+</ul><p>Available Components Offcanvas:</p>
+
+<pre><code>zf-topbar + tab
+zf-sidenav + tab
+zf-subnav + tab
+zf-breadcrumb + tab
+zf-pagination + tab
+zf-orbit + tab
+zf-clearing + tab
+zf-button + tab
+zf-button-group + tab
+zf-split-button + tab
+zf-dropdown-button + tab
+zf-reveal + tab
+zf-alert + tab
+zf-panel + tab
+zf-pricing-table + tab
+zf-progress-bar + tab
+zf-accordion + tab
+zf-tab + tab
+zf-vertical-tab + tab
+</code></pre>
+
+<p>Once imported, restart Sublime and then go to Tools &gt; Snippets.  Type in <strong>zf</strong> to see a full list of foundation quick actions.  These will allow you to quickly create foundation classes.  Test it out in an erb or html file.</p>
+
+<h3>Handling Proxies</h3>
+
+<p>If you are operating behind a proxy (at work for example) and encounter any type of download/setup issue going forward, you may need to add a proxy to your local path.  To
+add a proxy, do the following from an elevated CMD prompt as an administrator:</p>
+
+<pre><code> C:\&gt; setx HTTP_PROXY "http://yourproxy:port" (ex: ascproxy:80)
+ C:\&gt; setx HTTPS_PROXY "https://yourproxy:port" (use this command instead of HTTP if your work is using an HTTPS proxy instead - not usually the case)
+</code></pre>
+
+<h3>Questions or related searches</h3>
+
+<p><a href="http://stackoverflow.com/search?q=ruby+on+windows">Stack Overflow:  Ruby on Windows</a></p>
+
+<h2>Next Chapter</h2>
+
+<p>Read on to learn about using virtual machines on Windows:</p>
+
+<ul>
+<li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html"><strong>Virtual Machines for Ruby on Rails on Windows</strong></a></li>
+</ul>
+    </div><!-- class="content" -->
+
+    <div class="comments" id="comments">
+      <div class="content wikistyle gollum">
+        <h2>Comments</h2>
+      </div>
+      <p>Is this helpful? Your encouragement fuels the project. Please tweet or add a comment. Couldn't get something to work? For the example apps and tutorials, it's best to open an issue on GitHub so we can help you.</p>
+    </div><!-- class="comments" -->
+
+    <footer class="footer row">
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Getting Started</dt>
+        <dd><a href="http://railsapps.github.io/ruby-and-rails.html">Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a></dd>
+        <dd><a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-tutorial">Rails Tutorial</a></dd>
+        <dd><a href="http://railsapps.github.io/installing-rails.html">Install Ruby on Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-mac.html">Install Ruby on Rails - Mac OS X</a></dd>
+        <dd><a href="http://railsapps.github.io/installrubyonrails-ubuntu.html">Install Ruby on Rails - Ubuntu</a></dd>
+        <dd><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails - Windows</a></dd>
+        <dd><a href="http://rails-windows.github.io/">Ruby on Rails for Windows</a></dd>
+        <dd><a href="http://railsapps.github.io/rubyonrails-nitrous-io.html">Ruby on Rails - Nitrous.io</a></dd>
+        <dd><a href="http://railsapps.github.io/updating-rails.html">Update Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-composer/">Rails Composer</a></dd>
+        <dd><a href="http://railsapps.github.io/">Rails Examples</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-examples-tutorials.html">Rails Starter Apps</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Articles</dt>
+        <dd><a href="http://railsapps.github.io/rails-foundation.html">Foundation and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/twitter-bootstrap-rails.html">Bootstrap and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-google-analytics.html">Analytics for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-heroku-tutorial.html">Heroku and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-javascript-include-external.html">JavaScript and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-environment-variables.html">Rails Environment Variables</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-git.html">Git and GitHub with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-send-email.html">Send Email with Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-haml.html">Haml and Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-default-application-layout.html">Rails Application Layout</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-html5-boilerplate.html">HTML5 Boilerplate for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-3-2-example-gemfile.html">Example Gemfiles for Rails</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-application-templates.html">Rails Application Templates</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-product-planning.html">Rails Product Planning</a></dd>
+        <dd><a href="http://railsapps.github.io/rails-project-management.html">Rails Project Management</a></dd>
+      </dl>
+      </div>
+      <div class="span4">
+      <dl class="footer_nav">
+      <dt>RailsApps &#183; Tutorials</dt>
+        <dd><a href="https://tutorials.railsapps.org/rails-bootstrap">Rails and Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails3-bootstrap-devise-cancan">Devise with CanCan and Twitter Bootstrap</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-stripe-membership-saas">Rails Membership Site with Stripe</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-recurly-subscription-saas">Rails Subscription Site with Recurly</a></dd>
+        <dd><a href="https://tutorials.railsapps.org/rails-prelaunch-signup">Startup Prelaunch Signup Application</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-devise-rspec-cucumber.html">Devise with RSpec and Cucumber</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-devise.html">Devise with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-mongoid-omniauth.html">OmniAuth with Mongoid</a></dd>
+        <dd><a href="http://railsapps.github.io/tutorial-rails-subdomains.html">Subdomains with Devise</a></dd>
+      </dl>
+    <dl class="footer_nav">
+      <dt>RailsApps Profile</dt>
+        <dd><a href="https://plus.google.com/108039160165742774777?rel=author">Google</a></dd>
+        <dd><a href="https://plus.google.com/117374718581973393536" rel="publisher">Find us on Google+</a></dd>
+      </dl>
+      </div>
+      <hr class="footer-divider">
+    </footer>
+
+  </div>
+
+  </body>
+</html>
