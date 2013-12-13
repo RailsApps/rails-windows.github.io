@@ -158,9 +158,10 @@
 
 <p>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</p>
 
-<pre><code> C:\Users\Joel&gt; set
- C:\Users\Joel&gt; set nameOfVariable
-</code></pre>
+<pre>
+     C:\Users\Joel&gt; set
+     C:\Users\Joel&gt; set nameOfVariable
+</pre>
 
 <p><a href="http://www.flickr.com/photos/69355230@N03/10979561275/" title="cmd_environment"><img src="http://farm4.staticflickr.com/3811/10979561275_c62d9ce40e_b.jpg" width="667" height="787" alt="cmd_environment"></a></p>
 
@@ -170,9 +171,10 @@
 
 <p>Finding your environment variables in PowerShell is also relatively easy.  Go to Start &gt; type powershell and open <em>Windows PowerShell</em>.  Type the following:</p>
 
-<pre><code> PS C:\Users\Joel&gt; cd env:
- PS Env:\&gt; dir
-</code></pre>
+<pre>
+     PS C:\Users\Joel&gt; cd env:
+     PS Env:\&gt; dir
+</pre>
 
 <p><a href="http://www.flickr.com/photos/69355230@N03/10979657776/" title="ps_environment"><img src="http://farm8.staticflickr.com/7405/10979657776_a86a6201eb_c.jpg" width="800" height="603" alt="ps_environment"></a></p>
 
@@ -188,15 +190,17 @@
 
 <p>For user specific variables that only apply to you, variables can be created and set in the top section.  Click the <strong>New</strong> button and type a variable name and also a variable value.  As an example, if you wanted to set your GEM paths to a specific location you could do:</p>
 
-<pre><code> Variable name:  GEM_HOME
- Variable value: C:\Users\YourUserName\.gems
-</code></pre>
+<pre>
+     Variable name:  GEM_HOME
+     Variable value: C:\Users\YourUserName\.gems
+</pre>
 
 <p>Likewise, you can also reference another location from its variable name by surrounding it with the percent sign (%).  Let's say you want to set the GEM_PATH variable to the GEM_HOME location as well.</p>
 
-<pre><code> Variable name:  GEM_PATH
- Variable value: %GEM_HOME%
-</code></pre>
+<pre>
+     Variable name:  GEM_PATH
+     Variable value: %GEM_HOME%
+</pre>
 
 <p>For system variables, if you wanted to append to your current path you would find the Path variable and click the <strong>Edit</strong> button.  Go to the end of the line and place a semicolon ; and then add your new path location.  Example:  ;C:\SomeNewPath\Location.</p>
 
@@ -211,13 +215,14 @@
 
 <p>Here are some examples (you do not need to set these):</p>
 
-<pre><code> C:\&gt; setx PATHEXT %PATHEXT%;.RB;.RBW
- C:\&gt; setx HTTP_PROXY http://yourproxy:port
- C:\&gt; setx HOME %USERPROFILE%
- C:\&gt; setx GEM_HOME %HOME%\.gems
- C:\&gt; setx GEM_PATH %GEM_HOME%
- C:\&gt; setx CHOCOLATEY_BIN_ROOT C:\Development
-</code></pre>
+<pre>
+     C:\&gt; setx PATHEXT %PATHEXT%;.RB;.RBW
+     C:\&gt; setx HTTP_PROXY http://yourproxy:port
+     C:\&gt; setx HOME %USERPROFILE%
+     C:\&gt; setx GEM_HOME %HOME%\.gems
+     C:\&gt; setx GEM_PATH %GEM_HOME%
+     C:\&gt; setx CHOCOLATEY_BIN_ROOT C:\Development
+</pre>
 
 <p>Setx takes the following simple conditions:  SETX [SOME_VARIABLE] <a href="without%20the%20brackets">SOME_VALUE</a>.</p>
 
@@ -225,9 +230,10 @@
 
 <p>Go to Start &gt; type powershell and open <em>Windows PowerShell</em>.  Type the following:</p>
 
-<pre><code> PS C:\&gt; cd env:
- PS Env:\&gt; dir
-</code></pre>
+<pre>
+     PS C:\&gt; cd env:
+     PS Env:\&gt; dir
+</pre>
 
 <p>Notice all of those environment variables.  You can edit them by just typing:</p>
 
@@ -236,9 +242,10 @@
 
 <p>If you want to create a new variable run an example test using:</p>
 
-<pre><code> PS C:\&gt; $env:TESTVAR = "C:\"
- PS C:\&gt; dir
-</code></pre>
+<pre>
+     PS C:\&gt; $env:TESTVAR = "C:\"
+     PS C:\&gt; dir
+</pre>
 
 <p>You should see your new test variable.  I should also note that you still have the availability of using the setx commands in PS.  So, you could use that method also.</p>
 
@@ -267,17 +274,19 @@
 
 <p>The tip will open powershell as an administrator.  The main objective of sharing the tip is to show that you can access powershell many different ways.  To set the execution policy from powershell type:</p>
 
-<pre><code> PS C:\Some\Path&gt;  Set-ExecutionPolicy unrestricted
- PS C:\Some\Path&gt;  Get-ExecutionPolicy
-</code></pre>
+<pre>
+     PS C:\Some\Path&gt;  Set-ExecutionPolicy unrestricted
+     PS C:\Some\Path&gt;  Get-ExecutionPolicy
+</pre>
 
 <p>You should see that your execution policy is now unrestricted.  For now, that's all we are going to do with PowerShell.  We'll use it later on.  As an extra credit reading tip, if you want to find out more about the two commands we just used do the following:</p>
 
-<pre><code> PS C:\Some\Path&gt; Get-Help Set-ExecutionPolicy
- PS C:\Some\Path&gt; Get-Help Set-ExeuctionPolicy -Detailed
- PS C:\Some\Path&gt; Get-Help Get-ExecutionPolicy
- PS C:\Some\Path&gt; Get-Help Get-ExecutionPolicy -Detailed
-</code></pre>
+<pre>
+     PS C:\Some\Path&gt; Get-Help Set-ExecutionPolicy
+     PS C:\Some\Path&gt; Get-Help Set-ExeuctionPolicy -Detailed
+     PS C:\Some\Path&gt; Get-Help Get-ExecutionPolicy
+     PS C:\Some\Path&gt; Get-Help Get-ExecutionPolicy -Detailed
+</pre>
 
 <p>Likewise, understand that PowerShell utilizes "objects" and "classes" similar to Ruby!  In Ruby you would access methods by typing someclass.methods.  In PowerShell you do the same by pipelining Get-Member.  Like so:</p>
 
