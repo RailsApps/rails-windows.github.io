@@ -35,7 +35,12 @@ echo "COMMITTING"
 git add -A
 git commit -am "update website"
 git push origin master
-echo "FINISHED";
+echo "FINISHED Pushing to github.io";
+cd $wiki
+git add -A
+git commit -m "updated wiki"
+git push origin master
+echo "FINISHED Pushing to github.io.wiki";
 # END OF SCRIPT
 
 
