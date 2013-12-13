@@ -134,15 +134,15 @@
 </ul><p>Once here, type the following commands in Git Bash, in order:</p>
 
 <pre>
-     $ git config --global user.email "yourEmail@example.com"
-     $ git config --global user.name "Your Name"
-     $ git config core.autocrlf false
-     $ touch README.md
-     $ git init
-     $ git add README.md
-     $ git commit -m "first commit"
-     $ git remote add origin https://github.com/YourAccountName/YourRepositoryName.git
-     $ git push -u origin master
+  $ git config --global user.email "yourEmail@example.com"
+  $ git config --global user.name "Your Name"
+  $ git config core.autocrlf false
+  $ touch README.md
+  $ git init
+  $ git add README.md
+  $ git commit -m "first commit"
+  $ git remote add origin https://github.com/YourAccountName/YourRepositoryName.git
+  $ git push -u origin master
 </pre>
 
 <p>You should be prompted with a username and password box and once you enter the credentials, your push should go through.  In the example above you need to substitute your email and your name.  You also need to put your account name and repo name in the git remote add origin command.</p>
@@ -160,16 +160,16 @@
 <p>Add the following at the bottom of your .gitignore file:</p>
 
 <pre>
-     /config/initializers/secret_token.rb
-     /config/database.yml
+  /config/initializers/secret_token.rb
+  /config/database.yml
 </pre>
 
 <p>Save your file and let's try a full application push now.  From git bash:</p>
 
 <pre>
-     $ git add .   (yes that's a period)
-     $ git commit -m "full base application push"
-     $ git push origin master
+  $ git add .   (yes that's a period)
+  $ git commit -m "full base application push"
+  $ git push origin master
 </pre>
 
 <p>Now do a refresh on GitHub.  Voila!  Your entire app is now stored on GitHub.  But, wait a minute.  If you go and look in your config directory you will see that the database.yml and the config/initializers/secret_token.rb files are not listed.  They were ignored by the .gitignore file.  Great!</p>
