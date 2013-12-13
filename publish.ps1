@@ -9,7 +9,16 @@
 
 
 # START OF SCRIPT
+
+# Clear and stop other PowerShell Instances
 clear
+echo "__________________________________________________________________"
+echo "===> Stopping other PowerShell Instances"
+Get-Process Powershell  | Where-Object { $_.ID -ne $pid } | Stop-Process
+
+# Use URU to switch to the appropriate Ruby version and set working Variables
+echo "__________________________________________________________________"
+echo "===> Switching to Ruby 1.9.3 and configuring environment"
 # Switch to Ruby 1.9.3 p 484
 uru 193p484
 # Set some working environment variables
@@ -19,38 +28,60 @@ $fullsite = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wi
 $site = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wiki\_site"
 $destination = "C:\Development\rails4stack\rails-windows\rails-windows.github.io"
 
-# Start the Publish Script
-echo "Running Gollum-site generate in Github.io.wiki"
+# Perform some cleanup, if necessary
+echo "__________________________________________________________________"
+echo "===> Checking cleanup routines"
+$_siteInWiki = Test-Path $site
+if ($_siteInWiki){
+  echo "===> Cleaning up.. Deleting io.wiki\_site"
+  Remove-Item -Recurse -Force $site
+} else {
+  echo "===> Cleanup not necessary."
+}
+
+# Start the Gollum site generator
+echo "__________________________________________________________________"
+echo "===> Running Gollum-site generator in wiki"
 cd $wiki
 gollum-site generate
-echo "GENERATED _site";
+echo "... GENERATED _site";
 
 # Copy _site to .io and overwrite all files
-echo "Copying " $fullsite " to " $destination
+echo "__________________________________________________________________"
+echo "===> Copying " $fullsite
+echo "===> -TO-"
+echo "===> Copying " $destination
 Copy-Item $fullsite $destination -Recurse -Force
-echo "Deleting " $site
+
+# Delete old _site directory in Wiki
+echo "__________________________________________________________________"
+echo "===> Deleting " $site
 Remove-Item -Recurse -Force $site
 
 # Push to Github.io.wiki
+echo "__________________________________________________________________"
+echo "===> COMMITTING to Github.io.wiki"
+echo "_____________________USER INPUT REQUIRED!_________________________"
 $commit = Read-Host 'Please type your commit message...'
-echo "COMMITTING to Github.io.wiki"
 git add -A
 git commit -m $commit
 git push origin master
-echo "FINISHED Pushing to github.io.wiki";
+echo "... FINISHED Pushing to github.io.wiki";
 
 # Repush Home to Index
+echo "__________________________________________________________________"
+echo "===> Replace index.html with Home.html"
 cd $destination
-echo "Deleting index.html and replacing it with Home.html"
 del index.html
 move-item Home.html index.html
 
 # Push to Github.io
-echo "COMMITTING to Github.io"
+echo "__________________________________________________________________"
+echo "===> COMMITTING to Github.io"
 git add -A
 git commit -am $commit
 git push origin master
-echo "FINISHED Pushing to github.io";
+echo "... FINISHED Pushing to github.io";
 # END OF SCRIPT
 
 
