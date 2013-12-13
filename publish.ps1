@@ -18,29 +18,38 @@ $wiki = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wiki"
 $fullsite = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wiki\_site\*"
 $site = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wiki\_site"
 $destination = "C:\Development\rails4stack\rails-windows\rails-windows.github.io"
+
 # Start the Publish Script
-echo "Publishing to the rails-windows.github.io site"
+echo "Running Gollum-site generate in Github.io.wiki"
 cd $wiki
 gollum-site generate
-echo "GENERATED";
+echo "GENERATED _site";
+
+# Copy _site to .io and overwrite all files
 echo "Copying " $fullsite " to " $destination
 Copy-Item $fullsite $destination -Recurse -Force
 echo "Deleting " $site
 Remove-Item -Recurse -Force $site
-cd $destination
-echo "Deleting index.html and replacing it with Home.html"
-del index.html
-move-item Home.html index.html
-echo "COMMITTING"
-git add -A
-git commit -am "update website"
-git push origin master
-echo "FINISHED Pushing to github.io";
-cd $wiki
+
+# Push to Github.io.wiki
+echo "COMMITTING to Github.io.wiki"
 git add -A
 git commit -m "updated wiki"
 git push origin master
 echo "FINISHED Pushing to github.io.wiki";
+
+# Repush Home to Index
+cd $destination
+echo "Deleting index.html and replacing it with Home.html"
+del index.html
+move-item Home.html index.html
+
+# Push to Github.io
+echo "COMMITTING to Github.io"
+git add -A
+git commit -am "update website"
+git push origin master
+echo "FINISHED Pushing to github.io";
 # END OF SCRIPT
 
 
