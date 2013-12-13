@@ -278,6 +278,13 @@ echo "... FINISHED Pushing to github.io";
 # END OF SCRIPT
 </pre>
 
+Run the script as an alternative to entering commands manually by starting PowerShell and running the following commands:
+
+<pre>
+PS C:\> cd ~/workspace/rails-windows/rails-windows.github.io.wiki
+PS C:\> publish.ps1
+</pre>
+
 h4. Publish from Linux
 
 <pre>
