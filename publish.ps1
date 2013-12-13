@@ -23,10 +23,14 @@ echo "Publishing to the rails-windows.github.io site"
 cd $wiki
 gollum-site generate
 echo "GENERATED";
+echo "Copying " $fullsite " to " $destination
 Copy-Item $fullsite $destination -Recurse -Force
+echo "Deleting " $site
 Remove-Item -Recurse -Force $site
 cd $destination
-del index.html;move-item Home.html index.html
+echo "Deleting index.html and replacing it with Home.html"
+del index.html
+move-item Home.html index.html
 echo "COMMITTING"
 git add -A
 git commit -am "update website"
