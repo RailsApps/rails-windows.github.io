@@ -85,7 +85,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 9 December 2013</em></p>
+<p><em>Last updated 12 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -109,8 +109,9 @@
 <li>Open a Browser and visit <a href="http://chocolatey.org">Chocolatey.org</a>
 </li>
 <li>Click the link under the easy installation OR copy the text below</li>
-</ol><pre><code>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
-</code></pre>
+</ol><pre>
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+</pre>
 
 <ol>
 <li>Open a regular CMD prompt and right-click and paste, hitting enter.  After the installation is completed, close the CMD prompt.</li>
@@ -180,10 +181,11 @@ in action.</p>
 
 <p>Once done, let's verify that mysql2 is working properly by opening IRB from a command prompt.</p>
 
-<pre><code> C:\&gt; irb
- C:\&gt; require 'mysql2'
- =&gt; true
-</code></pre>
+<pre>
+     C:\&gt; irb
+     C:\&gt; require 'mysql2'
+     =&gt; true
+</pre>
 
 <p>This should equal true.</p>
 

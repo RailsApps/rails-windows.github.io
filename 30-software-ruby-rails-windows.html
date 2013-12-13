@@ -106,7 +106,7 @@
 <ul>
 <li><em><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30653">.NET Framework 4.5</a></em></li>
 <li>PowerShell 2.0 or higher (recommended PS 4.0)</li>
-<li>Windows 7 or Windows 8 or Windows 8.1 (see <strong>Chapter 03: Virtualization</strong> for a free preview of Windows 8.1)</li>
+<li>Windows 7 or Windows 8 or Windows 8.1 (see <a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a>)</li>
 <li><em><a href="http://www.7-zip.org/download.html">7zip</a></em></li>
 <li>
 <em><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></em> (if you plan on installing a VM)</li>
@@ -224,15 +224,16 @@ RailsApps tutorials.</p>
 
 <h6>Questioning and Setting Your Own Expectations</h6>
 
-<pre><code> \&gt; Are you planning on developing GUI tools or other apps with Ruby by itself?
- \&gt; Are you planning to only use ruby on rails and work with web development?
- \&gt; If web development is your focus, what type of stack do you want to build?
- \&gt; Are there any special dependencies you need for your development stack?
- \&gt; What editor or IDE do you want to use when coding or developing?
- \&gt; Do you plan on using a VM for virtual developing?
- \&gt; How do you plan on handling versioning and backups?
- \&gt; If using databases, what type of database management system will you use?
-</code></pre>
+<pre>
+    \&gt; Are you planning on developing GUI tools or other apps with Ruby by itself?
+    \&gt; Are you planning to only use ruby on rails and work with web development?
+    \&gt; If web development is your focus, what type of stack do you want to build?
+    \&gt; Are there any special dependencies you need for your development stack?
+    \&gt; What editor or IDE do you want to use when coding or developing?
+    \&gt; Do you plan on using a VM for virtual developing?
+    \&gt; How do you plan on handling versioning and backups?
+    \&gt; If using databases, what type of database management system will you use?
+</pre>
 
 <p>This is a very simple list of questions that help you determine what things you may want to consider.  For instance, if you plan on developing GUI apps at some point, you might want to check out WxRuby widgets. You also may want to have a GitHub account for backing up and handling versioning.  Try to focus on core components and ideas pertaining to how you develop.  The pieces you need later to complete your website can be saved for another time.</p>
 
@@ -278,8 +279,11 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 
 <p>For our tutorials I recommend <a href="http://www.sublimetext.com/3">Sublime Text 3</a>.  It is a very sophisticated and extremely easy to use editor that has very little resource usage.</p>
 
-<pre><code> NOTE:  If you plan on using a VM, you can come back to these instructions after you've created your VM and installed Sublime Text 3 on it instead.  Otherwise, if you're doing this locally and without a VM you can finish the setup configuration below:
-</code></pre>
+<div class="panel callout radius">
+  <h5>NOTE:</h5>
+  <p>If you plan on using a VM, you can come back to these instructions after you've created your VM and installed Sublime Text 3 on it instead.  Otherwise, if
+    you're doing this locally and without a VM you can finish the setup configuration below:</p>
+</div>
 
 <p>After you have Sublime text 3 downloaded and running, do the following:</p>
 
@@ -290,23 +294,23 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 
 <p>Copy and Paste the following below into the console and hit enter.</p>
 
-<pre><code> import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime
-</code></pre>
-
-<p>.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( '<a href="http://sublime.wbond.net/">http://sublime.wbond.net/</a>' + pf.replace(' ','%20')).read())</p>
+<pre>
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+</pre>
 
 <p>Close and restart Sublime Text 3.  Next, let's add some packages to make it look more friendly:</p>
 
-<pre><code> Click Preferences &gt; Package Control &gt; Install Package
- Type Soda theme and click to install.
- .. repeat and type RailsCasts color and click to install this theme.
- .. repeat and type All Autocomplete and click to install.
- .. repeat and type BeautifyRuby and click to install.
- .. repeat and type Better Coffeescript and click to install.
- .. repeat and type ChangeQuotes and click to install.
- .. repeat and type SideBarEnhancements and click to install.
- .. repeat and type GitGutter and click to install.
-</code></pre>
+<pre>
+     Click Preferences &gt; Package Control &gt; Install Package
+     Type Soda theme and click to install.
+     .. repeat and type RailsCasts color and click to install this theme.
+     .. repeat and type All Autocomplete and click to install.
+     .. repeat and type BeautifyRuby and click to install.
+     .. repeat and type Better Coffeescript and click to install.
+     .. repeat and type ChangeQuotes and click to install.
+     .. repeat and type SideBarEnhancements and click to install.
+     .. repeat and type GitGutter and click to install.
+</pre>
 
 <p>Edit your user preferences:</p>
 
@@ -323,9 +327,10 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 
 <p>From a cmd prompt:</p>
 
-<pre><code> cd "%AppData%\Sublime Text 3\Packages\User"
- git clone https://github.com/zurb/foundation-5-sublime-snippets.git
-</code></pre>
+<pre>
+    cd "%AppData%\Sublime Text 3\Packages\User"
+    git clone https://github.com/zurb/foundation-5-sublime-snippets.git
+</pre>
 
 <ul>
 <li>Each snippet is prefixed with zf- (ZURB Foundation).</li>
@@ -333,26 +338,27 @@ include RubyMine and Netbeans.  Both of these IDEs have extreme load times and t
 <li>Available classes are included as comments in the snippets</li>
 </ul><p>Available Components Offcanvas:</p>
 
-<pre><code>zf-topbar + tab
-zf-sidenav + tab
-zf-subnav + tab
-zf-breadcrumb + tab
-zf-pagination + tab
-zf-orbit + tab
-zf-clearing + tab
-zf-button + tab
-zf-button-group + tab
-zf-split-button + tab
-zf-dropdown-button + tab
-zf-reveal + tab
-zf-alert + tab
-zf-panel + tab
-zf-pricing-table + tab
-zf-progress-bar + tab
-zf-accordion + tab
-zf-tab + tab
-zf-vertical-tab + tab
-</code></pre>
+<pre>
+    zf-topbar + tab
+    zf-sidenav + tab
+    zf-subnav + tab
+    zf-breadcrumb + tab
+    zf-pagination + tab
+    zf-orbit + tab
+    zf-clearing + tab
+    zf-button + tab
+    zf-button-group + tab
+    zf-split-button + tab
+    zf-dropdown-button + tab
+    zf-reveal + tab
+    zf-alert + tab
+    zf-panel + tab
+    zf-pricing-table + tab
+    zf-progress-bar + tab
+    zf-accordion + tab
+    zf-tab + tab
+    zf-vertical-tab + tab
+</pre>
 
 <p>Once imported, restart Sublime and then go to Tools &gt; Snippets.  Type in <strong>zf</strong> to see a full list of foundation quick actions.  These will allow you to quickly create foundation classes.  Test it out in an erb or html file.</p>
 
@@ -361,9 +367,10 @@ zf-vertical-tab + tab
 <p>If you are operating behind a proxy (at work for example) and encounter any type of download/setup issue going forward, you may need to add a proxy to your local path.  To
 add a proxy, do the following from an elevated CMD prompt as an administrator:</p>
 
-<pre><code> C:\&gt; setx HTTP_PROXY "http://yourproxy:port" (ex: ascproxy:80)
- C:\&gt; setx HTTPS_PROXY "https://yourproxy:port" (use this command instead of HTTP if your work is using an HTTPS proxy instead - not usually the case)
-</code></pre>
+<pre>
+    C:\&gt; setx HTTP_PROXY "http://yourproxy:port" (ex: ascproxy:80)
+    C:\&gt; setx HTTPS_PROXY "https://yourproxy:port" (use instead of HTTP if your work is using HTTPS)
+</pre>
 
 <h3>Questions or related searches</h3>
 

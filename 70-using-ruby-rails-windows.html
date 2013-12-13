@@ -85,7 +85,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 9 December 2013</em></p>
+<p><em>Last updated 12 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -143,7 +143,8 @@ directory.  Double click it to open it.</p>
 
 <p><em>NOTE:  If any of the versions listed in our gemfile for the gems listed below are newer, simply update the versions below and then copy/paste them into your gemfile.</em></p>
 
-<pre lang="ruby"><code>source 'https://rubygems.org'
+<pre>
+source 'https://rubygems.org'
 gem 'rails', '4.0.2'                        # Bundle edge Rails: gem 'rails', github: 'rails/rails'
 gem 'sass-rails', '~&gt; 4.0.0'                # Use SCSS for stylesheets
 gem 'uglifier', '&gt;= 1.3.0'                  # Use Uglifier as compressor for JavaScript assets
@@ -157,7 +158,7 @@ gem "mysql2"
 group :doc do
   gem 'sdoc', require: false
 end
-</code></pre>
+</pre>
 
 <h4>Commands</h4>
 
@@ -208,17 +209,19 @@ get this working:</p>
 
 <p>Find the following code</p>
 
-<pre lang="ruby"><code>    JScript = ExternalRuntime.new(
+<pre>
+    JScript = ExternalRuntime.new(
       :name        =&gt; "JScript",
       :command     =&gt; "cscript //E:jscript //Nologo //U",
       :runner_path =&gt; ExecJS.root + "/support/jscript_runner.js",
       :encoding    =&gt; 'UTF-16LE' # CScript with //U returns UTF-16LE
     )
-</code></pre>
+</pre>
 
 <p>Change and edit it so that it looks like so:</p>
 
-<pre lang="ruby"><code>    JScript = ExternalRuntime.new(
+<pre>
+    JScript = ExternalRuntime.new(
       :name        =&gt; "JScript",
       :command     =&gt; "cscript //E:jscript //Nologo",
       # :command     =&gt; "cscript //E:jscript //Nologo //U",
@@ -226,7 +229,7 @@ get this working:</p>
       :encoding    =&gt; 'UTF-8'
       # :encoding    =&gt; 'UTF-16LE' # CScript with //U returns UTF-16LE
     )
-</code></pre>
+</pre>
 
 <p>Save this file and now the Windows Script Host will work with ExecJS.  Hopefully this will be fixed in a later version.</p>
 
@@ -236,7 +239,8 @@ get this working:</p>
 
 <p>Remove and add the following:</p>
 
-<pre lang="ruby"><code># MySQL 2 Configuration
+<pre>
+# MySQL 2 Configuration
 development:
   adapter: mysql2
   encoding: utf8
@@ -261,13 +265,14 @@ production:
   username: root
   password: Passw0rd!
   host: localhost
-</code></pre>
+</pre>
 
 <p>After saving your file, let's create the database and migrate it.</p>
 
-<pre><code> C:\Development\wrails&gt; bundle exec rake db:create   [enter]
- C:\Development\wrails&gt; bundle exec rake db:migrate   [enter]
-</code></pre>
+<pre>
+     C:\Development\wrails&gt; bundle exec rake db:create   [enter]
+     C:\Development\wrails&gt; bundle exec rake db:migrate   [enter]
+</pre>
 
 <h4>Running your application</h4>
 
@@ -291,12 +296,13 @@ Ruby on Rails!</p>
 <li>Some of these gems include the following:</li>
 </ul><p>Summary:</p>
 
-<pre><code> sass-rails: sass stylesheets (.scss) that we'll use with our app.
- bcrypt-ruby: a solid password encryption lib we can use when creating our authentication system.
- jquery-rails: jQuery 1.10.x
- foundation-rails: Foundation 5 allows others to build better designed future-friendly sites.
- mysql2: The MySQL2 gem that allows us to use MySQL with our app
-</code></pre>
+<pre>
+  sass-rails: sass stylesheets (.scss) that we'll use with our app.
+  bcrypt-ruby: a solid password encryption lib we can use when creating our authentication system.
+  jquery-rails: jQuery 1.10.x
+  foundation-rails: Foundation 5 allows others to build better designed future-friendly sites.
+  mysql2: The MySQL2 gem that allows us to use MySQL with our app
+</pre>
 
 <ul>
 <li>We fixed an issue with execjs runtimes so that Microsoft Windows Script Host will work with Rails.</li>
@@ -355,12 +361,13 @@ lengthy tasks with just a few keystrokes.  Here's an example and don't worry, wh
 <p>Sal is an alias for Set-Alias which allows you to set an
 alias for a command.  Let's play around a bit.  Type the following commands in a row:</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias h   [enter]
- PS C:\Users\IEUser&gt; h   [enter]
- PS C:\Users\IEUser&gt; alias r   [enter]
- PS C:\Users\IEUser&gt; h   [enter]
- PS C:\Users\IEUser&gt; r 2   [enter]
-</code></pre>
+<pre>
+     PS C:\Users\IEUser&gt; alias h   [enter]
+     PS C:\Users\IEUser&gt; h   [enter]
+     PS C:\Users\IEUser&gt; alias r   [enter]
+     PS C:\Users\IEUser&gt; h   [enter]
+     PS C:\Users\IEUser&gt; r 2   [enter]
+</pre>
 
 <p>You've just learned how to use Get-History and Invoke-History to retrieve commands that you did while using PS during this particular session.  Imagine that you were
 working for a full hour, typing different commands.  If you forgot whether or not you did a particular command, you can just find it by typing h and hitting enter.
@@ -374,11 +381,12 @@ set your own aliases.</p>
 about let's have a little bit of fun with creating a temporary alias.  This alias will only be good until you close the PS window.  Also I am using Sublime Text 3 as my
 example.  If you are using a different editor (like Sublime Text 2 or notepad), find the path to the executable and replace/swap that out in the line below.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; New-Item -Path $Profile -ItemType file -Force   [enter]
- PS C:\Users\IEUser&gt; sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"   [enter]
- PS C:\Users\IEUser&gt; function my-profile {subl $profile}   [enter]
- PS C:\Users\IEUser&gt; sal myprofile my-profile   [enter]
-</code></pre>
+<pre>
+     PS C:\Users\IEUser&gt; New-Item -Path $Profile -ItemType file -Force   [enter]
+     PS C:\Users\IEUser&gt; sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"   [enter]
+     PS C:\Users\IEUser&gt; function my-profile {subl $profile}   [enter]
+     PS C:\Users\IEUser&gt; sal myprofile my-profile   [enter]
+</pre>
 
 <p>The first command creates a new profile for you that you can use to store your aliases in PowerShell.  The second command was the first alias I created and was called
 subl, short for Sublime which will open Sublime Text 3.  The third command is a function I created called my-profile which simply forces Sublime text to open my profile.
@@ -401,9 +409,10 @@ you want to create to help you while developing.  You could string a series of f
 <p>Ruby comes with <a href="http://en.wikipedia.org/wiki/Interactive_Ruby_Shell">IRB</a> (Interactive Ruby Shell), which allows us to execute Ruby commands with immediate
 response, which can help with real-time experimenting.  Type irb and hit enter.  Type the following:</p>
 
-<pre lang="ruby"><code>txt = "I just learned about IRB."
+<pre>
+txt = "I just learned about IRB."
 p txt
-</code></pre>
+</pre>
 
 <h3>Ruby on Rails</h3>
 
