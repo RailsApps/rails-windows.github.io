@@ -197,20 +197,17 @@ h4. Publish from Windows (using PowerShell)
 # From the posh-git repository run .\install.ps1
 # git clone git@github.com:dahlbyk/posh-git.git
 # you can modify the default profile being loaded by posh-git by going to the cloned directory
+#
+# Set the environment variables below to the workspace\directory\ you cloned the repos to.
 # =============================================================================================
 
-
-
-
 # START OF SCRIPT
-
 
 # Clear and stop other PowerShell Instances
 clear
 echo "__________________________________________________________________"
 echo "===> Stopping other PowerShell Instances"
 Get-Process Powershell  | Where-Object { $_.ID -ne $pid } | Stop-Process
-
 
 # Use URU to switch to the appropriate Ruby version and set working Variables
 echo "__________________________________________________________________"
@@ -224,7 +221,6 @@ $fullsite = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wi
 $site = "C:\Development\rails4stack\rails-windows\rails-windows.github.io.wiki\_site"
 $destination = "C:\Development\rails4stack\rails-windows\rails-windows.github.io"
 
-
 # Perform some cleanup, if necessary
 echo "__________________________________________________________________"
 echo "===> Checking cleanup routines"
@@ -236,14 +232,12 @@ if ($_siteInWiki){
   echo "===> Cleanup not necessary."
 }
 
-
 # Start the Gollum site generator
 echo "__________________________________________________________________"
 echo "===> Running Gollum-site generator in wiki"
 cd $wiki
 gollum-site generate
 echo "... GENERATED _site";
-
 
 # Copy _site to .io and overwrite all files
 echo "__________________________________________________________________"
@@ -252,12 +246,10 @@ echo "===> -TO-"
 echo "===> Copying " $destination
 Copy-Item $fullsite $destination -Recurse -Force
 
-
 # Delete old _site directory in Wiki
 echo "__________________________________________________________________"
 echo "===> Deleting " $site
 Remove-Item -Recurse -Force $site
-
 
 # Push to Github.io.wiki
 echo "__________________________________________________________________"
@@ -269,14 +261,12 @@ git commit -m $commit
 git push origin master
 echo "... FINISHED Pushing to github.io.wiki";
 
-
 # Repush Home to Index
 echo "__________________________________________________________________"
 echo "===> Replace index.html with Home.html"
 cd $destination
 del index.html
 move-item Home.html index.html
-
 
 # Push to Github.io
 echo "__________________________________________________________________"
