@@ -110,7 +110,7 @@
 </li>
 <li>Click the link under the easy installation OR copy the text below</li>
 </ol><pre>
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+  @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
 </pre>
 
 <ol>
@@ -142,66 +142,66 @@ want to know what each app does, you can type the app in the chocolatey.org sear
 slightly longer in PS.  The main reason is to teach you how to run additional commands in PS.</p>
 
 <pre>
-     C:\&gt; chocolatey update
-     C:\&gt; cup all
-     C:\&gt; cinst 7zip
-     C:\&gt; cinst fiddler
-     C:\&gt; $webpifeed="https://www.microsoft.com/web/webpi/4.6/webproductlist.xml"
-     C:\&gt; cinst webpicmd
-     C:\&gt; webpicmd /install /products:WebMatrix /accepteula
-     C:\&gt; cinst VisualStudio2012Ultimate
-     C:\&gt; cinst Dogtail.VS2012.3
-     C:\&gt; cinst resharper
-     C:\&gt; cinst bleachbit
-     C:\&gt; cinst sublime
-     C:\&gt; cinst curl
+  C:\&gt; chocolatey update
+  C:\&gt; cup all
+  C:\&gt; cinst 7zip
+  C:\&gt; cinst fiddler
+  C:\&gt; $webpifeed="https://www.microsoft.com/web/webpi/4.6/webproductlist.xml"
+  C:\&gt; cinst webpicmd
+  C:\&gt; webpicmd /install /products:WebMatrix /accepteula
+  C:\&gt; cinst VisualStudio2012Ultimate
+  C:\&gt; cinst Dogtail.VS2012.3
+  C:\&gt; cinst resharper
+  C:\&gt; cinst bleachbit
+  C:\&gt; cinst sublime
+  C:\&gt; cinst curl
 </pre>
 
 <p>Web Browsers</p>
 
 <pre>
-     C:\&gt; cinst GoogleChrome
-     C:\&gt; cinst FireFox
-     C:\&gt; cinst Opera
-     C:\&gt; cinst safari
+  C:\&gt; cinst GoogleChrome
+  C:\&gt; cinst FireFox
+  C:\&gt; cinst Opera
+  C:\&gt; cinst safari
 </pre>
 
 <p>Git</p>
 
 <pre>
-     C:\&gt; cinst git
+  C:\&gt; cinst git
 </pre>
 
 <p>Set Paths and Environment Variables</p>
 
 <pre>
-     C:\&gt; cd env:
-     C:\&gt; mkdir $env:userprofile\.gems
-     C:\&gt; [Environment]::SetEnvironmentVariable("HOME",$env:userprofile,"User")
-     C:\&gt; [Environment]::SetEnvironmentVariable("GEM_HOME",$env:userprofile + "\.gems","User")
-     C:\&gt; [Environment]::SetEnvironmentVariable("GEM_PATH",$env:userprofile + "\.gems","User")
-     C:\&gt; [Environment]::SetEnvironmentVariable("PATH",$env:path + ";" + $env:userprofile + "\.gems\bin","User")
+  C:\&gt; cd env:
+  C:\&gt; mkdir $env:userprofile\.gems
+  C:\&gt; [Environment]::SetEnvironmentVariable("HOME",$env:userprofile,"User")
+  C:\&gt; [Environment]::SetEnvironmentVariable("GEM_HOME",$env:userprofile + "\.gems","User")
+  C:\&gt; [Environment]::SetEnvironmentVariable("GEM_PATH",$env:userprofile + "\.gems","User")
+  C:\&gt; [Environment]::SetEnvironmentVariable("PATH",$env:path + ";" + $env:userprofile + "\.gems\bin","User")
 </pre>
 
 <p>Install Ruby and Ruby DevKit</p>
 
 <pre>
-     C:\&gt; cinst ruby
-     C:\&gt; cmd /c start powershell -command {cinst ruby.devkit}
+  C:\&gt; cinst ruby
+  C:\&gt; cmd /c start powershell -command {cinst ruby.devkit}
 </pre>
 
 <p>Install and update Gems and Rails</p>
 
 <pre>
-     C:\&gt; cmd /c start powershell -command {gem update --system}
-     C:\&gt; cmd /c start powershell -command {gem install rails}
+  C:\&gt; cmd /c start powershell -command {gem update --system}
+  C:\&gt; cmd /c start powershell -command {gem install rails}
 </pre>
 
 <p>Install MySQL and gems</p>
 
 <pre>
-     C:\&gt; cinst mysql
-     C:\&gt; cmd /c start powershell -command {mysqladmin -u root password Passw0rd!}
+  C:\&gt; cinst mysql
+  C:\&gt; cmd /c start powershell -command {mysqladmin -u root password Passw0rd!}
 </pre>
 
 <p>When installing the mysql2 gem ensure that the statement below best reflects the package of mysql that was installed above.  The easiest way to find this out is to
@@ -209,21 +209,21 @@ go to the C:\tools directory and see what the mysql version is on the folder.  A
 correct version in the statement below.</p>
 
 <pre>
-     C:\&gt; cmd /c start powershell -command {gem install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql\mysql-5.6.15-win32\lib --with-mysql-include=C:\tools\mysql\mysql-5.6.15-win32\include}
+  C:\&gt; cmd /c start powershell -command {gem install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql\mysql-5.6.15-win32\lib --with-mysql-include=C:\tools\mysql\mysql-5.6.15-win32\include}
 </pre>
 
 <p>Copy the libmysql.dll to the ruby200\bin directory (also keeping in mind that the version of mysql may have changed at the time of this writing it is 5.6.15)</p>
 
 <pre>
-     C:\&gt; Copy-Item -Path C:\tools\mysql\mysql-5.6.15-win32\lib\libmysql.dll -Destination c:\ruby200\bin
+  C:\&gt; Copy-Item -Path C:\tools\mysql\mysql-5.6.15-win32\lib\libmysql.dll -Destination c:\ruby200\bin
 </pre>
 
 <p>Once done, let's verify that mysql2 is working properly by opening IRB.</p>
 
 <pre>
-     C:\&gt; irb
-     C:\&gt; require 'mysql2'
-     =&gt; true
+  C:\&gt; irb
+  C:\&gt; require 'mysql2'
+  =&gt; true
 </pre>
 
 <p>This should equal true.</p>
