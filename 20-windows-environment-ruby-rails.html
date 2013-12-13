@@ -82,7 +82,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 12 December 2013</em></p>
+<p><em>Last updated 13 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -98,7 +98,8 @@
 <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
 </ul><hr><h3>Windows Environments</h3>
 
-<p>Before you jump into this chapter let me start by setting some very simple expectations for you.  This chapter is meant to help you better understand and familiarize yourself with Windows and some of the basics you'll need to grasp before diving into the other chapters later.  The main environments we will focus on are Windows 7 and Windows 8.  We'll also look into the difference between 32-bit and 64-bit OS's and discuss potential impacts on developing and what changes you may need to make.</p>
+<p>Our goal in this chapter is to become more familiar with the Windows OS environment (Windows 7 and Windows 8.x), and focus on some of the core command interfaces we'll
+use to manage Windows and our Ruby on Rails application.</p>
 
 <h4>Setting Expectations</h4>
 
@@ -135,29 +136,27 @@ environment up and running virtually in under 15 minutes. If you already have an
 
 <p>Everything you need to initially setup and use Ruby and Ruby on Rails (RoR) is just as readily available for Windows as it is for any other operating environments.  You aren't going to install Ruby (the language) or RoR (the framework) and find out you can't use them.  You will also find that what you thought you knew about Windows as a development environment has changed quite substantially over the years.</p>
 
-<h3>Working with and setting up Environment Variables</h3>
+<hr><h3>Working with and setting up Environment Variables</h3>
 
 <p>I'm going to show you how to view/set your environment variables in three different modes:  GUI, CMD(dos), PS(powershell).</p>
 
 <h4>Viewing or Finding Variables</h4>
 
-<h5>GUI View</h5>
+<h5><strong>GUI View</strong></h5>
 
-<p>Win7: Click <strong>Start</strong> &gt; Type <strong>environment</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
-
-<p>Win8: Press the <strong>Windows key</strong> on your keyboard &gt; Type <strong>environment</strong> &gt; select <strong>system</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
-
-<p><a href="http://www.flickr.com/photos/69355230@N03/10979785133/" title="gui_environment"><img src="http://farm8.staticflickr.com/7453/10979785133_66022415c8_c.jpg" width="800" height="466" alt="gui_environment"></a></p>
+<ul>
+<li>Win7: Click <strong>Start</strong> &gt; Type <strong>environment</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</li>
+<li>Win8: Press the <strong>Windows key</strong> on your keyboard &gt; Type <strong>environment</strong> &gt; select <strong>system</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</li>
+</ul><p><a href="http://www.flickr.com/photos/69355230@N03/10979785133/" title="gui_environment"><img src="http://farm8.staticflickr.com/7453/10979785133_66022415c8_c.jpg" width="800" height="466" alt="gui_environment"></a></p>
 
 <p>This environment variables window is divided into two sections (top/bottom) for User variables and System variables.  The system variables take place system wide regardless of which users are logged in.  The user variables pertain only to the current user.  As you can see from the image, variables can be created, edited/modified right from this window.</p>
 
-<h5>Command Prompt</h5>
+<h5><strong>Command Prompt</strong></h5>
 
-<p>Win7: Click <strong>Start</strong> &gt; Type <strong>cmd</strong> and hit the Enter key</p>
-
-<p>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</p>
-
-<pre>
+<ul>
+<li>Win7: Click <strong>Start</strong> &gt; Type <strong>cmd</strong> and hit the Enter key</li>
+<li>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</li>
+</ul><pre>
 C:\Users\Joel&gt; set
 C:\Users\Joel&gt; set nameOfVariable
 </pre>
@@ -166,7 +165,7 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>The command prompt allows you to find/retrieve your environment variables through the set command.  You can also use set to temporarily set an environment variable that will remain active <em>only</em> while the current command window is open.  Once the window is closed, all variables set for that previously active session are no longer available.  In order to set permanent variables we can use the setx command.</p>
 
-<h5>PowerShell</h5>
+<h5><strong>PowerShell</strong></h5>
 
 <p>Finding your environment variables in PowerShell is also relatively easy.  Go to Start &gt; type powershell and open <em>Windows PowerShell</em>.  Type the following:</p>
 
@@ -181,13 +180,12 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <h4>Setting Environment Variables</h4>
 
-<h5>GUI View</h5>
+<h5><strong>GUI View</strong></h5>
 
-<p>Win7: Click <strong>Start</strong> &gt; Type <strong>environment</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
-
-<p>Win8: Press the <strong>Windows key</strong> on your keyboard &gt; Type <strong>environment</strong> &gt; select <strong>system</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</p>
-
-<p>For user specific variables that only apply to you, variables can be created and set in the top section.  Click the <strong>New</strong> button and type a variable name and also a variable value.  As an example, if you wanted to set your GEM paths to a specific location you could do:</p>
+<ul>
+<li>Win7: Click <strong>Start</strong> &gt; Type <strong>environment</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</li>
+<li>Win8: Press the <strong>Windows key</strong> on your keyboard &gt; Type <strong>environment</strong> &gt; select <strong>system</strong> &gt; select <strong>Edit the system environment variables</strong> &gt; click the Environment Variables button</li>
+</ul><p>For user specific variables that only apply to you, variables can be created and set in the top section.  Click the <strong>New</strong> button and type a variable name and also a variable value.  As an example, if you wanted to set your GEM paths to a specific location you could do:</p>
 
 <pre>
      Variable name:  GEM_HOME
@@ -203,14 +201,14 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>For system variables, if you wanted to append to your current path you would find the Path variable and click the <strong>Edit</strong> button.  Go to the end of the line and place a semicolon ; and then add your new path location.  Example:  ;C:\SomeNewPath\Location.</p>
 
-<h5>Command Prompt</h5>
+<h5><strong>Command Prompt</strong></h5>
 
-<p>Win7: Click <strong>Start</strong> &gt; Type <strong>cmd</strong> and hit the Enter key</p>
-
-<p>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</p>
-
-<pre><code> C:\&gt; setx /?
-</code></pre>
+<ul>
+<li>Win7: Click <strong>Start</strong> &gt; Type <strong>cmd</strong> and hit the Enter key</li>
+<li>Win8: Press the Windows key on your keyboard &gt; Type <strong>cmd</strong> and hit the Enter key</li>
+</ul><pre>
+     C:\&gt; setx /?
+</pre>
 
 <p>Here are some examples (you do not need to set these):</p>
 
@@ -225,7 +223,7 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>Setx takes the following simple conditions:  SETX [SOME_VARIABLE] <a href="without%20the%20brackets">SOME_VALUE</a>.</p>
 
-<h5>PowerShell</h5>
+<h5><strong>PowerShell</strong></h5>
 
 <p>Go to Start &gt; type powershell and open <em>Windows PowerShell</em>.  Type the following:</p>
 
@@ -236,8 +234,9 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>Notice all of those environment variables.  You can edit them by just typing:</p>
 
-<pre><code> PS C:\&gt; $env:NAMEofVARIABLE = "SomeValue";
-</code></pre>
+<pre>
+     PS C:\&gt; $env:NAMEofVARIABLE = "SomeValue";
+</pre>
 
 <p>If you want to create a new variable run an example test using:</p>
 
@@ -252,8 +251,9 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>Before you jump into using PowerShell, it will be beneficial to know what version you are using.  The simplest way is to open up powershell and run the following command:</p>
 
-<pre><code> PS C:\Some\Path&gt; $PSVersionTable.psversion
-</code></pre>
+<pre>
+     PS C:\Some\Path&gt; $PSVersionTable.psversion
+</pre>
 
 <p>You can open up powershell a couple of different ways.</p>
 
@@ -268,8 +268,9 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>You will want to configure a few things in PowerShell.  The first task is setting the execution policy to unrestricted.  This will be one of the pre-configuration steps so that PowerShell can be used with Chocolatey and NuGet.  Follow the previous steps to open PowerShell but before clicking on PowerShell, right-click and run as an administrator.</p>
 
-<pre><code> Tip:  You can also open a command prompt and type powershell -noprofile -command "&amp;{start-process powershell -verb RunAs}"
-</code></pre>
+<pre>
+  Tip:  You can also open a command prompt and type powershell -noprofile -command "&amp;{start-process powershell -verb RunAs}"
+</pre>
 
 <p>The tip will open powershell as an administrator.  The main objective of sharing the tip is to show that you can access powershell many different ways.  To set the execution policy from powershell type:</p>
 
@@ -289,8 +290,9 @@ C:\Users\Joel&gt; set nameOfVariable
 
 <p>Likewise, understand that PowerShell utilizes "objects" and "classes" similar to Ruby!  In Ruby you would access methods by typing someclass.methods.  In PowerShell you do the same by pipelining Get-Member.  Like so:</p>
 
-<pre><code> PS C:\Some\Path&gt; Get-ExecutionPolicy | Get-Member
-</code></pre>
+<pre>
+     PS C:\Some\Path&gt; Get-ExecutionPolicy | Get-Member
+</pre>
 
 <p>And, you'll notice that there's a nice list of methods you can access for Microsoft.PowerShell.ExecutionPolicy.  If you followed this far, you've earned some <strong>extra credit</strong>!</p>
 
