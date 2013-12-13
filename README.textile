@@ -292,7 +292,7 @@ $ git push origin master
 
 See the updated site at "http://rails-windows.github.io":http://rails-windows.github.io.
 
-h3. Script to Publish
+h4. Script to Publish from Linux
 
 The rails-windows.github.io.wiki repository contains a shell script to automate the publishing process.
 
