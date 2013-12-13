@@ -32,9 +32,10 @@ echo "Deleting " $site
 Remove-Item -Recurse -Force $site
 
 # Push to Github.io.wiki
+$commit = Read-Host 'Please type your commit message...'
 echo "COMMITTING to Github.io.wiki"
 git add -A
-git commit -m "updated wiki"
+git commit -m $commit
 git push origin master
 echo "FINISHED Pushing to github.io.wiki";
 
@@ -47,7 +48,7 @@ move-item Home.html index.html
 # Push to Github.io
 echo "COMMITTING to Github.io"
 git add -A
-git commit -am "update website"
+git commit -am $commit
 git push origin master
 echo "FINISHED Pushing to github.io";
 # END OF SCRIPT
