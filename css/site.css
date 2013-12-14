@@ -31,9 +31,11 @@ ul, ol {
 
 .bg-gray.footer-top {
   background: #444444;
+  color: #FFFFFF;
 }
 .footer-top.bg-gray{
   background: #444444;
+  color: #FFFFFF;
 }
 .footer-top {
   padding: 40px 0px;
