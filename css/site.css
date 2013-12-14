@@ -29,8 +29,11 @@ ul, ol {
   display: none;
 }
 
-.footer-top.bg-gray {
-  background: none repeat scroll 0% 0% rgb(68, 68, 68);
+.bg-gray.footer-top {
+  background: #444444;
+}
+.footer-top.bg-gray{
+  background: #444444;
 }
 .footer-top {
   padding: 40px 0px;
