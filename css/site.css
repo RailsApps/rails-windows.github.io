@@ -42,3 +42,6 @@ ul, ol {
   color: white;
   font-family: "Proxima Nova","proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+.footer-top h1, .footer-top h2, .footer-top h3, .footer-top h4, .footer-top h5 {
+  color: #FFFFFF !important;
+}
