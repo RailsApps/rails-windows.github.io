@@ -87,11 +87,11 @@ REDCLOTH gem 4.2.8
 
 In order to remove RedCloth warnings regarding obsolete and deprecated config on redcloth.rb:10 do the following:
 
-```ruby
+<pre>
 #Edit (ruby193\lib\ruby\gems\1.9.1\gems\RedCloth-4.2.8\lib\redcloth.rb:10)
 conf = Object.const_get(defined?(RbConfig) ? :RbConfig : :Config)::CONFIG
 prefix = conf['arch'] =~ /mswin|mingw/ ? "#{conf['MAJOR']}.#{conf['MINOR']}/" : ''
-```
+</pre>
 
 <pre>
 BLANKSLATE gem 3.1.2
@@ -99,7 +99,7 @@ BLANKSLATE gem 3.1.2
 
 In order to remove Blankstate warnings do the following:
 
-```ruby
+<pre>
 #Edit (ruby193\lib\ruby\gems\1.9.1\gems\blankslate-3.1.2\lib\blankslate.rb:46)
 def hide(name)
   # ADDED STATEMENT BELOW
@@ -113,7 +113,7 @@ def hide(name)
   # ALSO ADDED STATEMENT BELOW
   $VERBOSE = v
 #end
-```
+</pre>
 
 <pre>
 Gollum
@@ -127,9 +127,9 @@ C:\> gem install grit -v '2.3.0'
 
 Edit the gollum gemspec and change the grit dependency in gollum-1.4.3 or the gem version you are using.
 
-```ruby
+<pre>
 s.add_dependency('grit', "2.3.0") # which removes spawn-posix requirement
-```
+</pre>
 
 Build and install the new gollum gem.
 
