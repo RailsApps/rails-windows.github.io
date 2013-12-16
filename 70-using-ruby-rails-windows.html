@@ -130,12 +130,12 @@ new application.</p>
 If you decide you want to use Sublime Text on a more permanent basis, I recommend installing Sublime Text 3.  If you already have a Sublime Text 3 key, install
 it manually and then apply your key.  You can customize Sublime Text 3 with the customization outlined in <a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software</a>.</p>
 
-<p>With Sublime Text open, click File -&gt; Open Folder -&gt; and choose your Wrails directory.  Once open you can navigate to your Gemfile in the root of the
-directory.  Double click it to open it.</p>
+<p>With Sublime Text open, click File -&gt; Open Folder -&gt; and choose your Wrails directory.  This will pull the entire directory structure into Sublime Text.  Click
+Project -&gt; Save Project As and name it as "Wrails".  This will create a new Sublime project file for Wrails.</p>
 
-<p>Add/Edit your Gemfile so it looks like this:</p>
+<p>Navigate to the Gemfile in the root of the Wrails directory.  Double click it to open it.  Add/Edit your Gemfile so it looks like this:</p>
 
-<p><em>NOTE:  If any of the versions listed in our gemfile for the gems listed below are newer, simply update the versions below and then copy/paste them
+<p><em>NOTE:  If any of the versions listed in your gemfile for the gems listed below are newer, simply update the version numbers below and then copy/paste them
 into your gemfile.</em></p>
 
 <pre>
@@ -157,11 +157,11 @@ end
 
 <h4>Commands</h4>
 
-<p>Once finished updating your gemfile you can run bundle to update and we can also install some of the components of our new rails app:</p>
+<p>Once you are finished updating your gemfile run the bundle command to update your application.  We can also install some of the components of our new rails app:</p>
 
 <p>First we'll run bundle to install all the gems and their dependencies:</p>
 
-<pre><code> C:\Development\wrails&gt; bundle
+<pre><code> C:\Development\wrails&gt; bundle install
 </code></pre>
 
 <p>Then we'll install <a href="https://github.com/rails/jquery-rails">jquery rails</a>:</p>
