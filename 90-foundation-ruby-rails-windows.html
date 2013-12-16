@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Git and GitHub for Ruby on Rails on Windows &#183; Rails for Windows</title>
+  <title>Liquid error: No such file or directory - python -c "import sys; print sys.executable" &#183; Rails for Windows</title>
   <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
   <link rel="stylesheet" href="http://rails-windows.github.io/css/foundation.css" />
   <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" />
@@ -78,156 +78,8 @@
 
   <div class="row">
     <div class="large-12 columns">
-      <div class="content wikistyle gollum markdown">
-        <h1>Git and GitHub for Ruby on Rails on Windows</h1>
-
-<h4>by Joel Dezenzio</h4>
-
-<p><em>Last updated 16 December 2013</em></p>
-
-<hr><p><em>Rails for Windows</em></p>
-
-<ul>
-<li><a href="http://rails-windows.github.io/index.html">Introduction to Ruby on Rails for Windows</a></li>
-<li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/20-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
-<li><a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/40-virtual-machines-ruby-rails-windows.html">Virtual Machines for Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/50-automated-install-ruby-rails-windows.html">Automated Install for Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/60-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
-<li><strong>Foundation 5 for Ruby on Rails on Windows</strong></li>
-</ul><hr><h3>Foundation 5</h3>
-
-<p>Foundation 5 is a framework designed for responsive layouts on all device types.  Whether you are on an iPhone, an Android device, tablets (all sizes),
-desktops, or even laptops, the goal of foundation is to provide you the best overall view of the site you are visiting.</p>
-
-<p>We've already installed Foundation 5 in <a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a>.  Let's dive into
-our application and start some configuring.</p>
-
-<h4>The Basics</h4>
-
-<p>If you run the  "rails server" command from your wrails application directory and visit <a href="http://localhost:3000">http://localhost:3000</a>, you'll see an html page
-that's pointed to a default "Welcome Aboard.  You're riding ruby on rails.".  Let's create a simple home page to start developing our layout.</p>
-
-<p>The first thing we'll do is create a controller:</p>
-
-<pre>
-  C:\Development&gt; rails g controller home
-</pre>
-
-<pre>
-C:\Development\wrails [master]&gt; rails g controller home
-      create  app/controllers/home_controller.rb
-      invoke  erb
-      create    app/views/home
-      invoke  test_unit
-      create    test/controllers/home_controller_test.rb
-      invoke  helper
-      create    app/helpers/home_helper.rb
-      invoke    test_unit
-      create      test/helpers/home_helper_test.rb
-      invoke  assets
-      invoke    coffee
-      create      app/assets/javascripts/home.js.coffee
-      invoke    scss
-      create      app/assets/stylesheets/home.css.scss
-C:\Development\wrails [master +6 ~0 -0 !]&gt;
-</pre>
-
-<p>We just created some files.  Let's go over a few of these together:</p>
-
-<ul>
-<li>app/controllers/home_controller.rb  -  This is our home controller.  Rails uses MVC (Model, View, Controller) to handle page requests, database requests, and page views.</li>
-<li>app/views/home  -  This is a views directory that will house .html, .html.erb, .js files that are used by our Home Controller.</li>
-<li>app/helpers/home_helper.rb  -  This is a helpers file we can use to create methods that will allow us to do different tasks while working in an html template.</li>
-<li>app/assets/javascripts/home.js.coffee  -  This is a coffeescript file for our home view.</li>
-<li>app/assets/stylesheets/home.css.scss  -  This is a sass stylesheet file.</li>
-<li>We also have some test files.  We won't go over them right now.</li>
-</ul><p>Open the app/controllers/home_controller_test.rb file.  All it contains is an empty class.  Let's add an index method to it.  Change your home controller to
-look like this:</p>
-
-<pre><code>&lt;pre&gt;
-  class HomeController &lt; ApplicationController
-    def index
-    end
-  end
-&lt;/pre&gt;
-</code></pre>
-
-<p>Now you'll see we just have an empty index method.  That index method expects that a view with its name exists in the app/views/home directory.  In fact, that
-view could be called "index.html" or "index.html.erb".  ERB is known as "embedded ruby" and is part of a templating system in rails that allows us to embed
-Ruby code into a text document.  In a web page, it is used to embed ruby into html.  Whenever our app sees an index.html.erb file it understands that
-we may have ruby code within, and it will process any ruby code it finds.</p>
-
-<p>From an MVC stand point, we currently have a Controller but we don't have a Model or a View.  Let's make a view.</p>
-
-<p>Create a new file in <strong>app/views/home/index.html.erb</strong>.  Note the end of my precediing path shows the file index.html.erb.  That will be the file name.
-After creating this file, the Home controller's index method now has its expectations of an index view existing met.  Let's add some code to our view.  Add
-the following inside of app/views/home/index.html.erb:</p>
-
-<pre><code>&lt;pre&gt;
-  &lt;h1&gt;Our Home Page&lt;/h1&gt;
-  &lt;h2&gt;Exists in...&lt;/h2&gt;
-  &lt;h3&gt;wrails/app/views/home/&lt;/h3&gt;
-&lt;/pre&gt;
-</code></pre>
-
-<p>We're still missing one piece though, routing.  Open your **app/config/routes.rb" file.  You will see a lot of information has been commented out.  These are
-examples of some of the routing conditions you can create as you proceed with your application.  For now, we just want to create a simple pointer for our
-application to open the root page to a specific location.  We've created a home index view.  Let's add a route.  Uncomment the line that starts with #root.  See
-the code below for an example.</p>
-
-<pre>
-Wrails::Application.routes.draw do
-  # The priority is based upon order of creation: first created -&gt; highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'home#index'
-</pre>
-
-<p>Change your root to <strong>root 'home#index'</strong>.  This tells our wrails app that our root or default page when people visit our site should be routed to home#index or
-controller#view.  Once you save the file, open up your rails app if you haven't done so yet, or simply refresh the page if its open.  If all goes well, you should
-see three headings for Our Home Page Exists in... wrails/app/views/home/.</p>
-
-<h4>Asset Files</h4>
-
-<p>TODO</p>
-
-<h2>Next Steps</h2>
-
-<p>If you're new to Rails, see <a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a>, the book <a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a>, and recommendations for a <a href="https://tutorials.railsapps.org/rails-tutorial">Rails tutorial</a>.</p>
-
-<p><a href="http://learn-rails.com/learn-ruby-on-rails.html" title="Learn Ruby on Rails"><img src="http://railsapps.github.io/images/learn-rails-cover-130x161.jpg" width="130" height="161" alt="Learn Ruby on Rails"></a></p>
-
-<p>The <a href="http://railsapps.github.io/">RailsApps project</a> provides example applications that developers use as starter apps. Hundreds of developers use the apps, report problems as they arise, and propose solutions. Rails changes frequently; each application is known to work and serves as your personal "reference implementation" so you can stay up to date. Each is accompanied by a tutorial so there is no mystery code. Support for the project, including the example applications and the <a href="http://railsapps.github.io/rails-composer/">Rails Composer</a> tool, comes from subscribers to the <a href="https://tutorials.railsapps.org">RailsApps tutorials</a>.</p>
-
-<h2>Do You Like This Guide?</h2>
-
-<p>Was this guide useful to you? Follow <a href="http://twitter.com/rails_apps">@rails_apps</a> on Twitter and tweet some praise. I'd love to know you were helped out by the guide.</p>
-
-<h3>Credits</h3>
-
-<p>This article was written by Joel Dezenzio. You can reach me at <a href="mailto:jdezenzio@gmail.com">jdezenzio@gmail.com</a>.</p>
-
-<p>Please contribute your comments and suggestions for improvement.</p>
-
-<h3>Contributors</h3>
-
-<p>Special thanks to:</p>
-
-<ul>
-<li> <em>Luis Lavena - <a href="http://rubyinstaller.org/">RubyInstaller &amp; Windows Development Support</a>.</em>
-</li>
-<li> <em>Rob Reynolds/Ferventcoder - <a href="http://chocolatey.org/">Chocolatey Package Manager Support</a>.</em>
-</li>
-<li> <em>Daniel Kehoe - <a href="http://railsapps.github.io/">RailsApps Project</a>.</em>
-</li>
-<li> <em>Matt Wrock - <a href="http://boxstarter.org/">Boxstarter</a>.</em>
-</li>
-</ul>
+      <div class="content wikistyle gollum Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module">
+        Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
       </div><!-- class="content" -->
       <div class="content wikistyle gollum">
         <h2>Comments</h2>
