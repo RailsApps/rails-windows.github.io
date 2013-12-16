@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ruby on Rails for Windows &#183; Rails for Windows</title>
+  <title>Git and GitHub for Ruby on Rails on Windows &#183; Rails for Windows</title>
   <link href="https://plus.google.com/117374718581973393536" rel="publisher" />
   <link rel="stylesheet" href="http://rails-windows.github.io/css/foundation.css" />
   <link rel="stylesheet" href="http://rails-windows.github.io/css/screen.css" />
@@ -79,19 +79,16 @@
   <div class="row">
     <div class="large-12 columns">
       <div class="content wikistyle gollum markdown">
-        <h1>Ruby on Rails for Windows</h1>
+        <h1>Git and GitHub for Ruby on Rails on Windows</h1>
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 16 December 2013</em></p>
+<p><em>Last updated 15 December 2013</em></p>
 
-<p><strong>Ruby on Rails for Windows</strong> is a comprehensive guide to developing web applications using the
-<em>Ruby on Rails</em> framework on the Microsoft Windows 7 and 8.x operating environments.</p>
-
-<hr><p><em>Chapters</em></p>
+<hr><p><em>Rails for Windows</em></p>
 
 <ul>
-<li><strong>Introduction to Ruby on Rails for Windows</strong></li>
+<li><a href="http://rails-windows.github.io/index.html">Introduction to Ruby on Rails for Windows</a></li>
 <li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html">Install Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/20-windows-environment-ruby-rails.html">Windows Environment for Ruby on Rails</a></li>
 <li><a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software for Ruby on Rails on Windows</a></li>
@@ -100,97 +97,42 @@
 <li><a href="http://rails-windows.github.io/60-manual-install-ruby-rails-windows.html">Manual Installation for Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
-<li><a href="http://rails-windows.github.io/90-foundation-ruby-rails-windows.html">Foundation 5 for Ruby on Rails on Windows</a></li>
-</ul><hr><h2>Introduction</h2>
+<li><strong>Foundation 5 for Ruby on Rails on Windows</strong></li>
+</ul><hr><h3>Foundation 5</h3>
 
-<p>This guide was created to help developers build Rails applications on the Windows OS platform. If you've searched and combed the web for resources pertaining to Ruby on Rails development on Windows then you've probably realized:</p>
+<p>TODO</p>
 
-<pre>
-  def information_related_to_windows
-    puts ("bangs head on wall " * 1000)
-  end
-</pre>
+<h2>Next Steps</h2>
 
-<p>Or, in plain words: It is difficult to find information about developing Rails applications on the Windows platform.</p>
+<p>If you're new to Rails, see <a href="http://railsapps.github.io/what-is-ruby-rails.html">What is Ruby on Rails?</a>, the book <a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a>, and recommendations for a <a href="https://tutorials.railsapps.org/rails-tutorial">Rails tutorial</a>.</p>
 
-<p>Information is either missing or scattered about in hard-to-find places.  You will likely find that
-Linux and Mac discussions overwhelm your searches on the web.  Even if you find some resources
-that seem relevant, the information may be outdated or unusable.  This leads many Windows developers to feelings of frustration.  This guide's
-goal is to provide the information you need to be productive developing with Ruby on Rails on a Windows machine.</p>
+<p><a href="http://learn-rails.com/learn-ruby-on-rails.html" title="Learn Ruby on Rails"><img src="http://railsapps.github.io/images/learn-rails-cover-130x161.jpg" width="130" height="161" alt="Learn Ruby on Rails"></a></p>
 
-<p>You’ll learn how to set up a development environment for Windows using utilities such as:</p>
+<p>The <a href="http://railsapps.github.io/">RailsApps project</a> provides example applications that developers use as starter apps. Hundreds of developers use the apps, report problems as they arise, and propose solutions. Rails changes frequently; each application is known to work and serves as your personal "reference implementation" so you can stay up to date. Each is accompanied by a tutorial so there is no mystery code. Support for the project, including the example applications and the <a href="http://railsapps.github.io/rails-composer/">Rails Composer</a> tool, comes from subscribers to the <a href="https://tutorials.railsapps.org">RailsApps tutorials</a>.</p>
 
-<ul>
-<li>NuGet (open source .NET package manager)</li>
-<li>Chocolatey (open source package manager for Windows)</li>
-<li>BoxStarter (open source automated installer)</li>
-<li>RubyInstaller and DevKit (all-in-one installer)</li>
-<li>URU (multi-platform ruby manager)</li>
-<li>VirtualBox (virtualization application)</li>
-</ul><p>You'll also learn about <strong>RailsApps</strong> which provides <em>Rails Examples and Tutorials</em>.</p>
+<h2>Do You Like This Guide?</h2>
 
-<h3>Misconceptions</h3>
+<p>Was this guide useful to you? Follow <a href="http://twitter.com/rails_apps">@rails_apps</a> on Twitter and tweet some praise. I'd love to know you were helped out by the guide.</p>
 
-<p>As a first step, I'd like to dispel misconceptions that result from a lack of knowledge about Rails for Windows.</p>
+<h3>Credits</h3>
 
-<p>Ruby is difficult to install on Windows</p>
+<p>This article was written by Joel Dezenzio. You can reach me at <a href="mailto:jdezenzio@gmail.com">jdezenzio@gmail.com</a>.</p>
 
-<p>You can manually install Ruby using <em><a href="http://rubyinstaller.org/">Rubyinstaller</a></em> and you can also automate
-installations for Ruby using chocolatey or boxstarter.  All of the installation methods are easy and pain-free. Windows
-installers can also make use of the DevKit which will build and use native C/C++ extensions automatically
-when required during gem installations.</p>
+<p>Please contribute your comments and suggestions for improvement.</p>
 
-<p>Windows has no package management</p>
+<h3>Contributors</h3>
 
-<p>Linux has apt-get for package management. Windows has NuGet, Chocolatey, Boxstarter, and a host of other package management configurations.  Chocolatey is the equivalent of apt-get for windows. Boxstarter, coupled with chocolately, allows you to do remote installations, automate installs from the web, network shares, usb keys, or locally.  It even has reboot resiliency with administrative rights from
-start to finish. The NuGet software that helps us to achieve package management is also <i>open source</i>.</p>
-
-<p>Windows has no Shell or Bash</p>
-
-<p>Linux has Linux Shell or Bash. Windows has PowerShell.  PowerShell uses cmdlets which allows Windows developers to create complex scripting for managing Windows systems.  It makes use of pipes, similar to Linux. However Linux shells output text while PowerShell
-takes advantage of using objects with the <em><a href="http://www.howtogeek.com/138121/geek-school-learning-powershell-objects/">pipeline</a></em>.  It
-is also used with Chocolatey and package management.</p>
-
-<p>Windows has no RVM</p>
-
-<p>Linux has RVM, the "Ruby Version Manager":<a href="https://rvm.io/">https://rvm.io/</a>. Windows can use URU.  There are also free Ruby Stack providers like <em><a href="https://bitnami.com/stack/ruby">Bitnami</a></em> which allow developers to deploy a complete environment stack with one-click installation.</p>
-
-<p>The main thing to realize is that, despite misconceptions, Windows is a practical and productive development environment for Rails. Though Rails had its origins in the open source Unix community, there are many talented contributors that invest their time to support development of Rails applications on Windows. The community is friendly and eager to help new developers get up to speed quickly.</p>
-
-<div class="panel callout radius">
-  <h3>What do I need to get started?</h3>
-  <ul>
-<li>Patience</li>
-    <li>Some Reading Time</li>
-    <li><b>Windows 7 (32 or 64-bit), Windows 8 or 8.1 (32 or 64-bit)</b></li>
-    <li><b>.NET Framework 4.5 minimum</b></li>
-    <li><b>PowerShell 2.0 or higher</b></li>
-    <li>Fingers (unless you are one of those rare toe-typists)</li>
-    <li><b>A simple text editor (I recommend Sublime Text 3)</b></li>
-  </ul>
-</div>
-
-<div class="panel">
-  <h3>Setting Expectations</h3>
-  <p>When you are finished reading everything (<i>this includes the wiki</i>), you should know how to do the following:</p>
-  <ul>
-<li>How to use Windows as a development platform</li>
-    <li>How to install and use Ruby on Windows via manual or automated methods</li>
-    <li>How to install and use Ruby on Rails via manual or automated methods</li>
-    <li>An understanding of NuGet, Chocolatey, Boxstarter, RubyInstaller, Devkit, Ruby, Ruby on Rails, URU, and PowerShell</li>
-    <li>How to setup and use virtualbox and Windows as a virtual development box</li>
-    <li>How to setup and use git on Windows</li>
-    <li>How to find reference material on the web</li>
-    <li>How to contribute to the discussion</li>
-  </ul>
-</div>
-
-<h2>Next Chapter</h2>
-
-<p>Read on for more about installation of Ruby on Rails on Windows:</p>
+<p>Special thanks to:</p>
 
 <ul>
-<li><a href="http://rails-windows.github.io/10-install-ruby-rails-windows.html"><strong>Install Ruby on Rails on Windows</strong></a></li>
+<li> <em>Luis Lavena - <a href="http://rubyinstaller.org/">RubyInstaller &amp; Windows Development Support</a>.</em>
+</li>
+<li> <em>Rob Reynolds/Ferventcoder - <a href="http://chocolatey.org/">Chocolatey Package Manager Support</a>.</em>
+</li>
+<li> <em>Daniel Kehoe - <a href="http://railsapps.github.io/">RailsApps Project</a>.</em>
+</li>
+<li> <em>Matt Wrock - <a href="http://boxstarter.org/">Boxstarter</a>.</em>
+</li>
 </ul>
       </div><!-- class="content" -->
       <div class="content wikistyle gollum">
