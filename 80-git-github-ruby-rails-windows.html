@@ -287,8 +287,6 @@ mine shows:</p>
 </pre>
 
 <pre>
-C:\Development\wrails [master +0 ~1 -0]&gt; git add -A
-C:\Development\wrails [master +0 ~1 -0]&gt; git commit -m 'testing posh-git'
 [master 286a408] testing posh-git
  1 file changed, 8 insertions(+)
 C:\Development\wrails [master]&gt; git push origin master
@@ -305,21 +303,21 @@ C:\Development\wrails [master]&gt;
 
 <p>As you can see above, I was prompted for my username and password.  I would rather use SSH keys.  In fact, if you installed Github for Windows, you'll notice
 that you probably received an email from Github saying that a new set of ssh keys were automatically added.  So, in actuality we should be able to use ssh
-with git.  Try the new origin below but replace with your account name:</p>
+with git.  Try setting the new remote origin below but replace "YourAccount" with your own account name:</p>
 
 <pre>
   git remote set-url origin ssh://git@github.com/YourAccount/wrails.git
 </pre>
 
-<p>Let's do some generic testing and troubleshooting.  You should know how to do this for future reasons:</p>
+<p>Let's do some generic testing and troubleshooting.  You should know how to do this in the future for new repositories you create.</p>
 
 <pre>
-# First test using a verify test to git@github.com
+# Send an SSH verify test to git@github.com
 ssh -vT git@github.com
 </pre>
 
-<p>You should see that it prompts you for RSA host key and it also goes into a debug session.  You may even see a Permission denied (publickey) in the debug
-session.  Look it over and see what it was testing.  You should see that it tried to authenticate with publickey.</p>
+<p>You should see that it prompts you to accept an RSA host key and it also goes into a debug session.  You may even see a Permission denied (publickey) in
+the debug session.  Look it over and see what it was testing.  You should see that it tried to authenticate with publickey.</p>
 
 <pre>
 debug1: Authentications that can continue: publickey
@@ -332,14 +330,24 @@ Permission denied (publickey).
 C:\Development\wrails [master]&gt;
 </pre>
 
-<p>But, wait a minute.  Notice it said it's looking for .ssh/id_rsa?  Go look in your c/Users/IEUser/.ssh/ directory and you'll probably see that github for
-windows made an github_rsa and a github_rsa.pub file but not one for id_rsa.  Now we could use ssh-add to add the github_ key but we'd have to do this every
-time.  We could create a config file that houses multiple git profiles and you could then type the git config you want to use before connecting.</p>
+<p>But, wait a minute.  Notice it said it's looking for .ssh/id_rsa?  Go look in your c/Users/YourUserName/.ssh/ directory and you'll probably see that github for
+windows made a github_rsa and a github_rsa.pub file but not one for id_rsa.  Now we could use ssh-add to add the github_ key as a new identification, but we'd
+have to do this every time we opened a new PS shell to run a commit.  We could also create a config file that houses multiple git profiles and you could then
+type the git config you wanted to use before connecting.</p>
 
 <p>However, in this case since we are going to be using the same keys, I'll just copy and paste them in the same directory and then right-click and rename them
-to id_rsa and id_rsa.pub.  This way I have two identical sets of keys (one usable by PowerShell and one usable by Github for Windows).  No scripting is involved.</p>
+to id_rsa and id_rsa.pub.  This provides me two identical sets of keys (one usable by PowerShell and one usable by Github for Windows).  No scripting is involved.  After
+doing this, my .ssh directory looks like this:</p>
 
-<p>Try testing after you do that:</p>
+<pre>
+# C:\Users\IEUser\.ssh\
+github_rsa
+github_rsa.pub
+id_rsa
+id_rsa.pub
+</pre>
+
+<p>Let's try testing again now.</p>
 
 <pre>
 ssh -vT git@github.com
@@ -369,8 +377,8 @@ debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 Hi elricstorm! You've successfully authenticated, but GitHub does not provide shell access.
 </pre>
 
-<p>Hey, that's better.  It at least knows who I am now but it says it does not provide shell access.  What the heck does that mean?  Don't worry, it means nothing.
-You can safely ignore that error.  Now try re-pushing something again.</p>
+<p>Hey, that's better.  It knows who I am now but it also says it does not provide shell access.  Don't worry, it means nothing to us at this point.  You
+can safely ignore that message for now.  Let's try re-pushing again.</p>
 
 <pre>
   git add -A
@@ -378,20 +386,42 @@ You can safely ignore that error.  Now try re-pushing something again.</p>
   git push origin master
 </pre>
 
-<p>Yay, everything up to date!  GitHub has its own set of configuration routines, troubleshooting, etc.  Don't feel bad if this was a little nerve wracking to get
+<p>Yay, everything up to date!</p>
+
+<p>You'll notice that GitHub has its own set of configuration routines, troubleshooting, etc.  Don't feel bad if this was a little nerve wracking to get
 setup.  The point I'm making is this is not a windows thing and that it happens to Linux and Mac users too!</p>
 
 <p>However, I like speed and PowerShell offers great speed with scripting.  Now I'm going to teach you how to create a nifty script to publish everything, including
-providing you the ability to create a custom commit message.  See PowerShell Aliases below.</p>
+providing you the ability to create a custom commit message.  See the PowerShell Aliases section below.</p>
 
 <h4>PowerShell Aliases</h4>
 
-<p>In powershell open your $profile by typing "notepad $profile".</p>
+<p>In powershell open your $profile by typing "notepad $profile".  If you followed the PowerShell Alias example in <a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a>
+then you can do the same thing by simply typing "myprofile".</p>
 
 <p>This profile should already house the posh-git script pointer but we're going to add some scripting of our own.  Copy and paste the following into your $profile
 right below posh-git:</p>
 
 <pre>
+# ====================================================================================
+# $profile
+# All functions, aliases, and scripting below was added from Ruby on Rails on Windows
+#
+# Commands Available are:
+#
+# myprofile (uses sublime text 3 to open $profile)
+# pubwrails (publishes wrails changes to github)
+# ====================================================================================
+
+# Sublime Function and Alias to open your profile
+sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"
+function my-profile {subl $profile}
+sal myprofile my-profile
+
+# Load posh-git example profile
+. 'C:\Development\posh-git\profile.example.ps1'
+
+# Publish Function for our wrails app
 function publish-wrails {
   $wrails_dir = "C:\Development\wrails"
   cd $wrails_dir
@@ -405,7 +435,11 @@ function publish-wrails {
   git push origin master
   echo "... FINISHED Pushing to Wrails";
 }
+
+# Alias pointer for our publish-wrails function
 sal pubwrails publish-wrails
+
+# ====================================================================================
 </pre>
 
 <p>Edit the $wrails_dir path to point to where your directory is located.  Once finished, close and reopen PowerShell.  Type the following:</p>
@@ -418,6 +452,8 @@ C:\Users\IEUser&gt; pubwrails
 
 <p>It couldn't be simpler than that.  From now on, while you are working and saving your project, just type pubwrails from the command line, add a commit
 message and continue on.  One word. :)</p>
+
+<p>In case you were wondering what "sal" is, it is an alias for Set-Alias.</p>
 
 <h2>Summary</h2>
 
