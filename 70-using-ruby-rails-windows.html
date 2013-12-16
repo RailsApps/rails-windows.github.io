@@ -167,18 +167,21 @@ end
 
 <p>First we'll run bundle to install all the gems and their dependencies:</p>
 
-<pre><code> C:\Development\wrails&gt; bundle install
-</code></pre>
+<pre>
+  C:\Development\wrails&gt; bundle install
+</pre>
 
 <p>Then we'll install <a href="https://github.com/rails/jquery-rails">jquery rails</a>:</p>
 
-<pre><code> C:\Development\wrails&gt; rails g jquery:install
-</code></pre>
+<pre>
+  C:\Development\wrails&gt; rails g jquery:install
+</pre>
 
 <p>Let's install <a href="http://foundation.zurb.com/">Foundation</a>.</p>
 
-<pre><code> C:\Development\wrails&gt; rails g foundation:install
-</code></pre>
+<pre>
+  C:\Development\wrails&gt; rails g foundation:install
+</pre>
 
 <p>If prompted to overwrite any files, choose Y for yes.</p>
 
@@ -205,8 +208,9 @@ get this working:</p>
 
 <p>Navigate to the following directory:</p>
 
-<pre><code> C:\Users\YourUserName\.gems\gems\execjs-2.0.2\lib\execjs\runtimes.rb  (open runtimes.rb)
-</code></pre>
+<pre>
+  C:\Users\YourUserName\.gems\gems\execjs-2.0.2\lib\execjs\runtimes.rb  (open runtimes.rb)
+</pre>
 
 <p>Find the following code</p>
 
@@ -271,14 +275,15 @@ production:
 <p>After saving your file, let's create the database and migrate it.</p>
 
 <pre>
-     C:\Development\wrails&gt; bundle exec rake db:create
-     C:\Development\wrails&gt; bundle exec rake db:migrate
+  C:\Development\wrails&gt; bundle exec rake db:create
+  C:\Development\wrails&gt; bundle exec rake db:migrate
 </pre>
 
 <h4>Running your application</h4>
 
-<pre><code> C:\Development\wrails&gt; rails server
-</code></pre>
+<pre>
+  C:\Development\wrails&gt; rails server
+</pre>
 
 <p>If you are prompted with a Windows Security Alert message, check both private and public networks and then click the <strong>Allow access</strong> button.</p>
 
@@ -346,18 +351,21 @@ lengthy tasks with just a few keystrokes.  Here's an example and don't worry, wh
 
 <p>Open a PS prompt as an administrator (right-click run as administrator).</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias
-</code></pre>
+<pre>
+  PS C:\Users\IEUser&gt; alias
+</pre>
 
 <p>There are a lot of aliases built in already.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias wget
-</code></pre>
+<pre>
+  PS C:\Users\IEUser&gt; alias wget
+</pre>
 
 <p>Wget is an alias for Invoke-WebRequest.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias sal
-</code></pre>
+<pre>
+  PS C:\Users\IEUser&gt; alias sal
+</pre>
 
 <p>Sal is an alias for Set-Alias which allows you to set an
 alias for a command.  Let's play around a bit.  Type the following commands in a row:</p>
@@ -375,26 +383,28 @@ working for a full hour, typing different commands.  If you forgot whether or no
 You can also repeat the command by typing r 2 (or the history ID for the command during this session).  You also learned that sal is the alias for Set-Alias so you can
 set your own aliases.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; help sal -examples
-</code></pre>
+<pre>
+  PS C:\Users\IEUser&gt; help sal -examples
+</pre>
 
 <p>I love helping Sal out in a bind.  These examples show you how to use Set-Alias, or Sal to create your own aliases.  I especially like the example that describes functions.  How
 about let's have a little bit of fun with creating a temporary alias.  This alias will only be good until you close the PS window.  Also I am using Sublime Text 3 as my
 example.  If you are using a different editor (like Sublime Text 2 or notepad), find the path to the executable and replace/swap that out in the line below.</p>
 
 <pre>
-     PS C:\Users\IEUser&gt; New-Item -Path $Profile -ItemType file -Force
-     PS C:\Users\IEUser&gt; sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"
-     PS C:\Users\IEUser&gt; function my-profile {subl $profile}
-     PS C:\Users\IEUser&gt; sal myprofile my-profile
+  PS C:\Users\IEUser&gt; New-Item -Path $Profile -ItemType file -Force
+  PS C:\Users\IEUser&gt; sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"
+  PS C:\Users\IEUser&gt; function my-profile {subl $profile}
+  PS C:\Users\IEUser&gt; sal myprofile my-profile
 </pre>
 
 <p>The first command creates a new profile for you that you can use to store your aliases in PowerShell.  The second command was the first alias I created and was called
 subl, short for Sublime which will open Sublime Text 3.  The third command is a function I created called my-profile which simply forces Sublime text to open my profile.
 And, finally, I created another alias called myprofile which runs the function my-profile.  Try it out:</p>
 
-<pre><code> PS C:\Users\IEUser&gt; myprofile
-</code></pre>
+<pre>
+  PS C:\Users\IEUser&gt; myprofile
+</pre>
 
 <p>You should now have a blank page called Microsoft.PowerShell_profile.ps1 open in Sublime.  You can store the commands we just made in it if you would like.  I would suggest
 you do it so that you can see how it works later on.  Store them one line at a time:</p>
