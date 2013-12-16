@@ -100,15 +100,24 @@
 
 <p>What is <a href="http://git-scm.com/">Git</a>?</p>
 
-<p>Git is a free and open source distributed version control system.  It features branching and merging that allow you to commit saved work, switch back to where you branched from, apply any number of patches, switch back to where you are experimenting and merge the requests in.  It is a substantial part of how RoR developers are able to share so much information with others.  It also allows you to pull requests from other authors that may be helping you on your project.</p>
+<p>Git is a free and open source distributed version control system.  It features branching and merging that allow you to commit saved work, switch
+back to where you branched from, apply any number of patches, switch back to where you are experimenting and merge the requests in.  It is a substantial
+part of how RoR developers are able to share so much information with others.  It also allows you to pull requests from other authors that may be helping
+you on your project.</p>
 
-<p><a href="https://github.com">GitHub</a> is a code host that houses code from over four million people.  It is 100% completely free to use and you have unlimited public repositories.  However, if you want to have private repositories then you will have to purchase a small plan.  Public repositories mean that anyone can see and clone your work locally.  This is one of the great ways we all share code with one another!  Collaboration is a huge key to open source projects and the success of those projects.  Rails is an open source project that is housed on GitHub.</p>
+<p><a href="https://github.com">GitHub</a> is a code host that houses code from over four million people.  It is 100% completely free to use and you have unlimited
+public repositories.  However, if you want to have private repositories then you will have to purchase a small plan.  Public repositories mean that anyone
+can see and clone your work locally.  This is one of the great ways we all share code with one another!  Collaboration is a huge key to open source projects
+and the success of those projects.  Rails is an open source project that is housed on GitHub.</p>
 
-<p>If you decide you want to use Git and not use GitHub but create and control your own remotely located code host server, I may showcase that in an advanced topic down the road.  I personally use GitHub for public and some private repositories that I collaborate with others on specific projects.  I also have my own remote git server that I use to develop and privatize code with on Rackspace.</p>
+<p>If you decide you want to use Git and not use GitHub but create and control your own remotely located code host server, I may showcase that in an advanced
+topic down the road.  I personally use GitHub for public and some private repositories that I collaborate with others on specific projects.  I also have my
+own remote git server that I use to develop and privatize code with on Rackspace.</p>
 
 <h2><a href="https://github.com/pricing">GitHub</a></h2>
 
-<p>This chapter section is completely voluntary, meaning the decision to participate is your own.  If you do plan on participating, I would start with a simple free account to get used to things.  If you feel that you need a private repository then you can always upgrade later.</p>
+<p>This chapter section is completely voluntary, meaning the decision to participate is your own.  If you do plan on participating, I would start with a simple
+free account to get used to things.  If you feel that you need a private repository then you can always upgrade later.</p>
 
 <p>Once you visit <a href="https://github.com">GitHub</a> and sign-up or already have an account, let's continue.</p>
 
@@ -121,9 +130,13 @@
 <li>In the description field, just put in a test application.</li>
 <li>Public should be checked.</li>
 <li>Click the "Create repository" button.</li>
-</ol><p>GitHub should provide you 3 different ways to continue:  Quick Setup, Create a new repository on the command line, or Push an existing repository from the command line. We will be concentrating on the second option for now, creating a new repository from the command line.  Make sure you save or print the instructions that GitHub provides you for reference!</p>
+</ol><p>GitHub should provide you 3 different ways to continue:  Quick Setup, Create a new repository on the command line, or Push an existing repository from the
+command line. We will be concentrating on the second option for now, creating a new repository from the command line.  Make sure you save or print the
+instructions that GitHub provides you for reference!</p>
 
-<p>Open Windows Explorer (WIN Key + E on your keyboard) and navigate to the directory you created your application in.  For my example app, the path is C:\Development\Wrails.  I will navigate to the C:\Development directory to begin with.  Once you are in the root of the directory that houses your entire Wrails application folder, do the following:</p>
+<p>Open Windows Explorer (WIN Key + E on your keyboard) and navigate to the directory you created your application in.  For my example app, the path
+is C:\Development\Wrails.  I will navigate to the C:\Development directory to begin with.  Once you are in the root of the directory that houses your entire
+Wrails application folder, do the following:</p>
 
 <ul>
 <li>Right-click on your Wrails folder and choose "Git bash".</li>
@@ -142,17 +155,22 @@
   $git push -u origin master
 </pre>
 
-<p>You should be prompted with a username and password box and once you enter the credentials, your push should go through.  In the example above you need to substitute your email and your name.  You also need to put your account name and repo name in the git remote add origin command.</p>
+<p>You should be prompted with a username and password box and once you enter the credentials, your push should go through.  In the example above you need to
+substitute your email and your name.  You also need to put your account name and repo name in the git remote add origin command.</p>
 
-<p>If you refresh your Internet Explorer webpage on GitHub, you should now see your first commit, a simple README file.  Keep your git bash window open and don't close it.  We're going to use it again shortly.</p>
+<p>If you refresh your Internet Explorer webpage on GitHub, you should now see your first commit, a simple README file.  Keep your git bash window open and
+don't close it.  We're going to use it again shortly.</p>
 
 <h4>.gitignore</h4>
 
-<p>Open Sublime and look back in your wrails directory locally and find a file called .gitignore.  It should be in the root of your wrails directory.  Double-click and open it.</p>
+<p>Open Sublime and look back in your wrails directory locally and find a file called .gitignore.  It should be in the root of your wrails directory.  Double-click
+and open it.</p>
 
-<p>This file allows you to ignore which files should not be added to the GitHub repository.  Examples of things you wouldn't want to include would be SQLite database files, specific log files, configuration files that contain application keys or passwords to other social sharing or payment gateway sites.</p>
+<p>This file allows you to ignore which files should not be added to the GitHub repository.  Examples of things you wouldn't want to include would be SQLite
+database files, specific log files, configuration files that contain application keys or passwords to other social sharing or payment gateway sites.</p>
 
-<p>More importantly, you want to protect your secret_token.rb and database.yml files. Your secret token is used to verify the integrity of signed cookies.  You want to keep this private.  Your database.yml file houses passwords to your database so you want to keep this safe as well.</p>
+<p>More importantly, you want to protect your secret_token.rb and database.yml files. Your secret token is used to verify the integrity of signed cookies.  You
+will want to keep this private.  Your database.yml file houses passwords to your database so you want to keep this safe as well.</p>
 
 <p>Add the following at the bottom of your .gitignore file:</p>
 
@@ -169,24 +187,33 @@
   $git push origin master
 </pre>
 
-<p>Now do a refresh on GitHub.  Voila!  Your entire app is now stored on GitHub.  But, wait a minute.  If you go and look in your config directory you will see that the database.yml and the config/initializers/secret_token.rb files are not listed.  They were ignored by the .gitignore file.  Great!</p>
+<p>Now do a refresh on GitHub.  Voila!  Your entire app is now stored on GitHub.  But, wait a minute.  If you go and look in your config directory you will
+see that the database.yml and the config/initializers/secret_token.rb files are not listed.  They were ignored by the .gitignore file.  Great job!</p>
 
-<p>There are a lot of interesting things you can choose to ignore in your public repository.  Later on you may want to exclude any Sublime
- workspace or project files.  You may want to exclude any custom folders you create.</p>
-
-<p>Close your git bash shell and let's move on.</p>
+<p>There are a lot of interesting things you can choose to ignore in your public repository.  Later on you may want to exclude any Sublime workspace or
+project files in your .gitignore file.  You may want to exclude any custom folders you create.  Let's close the git shell and move on.</p>
 
 <h3><a href="http://windows.github.com/">GitHub for Windows</a></h3>
 
-<p>And lo and behold, an application came down from the mighty GitHub mountain and its name was <a href="http://windows.github.com/">GitHub Windows</a>.  Its claim?  The easiest way to use GitHub on Windows.  We have to try this out! That's why VMs are so much fun.  Let's download and install it.  Now, if you were following from either the automated or manual installations, I conveniently left this application out.  I wanted us to experience it together.  After you download it, install it using all default locations it provides.</p>
+<p>And lo and behold, an application came down from the mighty GitHub mountain and its name was <a href="http://windows.github.com/">GitHub Windows</a>.  Its claim?  The
+easiest way to use GitHub on Windows.  We have to try this out! That's why VMs are so much fun.  Let's download and install it.  Now, if you were following
+from either the automated or manual installations, I conveniently left this application out.  I wanted us to experience it together.  After you download it,
+install it using all default locations it provides.</p>
 
-<p>When the application is finished installing, type in your GitHub username or email address and your password and log in.  Click Continue. Click the dashboard link to get started.  Now the first thing you may notice is that it says there are no repositories.  If you double-click on your username below local repositories you'll see all of your "remote" repositories on GitHub.  Click on repositories under local to show that you have no repos yet.  Go to your Windows explorer and drag your wrails folder locally on top of the "drag here" in GitHub Windows.  You just added your first local repository.</p>
+<p>When the application is finished installing, type in your GitHub username or email address and your password and log in.  Click Continue. Click the dashboard
+link to get started.  Now the first thing you may notice is that it says there are no repositories.  If you double-click on your username below local repositories
+you'll see all of your "remote" repositories on GitHub.  Click on repositories under local to show that you have no repos yet.  Go to your Windows explorer and
+drag your wrails folder locally on top of the "drag here" in GitHub Windows.  You just added your first local repository.</p>
 
 <h4>Local Repositories - Wrails</h4>
 
-<p>Double-click your user/wrails repository in GitHub Windows.  You should see the commits you made earlier on the left hand side, the commit to the right and some sync/master/settings buttons on the upper right corner.  Take a moment to look over things.  Once you are finished, continue on.</p>
+<p>Double-click your user/wrails repository in GitHub Windows.  You should see the commits you made earlier on the left hand side, the commit to the right and
+some sync/master/settings buttons on the upper right corner.  Take a moment to look over things.  Once you are finished, continue on.</p>
 
-<p>Go back into Sublime and look at your application root again.  Right-click and delete the README.rdoc file in your app.  Once deleted, go back to GitHub Windows and click the drop down on the upper left for uncommitted changes.  Type "deleted readme.rdoc" in the Commit Message and then click the checkmark next to "commit to master".  Look up in the right hand corner of GitHub Windows and you'll notice there's a numerical 1 next to sync.  Click the Sync button now.  Wait for it... Tada!!</p>
+<p>Go back into Sublime and look at your application root again.  Right-click and delete the README.rdoc file in your app.  Once deleted, go back to GitHub Windows
+and click the drop down on the upper left for uncommitted changes.  Type "deleted readme.rdoc" in the Commit Message and then click the checkmark next to "commit
+to master".  Look up in the right hand corner of GitHub Windows and you'll notice there's a numerical 1 next to sync.  Click the Sync button now.  Wait for
+it... Tada!!</p>
 
 <h3>Git on PowerShell</h3>
 
@@ -214,11 +241,12 @@ Make sure the path is reflective of your install directory for posh-git.
 Otherwise, if you haven't used PS $profile yet, run the install.ps1 script and continue reading.
 </pre>
 
-<p>We haven't gone into PowerShell scripting yet, at least not extensively.  One of the interesting things that this script will do is it will access your
-$profile which can house things like including PS scripts when PS is launched, custom functions, custom aliases, and custom code.  Normally you have to
-create this $profile but the posh-git script just did it for you.</p>
+<p>We haven't gone into PowerShell scripting yet, at least not extensively.  The install.ps1 script will effectively create your $profile and add the
+script path for profile.example.ps1 to be included whenever you start PowerShell.  Your $profile can contain many things and allows you to include PS Scripts when
+PowerShell is launched, and also add custom functions, custom aliases, and custom scripting.  Normally you have to create this $profile but the posh-git script
+just did it for you.</p>
 
-<p>Navigate to the posh-git directory and open profile.example.ps1.  Let's comment out the Start-SshAgent -Quiet and replace it:</p>
+<p>Navigate to the posh-git directory and open profile.example.ps1.  Let's comment out the Start-SshAgent -Quiet and replace it without parameters attached:</p>
 
 <pre>
   # Start-SshAgent -Quiet
@@ -232,9 +260,9 @@ create this $profile but the posh-git script just did it for you.</p>
   [Environment]::SetEnvironmentVariable("Path", $path, "User")
 </pre>
 
-<p>You may be asking why we didn't use Setx or something shorter.  It's helpful to learn PS scripting and how you can do the same thing through a scripting
-language.  Using $env:Path on its own would not make the path persistent so once you closed the window the path would be gone.  As a quick explanation for
-our code above:</p>
+<p>You may be asking why we didn't use SETX or something shorter.  As you become more familiar with PS scripting and the .NET language, your understanding of
+how to use them to help you in your own environment will increase.  Using $env:Path on its own would not make the path persistent so once you closed the
+window the path would be gone.  As a quick explanation for our code above in layman's terms:</p>
 
 <pre>
   $path = our current environment path + ;The path we want to append
