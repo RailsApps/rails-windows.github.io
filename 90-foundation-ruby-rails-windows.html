@@ -181,14 +181,16 @@ examples of some of the routing conditions you can create as you proceed with yo
 application to open the root page to a specific location.  We've created a home index view.  Let's add a route.  Uncomment the line that starts with #root.  See
 the code below for an example.</p>
 
-<pre>
-Wrails::Application.routes.draw do
-  # The priority is based upon order of creation: first created -&gt; highest priority.
-  # See how all your routes lay out with "rake routes".
+<div class="highlight">
+<pre><span class="no">Wrails</span><span class="o">::</span><span class="no">Application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+  <span class="c1"># The priority is based upon order of creation: first created -&gt; highest priority.</span>
+  <span class="c1"># See how all your routes lay out with "rake routes".</span>
 
-  # You can have the root of your site routed with "root"
-  root 'home#index'
+  <span class="c1"># You can have the root of your site routed with "root"</span>
+  <span class="n">root</span> <span class="s1">'home#index'</span>
 </pre>
+</div>
+
 
 <p>Change your root to <strong>root 'home#index'</strong>.  This tells our wrails app that our root or default page when people visit our site should be routed to home#index or
 controller#view.  Once you save the file, open up your rails app if you haven't done so yet, or simply refresh the page if its open.  If all goes well, you should
