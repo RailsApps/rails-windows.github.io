@@ -188,9 +188,212 @@
 
 <p>Go back into Sublime and look at your application root again.  Right-click and delete the README.rdoc file in your app.  Once deleted, go back to GitHub Windows and click the drop down on the upper left for uncommitted changes.  Type "deleted readme.rdoc" in the Commit Message and then click the checkmark next to "commit to master".  Look up in the right hand corner of GitHub Windows and you'll notice there's a numerical 1 next to sync.  Click the Sync button now.  Wait for it... Tada!!</p>
 
+<h3>Git on PowerShell</h3>
+
+<p>Before we start using PowerShell scripting with Git, here's what you'll need to begin:</p>
+
+<ul>
+<li>Clone <a href="https://github.com/dahlbyk/posh-git">posh-git</a> to a local folder.  For me, it's the C:\Development directory.</li>
+<li>C:\Development&gt; git clone <a href="https://github.com/dahlbyk/posh-git.git">https://github.com/dahlbyk/posh-git.git</a>
+</li>
+<li>From the posh-git repository directory, run .\install.ps1 (* read notes first!)</li>
+</ul><pre>
+  * If you've already created and worked with your PowerShell $profile, you do not want to run the install.ps1 script above.  Instead, you can open your profile
+  by typing:
+
+  PS C:\&gt; notepad $profile
+
+  Once your script is opened, put the following code at the top of the profile:
+
+  # Load posh-git example profile
+  . 'C:\Development\posh-git\profile.example.ps1'
+
+  Make sure the path is reflective of your install directory for posh-git.  Otherwise, if you haven't used PS $profile yet, run the install.ps1 script and
+  continue reading.
+</pre>
+
+<p>We haven't gone into PowerShell scripting yet, at least not extensively.  One of the interesting things that this script will do is it will access your
+$profile which can house things like including PS scripts when PS is launched, custom functions, custom aliases, and custom code.  Normally you have to
+create this $profile but the posh-git script just did it for you.</p>
+
+<p>Navigate to the posh-git directory and open profile.example.ps1.  Let's comment out the Start-SshAgent -Quiet and replace it:</p>
+
+<pre>
+  # Start-SshAgent -Quiet
+  Start-SshAgent
+</pre>
+
+<p>Edit and modify your existing path to include the git\bin directory</p>
+
+<pre>
+  $path = $env:path+='C:\Program Files\Git\bin'
+  [Environment]::SetEnvironmentVariable("Path", $path, "User")
+</pre>
+
+<p>You may be asking why we didn't use Setx or something shorter.  It's helpful to learn PS scripting and how you can do the same thing through a scripting
+language.  Using $env:Path on its own would not make the path persistent so once you closed the window the path would be gone.  As a quick explanation for
+our code above:</p>
+
+<pre>
+  $path = our current environment path + ;The path we want to append
+  The SetEnvironmentVariable("from our path", "to our new path", "and add it to our User profile")
+
+  You could use Machine, Process, or User with SetEnvironmentVariable.
+</pre>
+
+<p>Once you've read and followed these instructions, <strong>close and reopen</strong> PowerShell.  Navigate to our project directory for wrails.  I have a commit pending so
+mine shows:</p>
+
+<pre>
+  C:\Development\wrails [master +0 ~1 -0]
+</pre>
+
+<p>This means that I'm already in the master checkout and so I can commit when ready.  If you have any commits or don't know, try it anyways:</p>
+
+<pre>
+  git add -A
+  git commit -m 'testing posh-git'
+  git push origin master
+</pre>
+
+<pre>
+C:\Development\wrails [master +0 ~1 -0]&gt; git add -A
+C:\Development\wrails [master +0 ~1 -0]&gt; git commit -m 'testing posh-git'
+[master 286a408] testing posh-git
+ 1 file changed, 8 insertions(+)
+C:\Development\wrails [master]&gt; git push origin master
+Username for 'https://github.com': MyUserName
+Password for 'https://elricstorm@github.com': MyPassWord
+Counting objects: 5, done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 455 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://github.com/elricstorm/wrails.git
+   547a0c1..286a408  master -&gt; master
+C:\Development\wrails [master]&gt;
+</pre>
+
+<p>As you can see above, I was prompted for my username and password.  I would rather use SSH keys.  In fact, if you installed Github for Windows, you'll notice
+that you probably received an email from Github saying that a new set of ssh keys were automatically added.  So, in actuality we should be able to use ssh
+with git.  Try the new origin below but replace with your account name:</p>
+
+<pre>
+  git remote set-url origin ssh://git@github.com/YourAccount/wrails.git
+</pre>
+
+<p>Let's do some generic testing and troubleshooting.  You should know how to do this for future reasons:</p>
+
+<pre>
+# First test using a verify test to git@github.com
+ssh -vT git@github.com
+</pre>
+
+<p>You should see that it prompts you for RSA host key and it also goes into a debug session.  You may even see a Permission denied (publickey) in the debug
+session.  Look it over and see what it was testing.  You should see that it tried to authenticate with publickey.</p>
+
+<pre>
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Trying private key: /c/Users/IEUser/.ssh/identity
+debug1: Trying private key: /c/Users/IEUser/.ssh/id_rsa
+debug1: Trying private key: /c/Users/IEUser/.ssh/id_dsa
+debug1: No more authentication methods to try.
+Permission denied (publickey).
+C:\Development\wrails [master]&gt;
+</pre>
+
+<p>But, wait a minute.  Notice it said it's looking for .ssh/id_rsa?  Go look in your c/Users/IEUser/.ssh/ directory and you'll probably see that github for
+windows made an github_rsa and a github_rsa.pub file but not one for id_rsa.  Now we could use ssh-add to add the github_ key but we'd have to do this every
+time.  We could create a config file that houses multiple git profiles and you could then type the git config you want to use before connecting.</p>
+
+<p>However, in this case since we are going to be using the same keys, I'll just copy and paste them in the same directory and then right-click and rename them
+to id_rsa and id_rsa.pub.  This way I have two identical sets of keys (one usable by PowerShell and one usable by Github for Windows).  No scripting is involved.</p>
+
+<p>Try tesing after you do that:</p>
+
+<pre>
+ssh -vT git@github.com
+
+Outputs:
+
+debug1: Authentications that can continue: publickey
+debug1: Next authentication method: publickey
+debug1: Trying private key: /c/Users/IEUser/.ssh/identity
+debug1: Offering public key: /c/Users/IEUser/.ssh/id_rsa
+debug1: Server accepts key: pkalg ssh-rsa blen 277
+debug1: read PEM private key done: type RSA
+debug1: Authentication succeeded (publickey).
+debug1: channel 0: new [client-session]
+debug1: Entering interactive session.
+debug1: Remote: Forced command.
+debug1: Remote: Port forwarding disabled.
+debug1: Remote: X11 forwarding disabled.
+debug1: Remote: Agent forwarding disabled.
+debug1: Remote: Pty allocation disabled.
+debug1: Remote: Forced command.
+debug1: Remote: Port forwarding disabled.
+debug1: Remote: X11 forwarding disabled.
+debug1: Remote: Agent forwarding disabled.
+debug1: Remote: Pty allocation disabled.
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+Hi elricstorm! You've successfully authenticated, but GitHub does not provide shell access.
+</pre>
+
+<p>Hey, that's better.  It at least knows who I am now but it says it does not provide shell access.  What the heck does that mean?  Don't worry, it means nothing.
+You can safely ignore that error.  Now try re-pushing something again.</p>
+
+<pre>
+  git add -A
+  git commit -m 'testing posh-git'
+  git push origin master
+</pre>
+
+<p>Yay, everything up to date!  GitHub has its own set of configuration routines, troubleshooting, etc.  Don't feel bad if this was a little nerve wracking to get
+setup.  The point I'm making is this is not a windows thing and that it happens to Linux and Mac users too!</p>
+
+<p>However, I like speed and PowerShell offers great speed with scripting.  Now I'm going to teach you how to create a nifty script to publish everything, including
+providing you the ability to create a custom commit message.  See PowerShell Aliases below.</p>
+
+<h4>PowerShell Aliases</h4>
+
+<p>In powershell open your $profile by typing "notepad $profile".</p>
+
+<p>This profile should already house the posh-git script pointer but we're going to add some scripting of our own.  Copy and paste the following into your $profile
+right below posh-git:</p>
+
+<pre>
+function publish-wrails {
+  $wrails_dir = "C:\Development\wrails"
+  cd $wrails_dir
+  # Push to Wrails
+  echo "__________________________________________________________________"
+  echo "===&gt; COMMITTING to Wrails"
+  echo "_____________________USER INPUT REQUIRED!_________________________"
+  $commit = Read-Host 'Please type your commit message...'
+  git add -A
+  git commit -m $commit
+  git push origin master
+  echo "... FINISHED Pushing to Wrails";
+}
+sal pubwrails publish-wrails
+</pre>
+
+<p>Edit the $wrails_dir path to point to where your directory is located.  Once finished, close and reopen PowerShell.  Type the following:</p>
+
+<pre>
+C:\Users\IEUser&gt; pubwrails
+
+# When prompted for the commit message type "test commit"
+</pre>
+
+<p>It couldn't be simpler than that.  From now on, while you are working and saving your project, just type pubwrails from the command line, add a commit
+message and continue on.  One word. :)</p>
+
 <h2>Summary</h2>
 
-<p>So, which one do <strong>you</strong> want to use?  Hey, that's up to you.  You can right-click and use Git Gui, or Git Bash.  You can use GitHub Windows if you prefer that.  The point is, you have choices and options.  You decide and make the final word!</p>
+<p>I know this section was rather long but I hope it helped you understand how to use Git.  So, which one do <strong>you</strong> want to use?  Hey, that's up to you.  You
+can right-click and use Git Gui, or Git Bash.  You can use GitHub Windows if you prefer that option.  Or, you can even access Git through PowerShell
+scripting.  The point is, you have choices and options.  You decide and make the final word!</p>
 
 <h2>Next Steps</h2>
 
