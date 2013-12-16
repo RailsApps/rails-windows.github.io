@@ -98,19 +98,18 @@
 <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
 </ul><hr><h3>Using Ruby on Rails</h3>
 
-<p>In this chapter we'll focus on building a new Rails app on Windows.  Before we begin, here's the default stack we'll use
-for this particular application:</p>
+<p>This chapter is a multi-part instructional guide to building a new Rails app on Windows.  Before we begin, here's the default stack we'll use
+for this particular application.  For now, it is very basic:</p>
 
 <ul>
 <li><a href="https://github.com/rails/jquery-rails">jQuery</a></li>
 <li><a href="https://github.com/zurb/foundation-rails">Foundation 5.x</a></li>
 <li><a href="https://chocolatey.org/packages/mysql">MySql</a></li>
-</ul><p>Going forward, anytime I ask you to input a command, I'll add [enter] after the command to note that I want you to type the command and hit the enter key.</p>
+</ul><h3>Creating the Application</h3>
 
-<h3>Creating the Application</h3>
-
-<p>If you haven't installed Ruby and Ruby on Rails using the Automated or Manual methods described and outlined in Chapter 04
-and Chapter 05, visit those chapters and make sure to install the pre-requisites first.</p>
+<p>If you haven't installed Ruby and Ruby on Rails using the <a href="http://rails-windows.github.io/50-automated-install-ruby-rails-windows.html">Automated</a> or
+<a href="http://rails-windows.github.io/60-manual-install-ruby-rails-windows.html">Manual</a> methods, visit those sections and make sure to install the
+pre-requisites first.</p>
 
 <h4>Rails App</h4>
 
@@ -118,13 +117,11 @@ and Chapter 05, visit those chapters and make sure to install the pre-requisites
 Don't be afraid to experiment as we move along in this chapter.  On my vm I've created a folder called Development where
 I'll be installing my rails apps.  Open up a normal command prompt and navigate to your directory.</p>
 
-<pre><code> C:\Development&gt; rails new wrails   [enter]
-</code></pre>
+<pre>
+  C:\Development&gt; rails new wrails
+</pre>
 
-<p>That's it.  You just created your first application.  We're done!</p>
-
-<pre><code> Just Kidding!!
-</code></pre>
+<p>That's it.  You just created your first application.  We're done!  <strong>Just Kidding!!</strong></p>
 
 <h4>GemFile</h4>
 
@@ -138,7 +135,8 @@ directory.  Double click it to open it.</p>
 
 <p>Add/Edit your Gemfile so it looks like this:</p>
 
-<p><em>NOTE:  If any of the versions listed in our gemfile for the gems listed below are newer, simply update the versions below and then copy/paste them into your gemfile.</em></p>
+<p><em>NOTE:  If any of the versions listed in our gemfile for the gems listed below are newer, simply update the versions below and then copy/paste them
+into your gemfile.</em></p>
 
 <pre>
 source 'https://rubygems.org'
@@ -163,17 +161,17 @@ end
 
 <p>First we'll run bundle to install all the gems and their dependencies:</p>
 
-<pre><code> C:\Development\wrails&gt; bundle   [enter]
+<pre><code> C:\Development\wrails&gt; bundle
 </code></pre>
 
 <p>Then we'll install <a href="https://github.com/rails/jquery-rails">jquery rails</a>:</p>
 
-<pre><code> C:\Development\wrails&gt; rails g jquery:install   [enter]
+<pre><code> C:\Development\wrails&gt; rails g jquery:install
 </code></pre>
 
 <p>Let's install <a href="http://foundation.zurb.com/">Foundation</a>.</p>
 
-<pre><code> C:\Development\wrails&gt; rails g foundation:install   [enter]
+<pre><code> C:\Development\wrails&gt; rails g foundation:install
 </code></pre>
 
 <p>If prompted to overwrite any files, choose Y for yes.</p>
@@ -267,13 +265,13 @@ production:
 <p>After saving your file, let's create the database and migrate it.</p>
 
 <pre>
-     C:\Development\wrails&gt; bundle exec rake db:create   [enter]
-     C:\Development\wrails&gt; bundle exec rake db:migrate   [enter]
+     C:\Development\wrails&gt; bundle exec rake db:create
+     C:\Development\wrails&gt; bundle exec rake db:migrate
 </pre>
 
 <h4>Running your application</h4>
 
-<pre><code> C:\Development\wrails&gt; rails server   [enter]
+<pre><code> C:\Development\wrails&gt; rails server
 </code></pre>
 
 <p>If you are prompted with a Windows Security Alert message, check both private and public networks and then click the <strong>Allow access</strong> button.</p>
@@ -342,28 +340,28 @@ lengthy tasks with just a few keystrokes.  Here's an example and don't worry, wh
 
 <p>Open a PS prompt as an administrator (right-click run as administrator).</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias   [enter]
+<pre><code> PS C:\Users\IEUser&gt; alias
 </code></pre>
 
 <p>There are a lot of aliases built in already.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias wget   [enter]
+<pre><code> PS C:\Users\IEUser&gt; alias wget
 </code></pre>
 
 <p>Wget is an alias for Invoke-WebRequest.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; alias sal   [enter]
+<pre><code> PS C:\Users\IEUser&gt; alias sal
 </code></pre>
 
 <p>Sal is an alias for Set-Alias which allows you to set an
 alias for a command.  Let's play around a bit.  Type the following commands in a row:</p>
 
 <pre>
-     PS C:\Users\IEUser&gt; alias h   [enter]
-     PS C:\Users\IEUser&gt; h   [enter]
-     PS C:\Users\IEUser&gt; alias r   [enter]
-     PS C:\Users\IEUser&gt; h   [enter]
-     PS C:\Users\IEUser&gt; r 2   [enter]
+     PS C:\Users\IEUser&gt; alias h
+     PS C:\Users\IEUser&gt; h
+     PS C:\Users\IEUser&gt; alias r
+     PS C:\Users\IEUser&gt; h
+     PS C:\Users\IEUser&gt; r 2
 </pre>
 
 <p>You've just learned how to use Get-History and Invoke-History to retrieve commands that you did while using PS during this particular session.  Imagine that you were
@@ -371,7 +369,7 @@ working for a full hour, typing different commands.  If you forgot whether or no
 You can also repeat the command by typing r 2 (or the history ID for the command during this session).  You also learned that sal is the alias for Set-Alias so you can
 set your own aliases.</p>
 
-<pre><code> PS C:\Users\IEUser&gt; help sal -examples   [enter]
+<pre><code> PS C:\Users\IEUser&gt; help sal -examples
 </code></pre>
 
 <p>I love helping Sal out in a bind.  These examples show you how to use Set-Alias, or Sal to create your own aliases.  I especially like the example that describes functions.  How
@@ -379,17 +377,17 @@ about let's have a little bit of fun with creating a temporary alias.  This alia
 example.  If you are using a different editor (like Sublime Text 2 or notepad), find the path to the executable and replace/swap that out in the line below.</p>
 
 <pre>
-     PS C:\Users\IEUser&gt; New-Item -Path $Profile -ItemType file -Force   [enter]
-     PS C:\Users\IEUser&gt; sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"   [enter]
-     PS C:\Users\IEUser&gt; function my-profile {subl $profile}   [enter]
-     PS C:\Users\IEUser&gt; sal myprofile my-profile   [enter]
+     PS C:\Users\IEUser&gt; New-Item -Path $Profile -ItemType file -Force
+     PS C:\Users\IEUser&gt; sal subl "C:\Program Files\Sublime Text 3\sublime_text.exe"
+     PS C:\Users\IEUser&gt; function my-profile {subl $profile}
+     PS C:\Users\IEUser&gt; sal myprofile my-profile
 </pre>
 
 <p>The first command creates a new profile for you that you can use to store your aliases in PowerShell.  The second command was the first alias I created and was called
 subl, short for Sublime which will open Sublime Text 3.  The third command is a function I created called my-profile which simply forces Sublime text to open my profile.
 And, finally, I created another alias called myprofile which runs the function my-profile.  Try it out:</p>
 
-<pre><code> PS C:\Users\IEUser&gt; myprofile   [enter]
+<pre><code> PS C:\Users\IEUser&gt; myprofile
 </code></pre>
 
 <p>You should now have a blank page called Microsoft.PowerShell_profile.ps1 open in Sublime.  You can store the commands we just made in it if you would like.  I would suggest
