@@ -148,10 +148,13 @@ C:\Development\wrails [master +6 ~0 -0 !]&gt;
 </ul><p>Open the app/controllers/home_controller_test.rb file.  All it contains is an empty class.  Let's add an index method to it.  Change your home controller to
 look like this:</p>
 
-<pre>
-  
-  class HomeController 
-</pre>
+<pre><code>&lt;pre&gt;
+  class HomeController &lt; ApplicationController
+    def index
+    end
+  end
+&lt;/pre&gt;
+</code></pre>
 
 <p>Now you'll see we just have an empty index method.  That index method expects that a view with its name exists in the app/views/home directory.  In fact, that
 view could be called "index.html" or "index.html.erb".  ERB is known as "embedded ruby" and is part of a templating system in rails that allows us to embed
@@ -164,13 +167,12 @@ we may have ruby code within, and it will process any ruby code it finds.</p>
 After creating this file, the Home controller's index method now has its expectations of an index view existing met.  Let's add some code to our view.  Add
 the following inside of app/views/home/index.html.erb:</p>
 
-<pre>
-  <code>
-    <h1>Our Home Page</h1>
-      <h2>Exists in...</h2>
-      <h3>wrails/app/views/home/</h3>
-    </code>
-</pre>
+<pre><code>&lt;pre&gt;
+  &lt;h1&gt;Our Home Page&lt;/h1&gt;
+  &lt;h2&gt;Exists in...&lt;/h2&gt;
+  &lt;h3&gt;wrails/app/views/home/&lt;/h3&gt;
+&lt;/pre&gt;
+</code></pre>
 
 <p>We're still missing one piece though, routing.  Open your **app/config/routes.rb" file.  You will see a lot of information has been commented out.  These are
 examples of some of the routing conditions you can create as you proceed with your application.  For now, we just want to create a simple pointer for our
