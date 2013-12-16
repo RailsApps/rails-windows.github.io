@@ -149,7 +149,11 @@ C:\Development\wrails [master +6 ~0 -0 !]&gt;
 look like this:</p>
 
 <pre>
-  class HomeController 
+  class HomeController ... ApplicationController
+    def index
+    end
+  end
+</pre>
 
 <p>Now you'll see we just have an empty index method.  That index method expects that a view with its name exists in the app/views/home directory.  In fact, that
 view could be called "index.html" or "index.html.erb".  ERB is known as "embedded ruby" and is part of a templating system in rails that allows us to embed
@@ -208,7 +212,7 @@ see three headings for Our Home Page Exists in... wrails/app/views/home/.</p>
 
 <p>Special thanks to:</p>
 
-</pre><ul>
+<ul>
 <li> <em>Luis Lavena - <a href="http://rubyinstaller.org/">RubyInstaller &amp; Windows Development Support</a>.</em>
 </li>
 <li> <em>Rob Reynolds/Ferventcoder - <a href="http://chocolatey.org/">Chocolatey Package Manager Support</a>.</em>
