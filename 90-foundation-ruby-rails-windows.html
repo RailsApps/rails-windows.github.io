@@ -149,10 +149,8 @@ C:\Development\wrails [master +6 ~0 -0 !]&gt;
 look like this:</p>
 
 <pre>
-  class HomeController ... ApplicationController
-    def index
-    end
-  end
+  
+  class HomeController 
 </pre>
 
 <p>Now you'll see we just have an empty index method.  That index method expects that a view with its name exists in the app/views/home directory.  In fact, that
@@ -169,9 +167,9 @@ the following inside of app/views/home/index.html.erb:</p>
 <pre>
   <code>
     <h1>Our Home Page</h1>
-    <h2>Exists in...</h2>
-    <h3>wrails/app/views/home/</h3>
-  </code>
+      <h2>Exists in...</h2>
+      <h3>wrails/app/views/home/</h3>
+    </code>
 </pre>
 
 <p>We're still missing one piece though, routing.  Open your **app/config/routes.rb" file.  You will see a lot of information has been commented out.  These are
