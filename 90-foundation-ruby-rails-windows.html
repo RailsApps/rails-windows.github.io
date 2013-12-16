@@ -167,9 +167,11 @@ After creating this file, the Home controller's index method now has its expecta
 the following inside of app/views/home/index.html.erb:</p>
 
 <pre>
-<h1>Our Home Page</h1>
-<h2>Exists in...</h2>
-<h3>wrails/app/views/home/</h3>
+  <code>
+    <h1>Our Home Page</h1>
+    <h2>Exists in...</h2>
+    <h3>wrails/app/views/home/</h3>
+  </code>
 </pre>
 
 <p>We're still missing one piece though, routing.  Open your **app/config/routes.rb" file.  You will see a lot of information has been commented out.  These are
@@ -189,6 +191,10 @@ Wrails::Application.routes.draw do
 <p>Change your root to <strong>root 'home#index'</strong>.  This tells our wrails app that our root or default page when people visit our site should be routed to home#index or
 controller#view.  Once you save the file, open up your rails app if you haven't done so yet, or simply refresh the page if its open.  If all goes well, you should
 see three headings for Our Home Page Exists in... wrails/app/views/home/.</p>
+
+<h4>Asset Files</h4>
+
+<p>TODO</p>
 
 <h2>Next Steps</h2>
 
