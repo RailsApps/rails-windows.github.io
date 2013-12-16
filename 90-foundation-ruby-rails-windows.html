@@ -114,7 +114,7 @@ that's pointed to a default "Welcome Aboard.  You're riding ruby on rails.".  Le
 <p>The first thing we'll do is create a controller:</p>
 
 <pre>
-  C:\Development&gt; rails g controller home
+C:\Development&gt; rails g controller home
 </pre>
 
 <pre>
@@ -165,8 +165,8 @@ we may have ruby code within, and it will process any ruby code it finds.</p>
 <p>From an MVC stand point, we currently have a Controller but we don't have a Model or a View.  Let's make a view.</p>
 
 <p>Create a new file in <strong>app/views/home/index.html.erb</strong>.  Note the end of my precediing path shows the file index.html.erb.  That will be the file name.
-After creating this file, the Home controller's index method now has its expectations of an index view existing met.  Let's add some code to our view.  Add
-the following inside of app/views/home/index.html.erb:</p>
+After creating this file, the Home controller's index method now has a view to point to.  Let's add some code to our view.  Add the following inside
+of app/views/home/index.html.erb:</p>
 
 <div class="highlight">
 <pre><span class="nt">&lt;h1&gt;</span>Our Home Page<span class="nt">&lt;/h1&gt;</span>
@@ -193,8 +193,8 @@ the code below for an example.</p>
 
 
 <p>Change your root to <strong>root 'home#index'</strong>.  This tells our wrails app that our root or default page when people visit our site should be routed to home#index or
-controller#view.  Once you save the file, open up your rails app if you haven't done so yet, or simply refresh the page if its open.  If all goes well, you should
-see three headings for Our Home Page Exists in... wrails/app/views/home/.</p>
+in coding terms SomeController#SomeView.  Once you save the file, open up your rails app if you haven't done so yet, or simply refresh the page if its open.  If
+all went well, you should see three headings that show Our Home Page Exists in... wrails/app/views/home/.</p>
 
 <h4>Asset Files</h4>
 
