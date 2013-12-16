@@ -98,8 +98,14 @@
 <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
 </ul><hr><h3>Using Ruby on Rails</h3>
 
-<p>This chapter is a multi-part instructional guide to building a new Rails app on Windows.  Before we begin, here's the default stack we'll use
-for this particular application.  For now, it is very basic:</p>
+<p>This chapter is a multi-part instructional guide to building a new Rails app on Windows.  The next few sections will focus on:</p>
+
+<ul>
+<li>Building a basic "wrails" application</li>
+<li>Using GitHub to source your application</li>
+<li>Learn about Foundation 5 and responsive layouts</li>
+<li>Create a bare bones authentication system from scratch</li>
+</ul><p>Before we begin, here's the default stack we'll use for this particular application.  For now, it is very basic:</p>
 
 <ul>
 <li><a href="https://github.com/rails/jquery-rails">jQuery</a></li>
@@ -127,8 +133,8 @@ new application.</p>
 <h4>GemFile</h4>
 
 <p>Remember the Sublime Text editor we installed earlier?  You can click the "Windows" key on your keyboard, type Sublime and open your version of Sublime Text.
-If you decide you want to use Sublime Text on a more permanent basis, I recommend installing Sublime Text 3.  If you already have a Sublime Text 3 key, install
-it manually and then apply your key.  You can customize Sublime Text 3 with the customization outlined in <a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software</a>.</p>
+If you decide you want to use Sublime Text on a more permanent basis, I recommend installing Sublime Text 3 (ST3).  If you already have a ST3 key, install
+it manually and then apply your key.  You can customize ST3 with the customization outlined in <a href="http://rails-windows.github.io/30-software-ruby-rails-windows.html">Required Software</a>.</p>
 
 <p>With Sublime Text open, click File -&gt; Open Folder -&gt; and choose your Wrails directory.  This will pull the entire directory structure into Sublime Text.  Click
 Project -&gt; Save Project As and name it as "Wrails".  This will create a new Sublime project file for Wrails.</p>
@@ -416,9 +422,27 @@ command line.  It also uses IRB.  We will go over this feature later.</p>
 
 <h3>Components</h3>
 
-<p>TODO</p>
+<p>Some of the components we've installed in our application are in the form of gems.  jQuery and Foundation 5 are good examples.  As we learned, some of these
+gems may have their own command line install features.  When we use commands like:</p>
 
-<h2>Next Chapter</h2>
+<pre>
+  # Example
+  # rails g jquery:install
+  # rails g foundation:install
+</pre>
+
+<p>It is the same thing as stating rails generate somegem:someinstall.  Gems that have built in installations usually do so for a reason.  If you plan on using
+authentication down the road with Devise, it too has its own generators built in for installation and other routines.</p>
+
+<p>Other command line components like "Rake" allow you to do command line tasks.  As a quick example, type the following:</p>
+
+<pre>
+C:\Development\wrails\rake -T
+</pre>
+
+<p>A list of available rake tasks are listed.</p>
+
+<h2>Next Section of Using Rails on Windows</h2>
 
 <p>Read on to learn how to use Git and GitHub on Windows:</p>
 
