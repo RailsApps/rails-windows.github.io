@@ -219,27 +219,31 @@ get this working:</p>
 
 <p>Find the following code</p>
 
-<pre>
-    JScript = ExternalRuntime.new(
-      :name        =&gt; "JScript",
-      :command     =&gt; "cscript //E:jscript //Nologo //U",
-      :runner_path =&gt; ExecJS.root + "/support/jscript_runner.js",
-      :encoding    =&gt; 'UTF-16LE' # CScript with //U returns UTF-16LE
-    )
+<div class="highlight">
+<pre><span class="no">JScript</span> <span class="o">=</span> <span class="no">ExternalRuntime</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+  <span class="ss">:name</span>        <span class="o">=&gt;</span> <span class="s2">"JScript"</span><span class="p">,</span>
+  <span class="ss">:command</span>     <span class="o">=&gt;</span> <span class="s2">"cscript //E:jscript //Nologo //U"</span><span class="p">,</span>
+  <span class="ss">:runner_path</span> <span class="o">=&gt;</span> <span class="no">ExecJS</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="s2">"/support/jscript_runner.js"</span><span class="p">,</span>
+  <span class="ss">:encoding</span>    <span class="o">=&gt;</span> <span class="s1">'UTF-16LE'</span> <span class="c1"># CScript with //U returns UTF-16LE</span>
+<span class="p">)</span>
 </pre>
+</div>
+
 
 <p>Change and edit it so that it looks like so:</p>
 
-<pre>
-    JScript = ExternalRuntime.new(
-      :name        =&gt; "JScript",
-      :command     =&gt; "cscript //E:jscript //Nologo",
-      # :command     =&gt; "cscript //E:jscript //Nologo //U",
-      :runner_path =&gt; ExecJS.root + "/support/jscript_runner.js",
-      :encoding    =&gt; 'UTF-8'
-      # :encoding    =&gt; 'UTF-16LE' # CScript with //U returns UTF-16LE
-    )
+<div class="highlight">
+<pre><span class="no">JScript</span> <span class="o">=</span> <span class="no">ExternalRuntime</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+  <span class="ss">:name</span>        <span class="o">=&gt;</span> <span class="s2">"JScript"</span><span class="p">,</span>
+  <span class="ss">:command</span>     <span class="o">=&gt;</span> <span class="s2">"cscript //E:jscript //Nologo"</span><span class="p">,</span>
+  <span class="c1"># :command     =&gt; "cscript //E:jscript //Nologo //U",</span>
+  <span class="ss">:runner_path</span> <span class="o">=&gt;</span> <span class="no">ExecJS</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="s2">"/support/jscript_runner.js"</span><span class="p">,</span>
+  <span class="ss">:encoding</span>    <span class="o">=&gt;</span> <span class="s1">'UTF-8'</span>
+  <span class="c1"># :encoding    =&gt; 'UTF-16LE' # CScript with //U returns UTF-16LE</span>
+<span class="p">)</span>
 </pre>
+</div>
+
 
 <p>Save this file and now the Windows Script Host will work with ExecJS.  Hopefully this will be fixed in a later version.</p>
 
@@ -249,33 +253,35 @@ get this working:</p>
 
 <p>Remove and add the following:</p>
 
-<pre>
-# MySQL 2 Configuration
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: wrails_development
-  username: root
-  password: Passw0rd!
-  host: 127.0.0.1
-  port: 3306
+<div class="highlight">
+<pre><span class="c1"># MySQL 2 Configuration</span>
+<span class="l-Scalar-Plain">development</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql2</span>
+  <span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">utf8</span>
+  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">wrails_development</span>
+  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Passw0rd!</span>
+  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">127.0.0.1</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
 
-test:
-  adapter: mysql2
-  encoding: utf8
-  database: wrails_test
-  username: root
-  password: Passw0rd!
-  host: localhost
+<span class="l-Scalar-Plain">test</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql2</span>
+  <span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">utf8</span>
+  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">wrails_test</span>
+  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Passw0rd!</span>
+  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: wrails_production
-  username: root
-  password: Passw0rd!
-  host: localhost
+<span class="l-Scalar-Plain">production</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">adapter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql2</span>
+  <span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">utf8</span>
+  <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">wrails_production</span>
+  <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Passw0rd!</span>
+  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span>
 </pre>
+</div>
+
 
 <p>After saving your file, let's create the database and migrate it.</p>
 
@@ -425,10 +431,12 @@ you want to create to help you while developing.  You could string a series of f
 <p>Ruby comes with <a href="http://en.wikipedia.org/wiki/Interactive_Ruby_Shell">IRB</a> (Interactive Ruby Shell), which allows us to execute Ruby commands with immediate
 response, which can help with real-time experimenting.  Type irb and hit enter.  Type the following:</p>
 
-<pre>
-txt = "I just learned about IRB."
-p txt
+<div class="highlight">
+<pre><span class="n">txt</span> <span class="o">=</span> <span class="s2">"I just learned about IRB."</span>
+<span class="nb">p</span> <span class="n">txt</span>
 </pre>
+</div>
+
 
 <h3>Ruby on Rails</h3>
 
