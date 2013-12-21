@@ -83,7 +83,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 16 December 2013</em></p>
+<p><em>Last updated 21 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -141,80 +141,67 @@ want to know what each app does, you can type the app in the chocolatey.org sear
 slightly longer in PS.  The main reason is to teach you how to run additional commands in PS.</p>
 
 <pre>
-  C:\&gt; chocolatey update
-  C:\&gt; cup all
-  C:\&gt; cinst 7zip
-  C:\&gt; cinst fiddler
-  C:\&gt; $webpifeed="https://www.microsoft.com/web/webpi/4.6/webproductlist.xml"
-  C:\&gt; cinst webpicmd
-  C:\&gt; webpicmd /install /products:WebMatrix /accepteula
-  C:\&gt; cinst VisualStudio2012Ultimate
-  C:\&gt; cinst Dogtail.VS2012.3
-  C:\&gt; cinst resharper
-  C:\&gt; cinst bleachbit
-  C:\&gt; cinst sublime
-  C:\&gt; cinst curl
+  PS&gt; cinst 7zip
+  PS&gt; cinst 7zip.commandline
+  PS&gt; cinst nuget.commandline
+  PS&gt; cinst NugetPackageExplorer
+  PS&gt; cinst git
 </pre>
 
-<p>Web Browsers</p>
+<p>Create a working directory structure to store our downloads, our executables and scripts</p>
 
 <pre>
-  C:\&gt; cinst GoogleChrome
-  C:\&gt; cinst FireFox
-  C:\&gt; cinst Opera
-  C:\&gt; cinst safari
-</pre>
-
-<p>Git</p>
-
-<pre>
-  C:\&gt; cinst git
+  PS&gt; New-Item -ItemType directory -Path "C:\Tools"
+  PS&gt; New-Item -ItemType directory -Path "C:\Tools\bin"
+  PS&gt; New-Item -ItemType directory -Path "C:\Tools\downloads"
 </pre>
 
 <p>Set Paths and Environment Variables</p>
 
 <pre>
-  C:\&gt; cd env:
-  C:\&gt; mkdir $env:userprofile\.gems
-  C:\&gt; [Environment]::SetEnvironmentVariable("HOME",$env:userprofile,"User")
-  C:\&gt; [Environment]::SetEnvironmentVariable("GEM_HOME",$env:userprofile + "\.gems","User")
-  C:\&gt; [Environment]::SetEnvironmentVariable("GEM_PATH",$env:userprofile + "\.gems","User")
-  C:\&gt; [Environment]::SetEnvironmentVariable("PATH",$env:path + ";" + $env:userprofile + "\.gems\bin","User")
+  [Environment]::SetEnvironmentVariable("PATH",$env:path + ";C:\tools\bin;C:\tools\bin\ruby\bin", "User")
 </pre>
 
-<p>Install Ruby and Ruby DevKit</p>
+<h5>Install Ruby and Ruby DevKit</h5>
+
+<p>Visit <a href="http://rubyinstaller.org/downloads/">RubyInstaller</a> and find the executables for Ruby 2.0.0.  In our case, we're going to start with the 32-bit
+installer of Ruby for now.  You can install the 64-bit version later on.  Find the <a href="http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.0.0-p353.exe">32-bit</a>
+version and download it to your C:\tools\downloads folder.  Begin the installation.</p>
+
+<ul>
+<li>Install path should be located in C:\tools\bin\ruby</li>
+<li>Check any options or checkboxes that you are presented with during the installation</li>
+<li>When the installation is completed you should see that you have:  C:\tools\bin\ruby\bin</li>
+<li>Close and then reopen PowerShell.</li>
+</ul><p>Also download the <a href="http://cdn.rubyinstaller.org/archives/devkits/DevKit-mingw64-32-4.7.2-20130224-1151-sfx.exe">DevKit</a> from RubyInstaller and place it in your
+C:\tools\downloads directory.  Extract the contents to C:\tools\bin\devkit. Once done, navigate to C:\tools\bin\devkit and perform the following tasks in PS:</p>
 
 <pre>
-  C:\&gt; cinst ruby
-  C:\&gt; cmd /c start powershell -command {cinst ruby.devkit}
+  PS&gt; .\ruby dk.rb init
+  PS&gt; .\ruby dk.rb install
 </pre>
 
-<p>Install and update Gems and Rails</p>
+<p>This will install the required files into C:\tools\bin\ruby\bin.  Once completed run a quick test to see if everything is working fine:</p>
 
 <pre>
-  C:\&gt; cmd /c start powershell -command {gem update --system}
-  C:\&gt; cmd /c start powershell -command {gem install rails}
+  PS&gt; gem install atomic
 </pre>
 
-<p>Install MySQL and gems</p>
+<p>Atomic is part of the rails installation later on and requires the devkit to install.  If all goes well, you've completed the ruby install process.  If you find
+issues, check the c:\tools\bin\devkit\config.yml file and ensure that it's pointing to your c:\tools\bin\ruby folder and run the init and install commands again.</p>
+
+<p>Install MySQL and copy libmysql.dll to Ruby</p>
 
 <pre>
-  C:\&gt; cinst mysql
-  C:\&gt; cmd /c start powershell -command {mysqladmin -u root password Passw0rd!}
+  PS&gt; cinst mysql
+  PS&gt; Start-Process "mysqladmin" -ArgumentList "-u root password Passw0rd!"
+  PS&gt; Copy-Item -Path C:\tools\mysql\current\lib\libmysql.dll -Destination c:\tools\bin\ruby\bin
 </pre>
 
-<p>When installing the mysql2 gem ensure that the statement below best reflects the package of mysql that was installed above.  The easiest way to find this out is to
-go to the C:\tools directory and see what the mysql version is on the folder.  At the time of this writing it is 5.6.15.  This may change.  If it does, substitute the
-correct version in the statement below.</p>
+<p>Install the mysql2 gem and dependencies</p>
 
 <pre>
-  C:\&gt; cmd /c start powershell -command {gem install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql\mysql-5.6.15-win32\lib --with-mysql-include=C:\tools\mysql\mysql-5.6.15-win32\include}
-</pre>
-
-<p>Copy the libmysql.dll to the ruby200\bin directory (also keeping in mind that the version of mysql may have changed at the time of this writing it is 5.6.15)</p>
-
-<pre>
-  C:\&gt; Copy-Item -Path C:\tools\mysql\mysql-5.6.15-win32\lib\libmysql.dll -Destination c:\ruby200\bin
+  PS&gt; Start-Process "gem" -ArgumentList "install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql\current\lib --with-mysql-include=C:\tools\mysql\current\include"
 </pre>
 
 <p>Once done, let's verify that mysql2 is working properly by opening IRB.</p>
@@ -227,7 +214,30 @@ correct version in the statement below.</p>
 
 <p>This should equal true.</p>
 
-<p>If everything has gone fine so far, pat yourself on the back for a job well done!  The majority of the software you need has been installed.</p>
+<p>Install and update Gems and Rails</p>
+
+<pre>
+  PS&gt; gem update --system
+  PS&gt; gem install rails
+</pre>
+
+<p>If everything has gone fine so far, pat yourself on the back for a job well done!  The majority of the software you need has been installed.  In order to ensure
+that we can install multiple rubies in the future, we should install a ruby package manager to handle different versions.  We'll use URU for this.</p>
+
+<h5>URU</h5>
+
+<p>URU will allow us to install multiple ruby versions and manage them.  Let's begin by <a href="https://bitbucket.org/jonforums/uru/downloads/uru-0.7.0-windows-x86.7z">downloading URU</a> and
+saving it in our C:\tools\downloads directory.  Once downloaded, extract the contents to C:\tools\bin.  Perform the following steps:</p>
+
+<pre>
+  PS&gt; cd c:\tools\bin
+  PS&gt; .\uru_rt admin install
+  PS&gt; .\uru admin add C:\tools\bin\ruby\bin --tag system
+</pre>
+
+<p>Once done, open a regular command prompt and type "uru" to see a list of commands.  Afterwards, run "uru list" and you'll see that our first version of ruby
+is installed.  If you download and install another ruby version you would just perform "uru admin add 'path-to-new-ruby-version'".  You can also specify your own
+tag for that installation "--tag someName".  When you want to switch between ruby versions just type uru system or uru someName.</p>
 
 <h2>Next Chapter</h2>
 
