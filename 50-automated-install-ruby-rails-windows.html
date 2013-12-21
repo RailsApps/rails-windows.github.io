@@ -83,7 +83,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 16 December 2013</em></p>
+<p><em>Last updated 20 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -100,25 +100,15 @@
 <li><a href="http://rails-windows.github.io/90-foundation-ruby-rails-windows.html">Foundation 5 for Ruby on Rails on Windows</a></li>
 </ul><hr><h3>Automated Install</h3>
 
-<p>This chapter will focus on automated package management installations with PowerShell, NuGet, Chocolatey, and BoxStarter.  There are some very short manual processes you will need to follow first.</p>
+<p>This chapter will focus on automated package management installations with PowerShell, NuGet, Chocolatey, and BoxStarter.  There are some very short
+manual processes you will need to follow first.</p>
 
-<h3>NuGet &amp; Chocolatey Quick Install</h3>
-
-<ol>
-<li>Open a Browser and visit <a href="http://chocolatey.org">Chocolatey.org</a>
-</li>
-<li>Click the link under the easy installation OR copy the text below</li>
-</ol><pre>
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%systemdrive%\chocolatey\bin
-</pre>
+<h4>PowerShell Scripting</h4>
 
 <ol>
-<li>Open a regular CMD prompt and right-click and paste, hitting enter.  After the installation is completed, close the CMD prompt.</li>
 <li>Click the <strong>Windows</strong> key on your keyboard and type "Powershell", right-click on "Windows PowerShell" and pin to the "taskbar".</li>
 <li>Click Desktop off the metro view window or just click the Windows key again on your keyboard to go back to the desktop.</li>
-</ol><h3>PowerShell Scripting</h3>
-
-<p>You should now see a PowerShell icon on your task bar.  Right-click and "Run as Administrator" to open a PS prompt.</p>
+</ol><p>You should now see a PowerShell icon on your task bar.  Right-click and "Run as Administrator" to open a PS prompt.</p>
 
 <h5>Execution Policy</h5>
 
@@ -141,37 +131,55 @@
 
 <h4><a href="http://boxstarter.org/">BoxStarter</a></h4>
 
-<p>BoxStarter allows you to create an install script that can automate everything you need to install on your VM.  I've created an example script for this purpose.  Open a
-web browser and navigate to the following URL:  <a href="https://gist.github.com/elricstorm/7853016">Rails 4 Windows Script</a>.  This is a simple example script showing the items
-we'll be installing.</p>
+<p>BoxStarter allows anyone to create an install script that can automate everything needed to install components onto the VM.  I've created an example script for this
+purpose.  Open a web browser and navigate to the following URL:  <a href="https://github.com/elricstorm/wrails/blob/master/autoinstall">Rails 4 Windows Automation Script</a>.  This
+is an example script showing the items we'll be installing.</p>
 
-<p>In order to use boxstarter via a remote script like this we need to find the raw text and URL.  Click the &lt;&gt; raw text link to the upper right of the script.  You should see that the
-URL now shows:  <a href="https://gist.github.com/elricstorm/7853016/raw/0044e705651fe770cdb76bd89a7154697ebdf473/rails4windows">https://gist.github.com/elricstorm/7853016/raw/0044e705651fe770cdb76bd89a7154697ebdf473/rails4windows</a>.  We'll copy this and place this URL in a boxstarter
-START command:</p>
+<p>In order to use boxstarter via a remote script like this we need to find the raw text and URL.  If you visit the link in the previous paragraph, you'll find that
+Github includes a raw &lt;&gt; button that allows us to view the raw text.  The <a href="https://raw.github.com/elricstorm/wrails/master/autoinstall">raw text</a> can be found on
+any GitHub repo by going to <a href="https://raw.github.com/somepath-to-some-project">https://raw.github.com/somepath-to-some-project</a>.</p>
+
+<p>To start a boxstarter automated script you need to use:</p>
+
+<div class="highlight">
+<pre>START http://boxstarter.org/package/nr/url?
+  followed by the URL to the raw text/script..
+https://raw.github.com/elricstorm/wrails/master/autoinstall
+</pre>
+</div>
+
+
+<p>When we put them both together we get:  START <a href="http://boxstarter.org/package/nr/url?https://raw.github.com/elricstorm/wrails/master/autoinstall">http://boxstarter.org/package/nr/url?https://raw.github.com/elricstorm/wrails/master/autoinstall</a></p>
+
+<p>This one line will perform the following script automation tasks:</p>
+
+<ul>
+<li>Boxstarter will be installed</li>
+<li>NuGet will be installed</li>
+<li>Chocolatey will be installed</li>
+<li>PS will be accessed from an elevated command prompt</li>
+<li>UAC will be temporarily disabled</li>
+<li>Any apps/scripts/gems listed in the raw text script will be initiated</li>
+</ul><p>Copy this line into PowerShell:</p>
 
 <pre>
-  PS C:\Windows\System32&gt; START http://boxstarter.org/package/url?https://gist.github.com/elricstorm/7853016/raw/250e2e03ab65a68bc0fdd2d2d91c7c26f4bd57c9/rails4windows
+  PS C:\&gt; START http://boxstarter.org/package/nr/url?https://raw.github.com/elricstorm/wrails/master/autoinstall
 </pre>
-
-<p>Please note that if you create your own script and place it on gist.github.com and then edit it later on, the raw text URL will change after the new edit is published.  Always
-make sure to click the &lt;&gt; raw text link after a new publish to find the URL.</p>
-
-<p>The START command above can be copied and pasted into PS to start the automated process.  Hit enter after pasting to begin the process.  We are able to use local scripts, gist
-scripts like this one, or even package things onto a USB flash drive.</p>
 
 <p>If you see any prompts, select the default <strong>Yes/Ok/Run/Download and Install this Feature</strong> prompts.  Automation should continue.  If prompted for a password, make sure to
 use the Passw0rd! from the IEUser installation.</p>
 
-<p><strong>THIS PROCESS MAY TAKE AWHILE</strong></p>
+<p><strong>THIS PROCESS WILL TAKE UNDER 10 MINUTES TO COMPLETE</strong></p>
 
-<p>If you step away during this time and come back to find yourself at the Windows 8 metro view, click <strong>Desktop</strong> and the process will continue.  If the automation process fails for any
-reason, you can open a new window and try the process again.  Watch and review any errors, if they occur.  If the machine reboots, it will automatically log in with the
-password you provided and bring you to the metro view.  Click desktop and wait for the process to continue.  Likewise, if Windows prompts you to do system updates, you can cancel
-and update later on.</p>
+<p>During this process you will be prompted with dialog boxes that will ask if you want to proceed with an installation.  If you don't answer the installation will
+automatically commence after 5 seconds.  For the first automated process, do not cancel any of the installations.  Proceeed and install everything.</p>
 
-<p>Always remember that you can restart the automated process again as often as you like.  Chocolatey will know if you have already installed an application and bypass it,
-continuing on with the installation script.  In fact, when the automated process is completed, I recommend that you run the automated script a second time to see the process
-in action.</p>
+<p>If you step away during this time and come back to find yourself at the Windows 8 metro view, click <strong>Desktop</strong> and the process will continue.  If Windows prompts
+you to do system updates, you can cancel and update later on.</p>
+
+<p>Always remember that you can restart the automated process again as often as you like.  Chocolatey will know if you have already installed an application and
+bypass it, continuing on with the installation script.  I've also added some test path sequences and intelligence into the script to help determine if some
+applications have already been installed.</p>
 
 <p><a href="http://www.flickr.com/photos/69355230@N03/11263555476/" title="install_automated"><img src="http://farm4.staticflickr.com/3815/11263555476_1ba6eb50be_o.png" width="666" height="338" alt="install_automated"></a></p>
 
