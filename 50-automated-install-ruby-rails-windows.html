@@ -114,12 +114,12 @@ manual processes you will need to follow first.</p>
 
 <p>We will be changing the execution policy in PS so that we can run local and remote scripts going forwad. Run the following commands:</p>
 
-<pre><code> C:\&gt; Get-ExecutionPolicy
+<pre><code> PS&gt; Get-ExecutionPolicy
 </code></pre>
 
 <p>You should see that it is set to "Restricted".  Let's change that</p>
 
-<pre><code> C:\&gt; Set-ExeuctionPolicy unrestricted
+<pre><code> PS&gt; Set-ExeuctionPolicy unrestricted
 </code></pre>
 
 <p>When prompted, click Y for Yes and hit enter.  Now if you type Get-ExecutionPolicy you'll see it shows Unrestricted now.</p>
@@ -190,8 +190,8 @@ applications have already been installed.</p>
 <p>Once done, let's verify that mysql2 is working properly by opening IRB from a command prompt.</p>
 
 <pre>
-     C:\&gt; irb
-     C:\&gt; require 'mysql2'
+     PS&gt; irb
+     PS&gt; require 'mysql2'
      =&gt; true
 </pre>
 
