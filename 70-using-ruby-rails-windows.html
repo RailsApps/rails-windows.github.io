@@ -147,22 +147,24 @@ Project -&gt; Save Project As and name it as "Wrails".  This will create a new S
 <p><em>NOTE:  If any of the versions listed in your gemfile for the gems listed below are newer, simply update the version numbers below and then copy/paste them
 into your gemfile.</em></p>
 
-<pre>
-source 'https://rubygems.org'
-gem 'rails', '4.0.2'                        # Bundle edge Rails: gem 'rails', github: 'rails/rails'
-gem 'sass-rails', '~&gt; 4.0.0'                # Use SCSS for stylesheets
-gem 'uglifier', '&gt;= 1.3.0'                  # Use Uglifier as compressor for JavaScript assets
-gem 'coffee-rails', '~&gt; 4.0.0'              # Use CoffeeScript for .js.coffee assets and views
-gem 'turbolinks'                            # Turbolinks makes links in your web application faster.
-gem 'jbuilder', '~&gt; 1.2'                    # Build JSON APIs with ease.
-gem 'bcrypt-ruby', '~&gt; 3.1.2'               # Use ActiveModel has_secure_password
-gem "jquery-rails"                          # jQuery 1.10.x with ujs
-gem "foundation-rails", "~&gt; 5.0.2.0"        # Foundation 5 with Rails
-gem "mysql2"
-group :doc do
-  gem 'sdoc', require: false
-end
+<div class="highlight">
+<pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+<span class="n">gem</span> <span class="s1">'rails'</span><span class="p">,</span> <span class="s1">'4.0.2'</span>                        <span class="c1"># Bundle edge Rails: gem 'rails', github: 'rails/rails'</span>
+<span class="n">gem</span> <span class="s1">'sass-rails'</span><span class="p">,</span> <span class="s1">'~&gt; 4.0.0'</span>                <span class="c1"># Use SCSS for stylesheets</span>
+<span class="n">gem</span> <span class="s1">'uglifier'</span><span class="p">,</span> <span class="s1">'&gt;= 1.3.0'</span>                  <span class="c1"># Use Uglifier as compressor for JavaScript assets</span>
+<span class="n">gem</span> <span class="s1">'coffee-rails'</span><span class="p">,</span> <span class="s1">'~&gt; 4.0.0'</span>              <span class="c1"># Use CoffeeScript for .js.coffee assets and views</span>
+<span class="n">gem</span> <span class="s1">'turbolinks'</span>                            <span class="c1"># Turbolinks makes links in your web application faster.</span>
+<span class="n">gem</span> <span class="s1">'jbuilder'</span><span class="p">,</span> <span class="s1">'~&gt; 1.2'</span>                    <span class="c1"># Build JSON APIs with ease.</span>
+<span class="n">gem</span> <span class="s1">'bcrypt-ruby'</span><span class="p">,</span> <span class="s1">'~&gt; 3.1.2'</span>               <span class="c1"># Use ActiveModel has_secure_password</span>
+<span class="n">gem</span> <span class="s2">"jquery-rails"</span>                          <span class="c1"># jQuery 1.10.x with ujs</span>
+<span class="n">gem</span> <span class="s2">"foundation-rails"</span><span class="p">,</span> <span class="s2">"~&gt; 5.0.2.0"</span>        <span class="c1"># Foundation 5 with Rails</span>
+<span class="n">gem</span> <span class="s2">"mysql2"</span>
+<span class="n">group</span> <span class="ss">:doc</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'sdoc'</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">false</span>
+<span class="k">end</span>
 </pre>
+</div>
+
 
 <h4>Commands</h4>
 
@@ -171,19 +173,19 @@ end
 <p>First we'll run bundle to install all the gems and their dependencies:</p>
 
 <pre>
-  C:\Development\wrails&gt; bundle install
+  PS C:\Development\wrails&gt; bundle install
 </pre>
 
 <p>Then we'll install <a href="https://github.com/rails/jquery-rails">jquery rails</a>:</p>
 
 <pre>
-  C:\Development\wrails&gt; rails g jquery:install
+  PS C:\Development\wrails&gt; rails g jquery:install
 </pre>
 
 <p>Let's install <a href="http://foundation.zurb.com/">Foundation</a>.</p>
 
 <pre>
-  C:\Development\wrails&gt; rails g foundation:install
+  PS C:\Development\wrails&gt; rails g foundation:install
 </pre>
 
 <p>If prompted to overwrite any files, choose Y for yes.</p>
@@ -278,14 +280,14 @@ production:
 <p>After saving your file, let's create the database and migrate it.</p>
 
 <pre>
-  C:\Development\wrails&gt; bundle exec rake db:create
-  C:\Development\wrails&gt; bundle exec rake db:migrate
+  PS C:\Development\wrails&gt; bundle exec rake db:create
+  PS C:\Development\wrails&gt; bundle exec rake db:migrate
 </pre>
 
 <h4>Running your application</h4>
 
 <pre>
-  C:\Development\wrails&gt; rails server
+  PS C:\Development\wrails&gt; rails server
 </pre>
 
 <p>If you are prompted with a Windows Security Alert message, check both private and public networks and then click the <strong>Allow access</strong> button.</p>
@@ -450,7 +452,7 @@ authentication down the road with Devise, it too has its own generators built in
 <p>Other command line components like "Rake" allow you to do command line tasks.  As a quick example, type the following:</p>
 
 <pre>
-C:\Development\wrails\rake -T
+  PS C:\Development\wrails\rake -T
 </pre>
 
 <p>A list of available rake tasks are listed.</p>
