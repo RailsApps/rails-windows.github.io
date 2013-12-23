@@ -98,7 +98,7 @@
 <li><a href="http://rails-windows.github.io/70-using-ruby-rails-windows.html">Using Ruby on Rails on Windows</a></li>
 <li><a href="http://rails-windows.github.io/80-git-github-ruby-rails-windows.html">Git and GitHub for Ruby on Rails on Windows</a></li>
 <li><strong>Foundation 5 for Ruby on Rails on Windows</strong></li>
-</ul><hr><h3>Foundation 5</h3>
+</ul><hr><h3>What is Foundation 5</h3>
 
 <p>Foundation 5 is a framework designed for responsive layouts on all device types.  Whether you are on an iPhone, an Android device, tablets (all sizes),
 desktops, or even laptops, the goal of foundation is to provide you the best overall view of the site you are visiting.</p>
@@ -198,7 +198,78 @@ all went well, you should see three headings that show Our Home Page Exists in..
 
 <h4>Asset Files</h4>
 
-<p>TODO</p>
+<p>I recommend that you read over the <a href="http://guides.rubyonrails.org/asset_pipeline.html">Rails Asset Pipeline</a> to become familiar with the layout and the
+available configuration options.  From this point forward, I will assume that you've read and are familiar with the asset pipeline in Rails.</p>
+
+<p>Our jQuery installation added files in the following path:</p>
+
+<pre>
+wrails\public\javascripts\jquery.js
+wrails\public\javascripts\jquery.min.js
+wrails\public\javascripts\jquery_ujs.js
+</pre>
+
+<p>Our foundation installation added files in the following path:</p>
+
+<pre>
+wrails\app\assets\stylesheets\foundation_and_overrides.css
+</pre>
+
+<p>Both applications modified the asset files for:</p>
+
+<pre>
+wrails\app\assets\javascripts\application.js
+wrails\app\assets\stylesheets\application.css
+</pre>
+
+<p>And, finally, foundation modified our layout:</p>
+
+<pre>
+wrails\app\views\layouts\application.html.erb
+</pre>
+
+<p>I would recommend that you look over the file additions to see what they contain.</p>
+
+<p>As of foundation-rails 5.0.2, the application.html.erb file shows that the javascript for our application is being loaded just before the body tag.  Many will
+point out that this goes against the "Best Practices" for Rails development.  However, I've reached out to the foundation coders, researched at least 10
+different articles on webkit, and speed measurements in IE, Mozilla, Safari, and Opera, and have determined that the foundation coders are accurate.  The
+page loads are slightly faster with the JS for the application being before the body and not located in the head element.  I want to state though, that the
+current rails best practices are clear that it is better to load the JS in the head tag.  The philosophy of this app is to think outside of the box and
+break the paradigm.  Therefore, how you wish to proceed is entirely up to you!  I only ask that you do the research yourself before you come to your own
+conclusion.</p>
+
+<h3>Foundation 5 playground</h3>
+
+<p>We're going to play around with foundation in our layout and also use sublime's foundation quick snippets to create some example code for our application.  Open
+your layout file (wrails\app\views\layouts\application.html.erb).</p>
+
+<p>Put your mouse cursor right after the first <strong>body</strong> tag and before the <strong>yield</strong>.  Perform the following commands:</p>
+
+<pre>
+  (From Sublime) Tools -&gt; Snippets
+  (From Sublime) type zf
+  (From Sublime) Double click on zf-topbar and then hit enter twice in your layout file after it's added
+  (From Sublime) Go back to snippets and double click on zf-alert
+</pre>
+
+<p>After you've put the navigation top bar and the alert in place, edit the alert where it is commented:</p>
+
+<div class="highlight">
+<pre><span class="c">&lt;!-- Your content goes here --&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is our first alert!<span class="nt">&lt;/p&gt;</span>
+</pre>
+</div>
+
+
+<p>Afterwards, save your file and then let's start the server again (or refresh the page if it's already started).</p>
+
+<div class="highlight">
+<pre><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Development</span><span class="p">\</span><span class="n">wrails</span><span class="p">&gt;</span><span class="n">rails</span> <span class="n">server</span>
+</pre>
+</div>
+
+
+<p>And, finally visit our <a href="http://localhost:3000">page</a>!</p>
 
 <h2>Next Steps</h2>
 
