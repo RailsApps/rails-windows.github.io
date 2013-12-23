@@ -83,7 +83,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 20 December 2013</em></p>
+<p><em>Last updated 23 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -101,7 +101,12 @@
 </ul><hr><h3>Automated Install</h3>
 
 <p>This chapter will focus on automated package management installations with PowerShell, NuGet, Chocolatey, and BoxStarter.  There are some very short
-manual processes you will need to follow first.</p>
+manual processes you will need to follow first.  We will be installing 32-bit instead of 64-bit for the following reasons:</p>
+
+<ul>
+<li>Win 8.1 preview is generally a 32-bit OS test system</li>
+<li>Ruby 2.0 64-bit still does not have "all gems" pre-compiled for Windows</li>
+</ul><p>Don't let this put you off though.  64-bit OS is still usable but some gems like mysql2 and Nokogiri are not usable (at the time of this writing).</p>
 
 <h4>PowerShell Scripting</h4>
 
@@ -136,8 +141,8 @@ purpose.  Open a web browser and navigate to the following URL:  <a href="https:
 is an example script showing the items we'll be installing.</p>
 
 <p>In order to use boxstarter via a remote script like this we need to find the raw text and URL.  If you visit the link in the previous paragraph, you'll find that
-Github includes a raw &lt;&gt; button that allows us to view the raw text.  The <a href="https://raw.github.com/elricstorm/wrails/master/autoinstall">raw text</a> can be found on
-any GitHub repo by going to <a href="https://raw.github.com/somepath-to-some-project">https://raw.github.com/somepath-to-some-project</a>.</p>
+Github includes a raw &lt;&gt; button that allows us to view the raw text.  The <a href="https://raw.github.com/elricstorm/wrails/master/autoinstall">raw text for the script</a> can
+be found on any GitHub repo by going to <a href="https://raw.github.com/somepath-to-some-project/and-path-to-somefile">https://raw.github.com/somepath-to-some-project/and-path-to-somefile</a>.</p>
 
 <p>To start a boxstarter automated script you need to use:</p>
 
@@ -160,7 +165,7 @@ https://raw.github.com/elricstorm/wrails/master/autoinstall
 <li>PS will be accessed from an elevated command prompt</li>
 <li>UAC will be temporarily disabled</li>
 <li>Any apps/scripts/gems listed in the raw text script will be initiated</li>
-</ul><p>Copy this line into PowerShell:</p>
+</ul><p>Copy this line into PowerShell or click on the link above to begin:</p>
 
 <pre>
   PS C:\&gt; START http://boxstarter.org/package/nr/url?https://raw.github.com/elricstorm/wrails/master/autoinstall

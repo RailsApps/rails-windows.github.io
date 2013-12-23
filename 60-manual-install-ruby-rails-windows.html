@@ -100,7 +100,13 @@
 <li><a href="http://rails-windows.github.io/90-foundation-ruby-rails-windows.html">Foundation 5 for Ruby on Rails on Windows</a></li>
 </ul><hr><h3>Manual Install</h3>
 
-<p>This chapter will focus on manual installations.  Because we will be managing applications going forward, we still want to install Chocolatey and set up our PS environment for automated scripting in the future.</p>
+<p>This chapter will focus on manual installations.  Because we will be managing applications going forward, we still want to install Chocolatey and set
+up our PS environment for automated scripting in the future.  We will be installing 32-bit instead of 64-bit for the following reasons:</p>
+
+<ul>
+<li>Win 8.1 preview is generally a 32-bit OS test system</li>
+<li>Ruby 2.0 64-bit still does not have "all gems" pre-compiled for Windows</li>
+</ul><p>Don't let this put you off though.  64-bit OS is still usable but some gems like mysql2 and Nokogiri are not usable (at the time of this writing).</p>
 
 <h3>NuGet &amp; Chocolatey Quick Install</h3>
 
@@ -136,6 +142,29 @@
 
 <h5>Chocolatey Packages with PS</h5>
 
+<p>Before we begin, let's setup some environment paths.  Type each line below in powershell.</p>
+
+<div class="highlight">
+<pre><span class="nv">$tools</span> <span class="p">=</span> <span class="s1">'C:\tools'</span>
+<span class="nv">$tools_bin</span> <span class="p">=</span> <span class="s1">'C:\tools\bin'</span>
+<span class="nv">$tools_downloads</span> <span class="p">=</span> <span class="s1">'C:\tools\downloads'</span>
+<span class="nv">$git_bin</span> <span class="p">=</span> <span class="p">${</span><span class="n">env</span><span class="err">:</span><span class="n">ProgramFiles</span><span class="p">(</span><span class="n">x86</span><span class="p">)}</span> <span class="p">+</span> <span class="s1">'\Git\bin'</span>
+<span class="nv">$git_cmd</span> <span class="p">=</span> <span class="p">${</span><span class="n">env</span><span class="err">:</span><span class="n">ProgramFiles</span><span class="p">(</span><span class="n">x86</span><span class="p">)}</span> <span class="p">+</span> <span class="s1">'\Git\cmd'</span>
+<span class="nv">$ruby_bin</span> <span class="p">=</span> <span class="s1">'C:\tools\bin\ruby\bin'</span>
+<span class="nv">$env:HOME</span> <span class="p">=</span> <span class="nv">$env:USERPROFILE</span>
+<span class="nv">$env:GEM_HOME</span> <span class="p">=</span> <span class="nv">$env:HOME</span> <span class="p">+</span> <span class="s1">'\.gems'</span>
+<span class="nv">$env:GEM_PATH</span> <span class="p">=</span> <span class="nv">$env:GEM_HOME</span> <span class="p">+</span> <span class="s2">"\bin"</span>
+<span class="nv">$full_path</span> <span class="p">=</span> <span class="s1">';'</span> <span class="p">+</span> <span class="nv">$tools_bin</span> <span class="p">+</span> <span class="s1">';'</span> <span class="p">+</span> <span class="nv">$git_bin</span> <span class="p">+</span> <span class="s1">';'</span> <span class="p">+</span> <span class="nv">$git_cmd</span> <span class="p">+</span> <span class="s1">';'</span> <span class="p">+</span> <span class="nv">$ruby_bin</span> <span class="p">+</span> <span class="s1">';'</span> <span class="p">+</span> <span class="nv">$env:GEM_HOME</span> <span class="p">+</span> <span class="s1">';'</span> <span class="p">+</span> <span class="nv">$env:GEM_PATH</span>
+<span class="no">[Environment]</span><span class="err">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s2">"PATHEXT"</span><span class="p">,</span><span class="nv">$env:PATHEXT</span> <span class="p">+</span> <span class="s2">";.RB;.RBW"</span><span class="p">,</span> <span class="s2">"User"</span><span class="p">)</span>
+<span class="no">[Environment]</span><span class="err">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s2">"HOME"</span><span class="p">,</span><span class="nv">$env:USERPROFILE</span><span class="p">,</span> <span class="s2">"User"</span><span class="p">)</span>
+<span class="no">[Environment]</span><span class="err">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s2">"GEM_HOME"</span><span class="p">,</span><span class="nv">$env:GEM_HOME</span><span class="p">,</span> <span class="s2">"User"</span><span class="p">)</span>
+<span class="no">[Environment]</span><span class="err">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s2">"GEM_PATH"</span><span class="p">,</span><span class="nv">$env:GEM_PATH</span><span class="p">,</span> <span class="s2">"User"</span><span class="p">)</span>
+<span class="no">[Environment]</span><span class="err">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s2">"PATH"</span><span class="p">,</span><span class="nv">$env:path</span> <span class="p">+</span> <span class="nv">$full_path</span><span class="p">,</span> <span class="s2">"User"</span><span class="p">)</span>
+<span class="nv">$env:Path</span> <span class="p">+=</span> <span class="nv">$full_path</span>
+</pre>
+</div>
+
+
 <p>Let's run some updates and install some packages with PS to make it feel more like a Windows Dev environment!  You can copy and paste the commands into PS if you want.  If you
 want to know what each app does, you can type the app in the chocolatey.org search box and read about it.  Do these in order.  Also note that some of the commands may be
 slightly longer in PS.  The main reason is to teach you how to run additional commands in PS.</p>
@@ -154,12 +183,7 @@ slightly longer in PS.  The main reason is to teach you how to run additional co
   PS&gt; New-Item -ItemType directory -Path "C:\Tools"
   PS&gt; New-Item -ItemType directory -Path "C:\Tools\bin"
   PS&gt; New-Item -ItemType directory -Path "C:\Tools\downloads"
-</pre>
-
-<p>Set Paths and Environment Variables</p>
-
-<pre>
-  [Environment]::SetEnvironmentVariable("PATH",$env:path + ";C:\tools\bin;C:\tools\bin\ruby\bin", "User")
+  PS&gt; New-Item -ItemType directory -Path $env:USERPROFILE + '\.gems'
 </pre>
 
 <h5>Install Ruby and Ruby DevKit</h5>
@@ -193,15 +217,15 @@ issues, check the c:\tools\bin\devkit\config.yml file and ensure that it's point
 <p>Install MySQL and copy libmysql.dll to Ruby</p>
 
 <pre>
-  PS&gt; cinst mysql
+  PS&gt; cinst mysql-32bit
   PS&gt; Start-Process "mysqladmin" -ArgumentList "-u root password Passw0rd!"
-  PS&gt; Copy-Item -Path C:\tools\mysql\current\lib\libmysql.dll -Destination c:\tools\bin\ruby\bin
+  PS&gt; Copy-Item -Path C:\tools\mysql-32bit\current\lib\libmysql.dll -Destination c:\tools\bin\ruby\bin
 </pre>
 
 <p>Install the mysql2 gem and dependencies</p>
 
 <pre>
-  PS&gt; Start-Process "gem" -ArgumentList "install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql\current\lib --with-mysql-include=C:\tools\mysql\current\include"
+  PS&gt; Start-Process "gem" -ArgumentList "install --platform=ruby mysql2 -- --with-mysql-lib=C:\tools\mysql-32bit\current\lib --with-mysql-include=C:\tools\mysql-32bit\current\include"
 </pre>
 
 <p>Once done, let's verify that mysql2 is working properly by opening IRB.</p>
