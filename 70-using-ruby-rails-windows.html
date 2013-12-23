@@ -83,7 +83,7 @@
 
 <h4>by Joel Dezenzio</h4>
 
-<p><em>Last updated 21 December 2013</em></p>
+<p><em>Last updated 23 December 2013</em></p>
 
 <hr><p><em>Rails for Windows</em></p>
 
@@ -460,10 +460,45 @@ authentication down the road with Devise, it too has its own generators built in
 <p>Other command line components like "Rake" allow you to do command line tasks.  As a quick example, type the following:</p>
 
 <pre>
-  PS C:\Development\wrails\rake -T
+  PS C:\Development\wrails&gt;rake -T
 </pre>
 
 <p>A list of available rake tasks are listed.</p>
+
+<h2>Wrails on GitHub</h2>
+
+<p>If you want to install the current wrails app from Github, I've made it available.  Here are the instructions for pulling and building the app from the
+cloned source:</p>
+
+<pre>
+  # CD to the directory you want to place the app
+  PS C:\Development&gt;git clone git@github.com/elricstorm/wrails.git
+</pre>
+
+<p>Create two files (these were originally in .gitignore so they will be missing)</p>
+
+<ul>
+<li>wrails/app/config/initializers/secret_token.rb</li>
+<li>wrails/app/config/database.yml</li>
+</ul><p>Use the information located in this section for copying/pasting into the database.yml file.</p>
+
+<p>In the secret_token.rb file, place the following:</p>
+
+<div class="highlight">
+<pre><span class="no">Wrails</span><span class="o">::</span><span class="no">Application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">secret_key_base</span> <span class="o">=</span> <span class="s1">'SomeRandomString that is at least 30 characters long. You can use rake secret to generate a key.'</span>
+</pre>
+</div>
+
+
+<p>Afterwards, change into the wrails directory and type the following commands:</p>
+
+<pre>
+  PS C:\Development&gt; cd wrails
+  PS C:\Development&gt; bundle install
+  PS C:\Development&gt; bundle exec rake db:create
+  PS C:\Development&gt; bundle exec rake db:seed
+  PS C:\Development&gt; bundle exec rake db:migrate
+</pre>
 
 <h2>Next Section of Using Rails on Windows</h2>
 
